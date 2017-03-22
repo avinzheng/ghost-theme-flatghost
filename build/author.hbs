@@ -1,0 +1,11 @@
+{{!< default}}
+{{!-- 上面的标签意思是：这个文件将插入到 "default.hbs" 中的 "{{{body}}}" 处 --}}
+
+<div id="page-author">
+
+    {{!-- 作者信息 --}}
+    {{> "main-author"}}
+
+    {{!-- 文章列表 --}}
+    {{> "main-loop"}}
+</div>

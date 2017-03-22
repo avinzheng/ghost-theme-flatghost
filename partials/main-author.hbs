@@ -1,0 +1,37 @@
+{{!-- main: 作者信息 --}}
+
+<div id="main-author">
+    {{#author}}
+    <div class="profile box clearfix">
+
+        <a class="avatar" href="{{url}}">
+            <img src="{{#if image}} {{image}} {{else}} {{asset "img/default-blog-logo.png"}} {{/if}}" alt="{{name}}" />
+        </a>
+
+        <div class="info">
+
+            <h5>
+                <a href="{{url}}">{{name}}</a>
+                {{#if location}}<i>( {{location}} )</i>{{/if}}
+            </h5>
+
+            <ul class="links clearfix">
+                {{#if website}}
+                    <li><a href="{{website}}" target="_blank">个人主页</a></li>
+                {{/if}}
+                {{#if facebook}}
+                    <li><a href="{{facebook_url}}" target="_blank" rel="nofollow">Facebook</a> </li>
+                {{/if}}
+                {{#if twitter}}
+                    <li><a href="{{twitter_url}}" target="_blank" rel="nofollow">Twitter</a> </li>
+                {{/if}}
+            </ul>
+
+            <div class="bio">
+                <p>{{#if bio}} {{bio}} {{else}} 暂无简介 {{/if}}</p>
+            </div>
+        </div>
+    </div>
+    {{/author}}
+</div>
+

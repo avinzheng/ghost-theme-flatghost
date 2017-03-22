@@ -1,0 +1,21 @@
+{{!< default}}
+{{!-- 上面的标签意思是：这个文件将插入到 "default.hbs" 中的 "{{{body}}}" 处 --}}
+
+{{#post}}
+    <div id="page-page">
+
+        {{!-- 内容 --}}
+        <div class="main box {{post_class}}" role="main">
+
+            {{!-- 标题 --}}
+            <h1>{{title}}</h1>
+
+            {{!-- 内容 --}}
+            <div class="content md">
+                {{content}}
+            </div>
+        </div>
+        {{!-- 评论 --}}
+        {{> "comments"}}
+    </div>
+{{/post}}

@@ -1,0 +1,14 @@
+{{!-- 导航菜单 --}}
+
+
+<div id="nav" class="box clearfix">
+
+    <ul class="nav-menu fl clearfix" role="menubar">
+
+        {{#foreach navigation}}
+            <li class="menu-li fl menu-{{slug}} {{#if current}}menu-current{{/if}}" role="menuitem">
+                <a href="{{url absolute="true"}}">{{label}}</a>
+            </li>
+        {{/foreach}}
+    </ul>
+</div>

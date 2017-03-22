@@ -1,0 +1,49 @@
+/*================================================
+ * @file: 			base.css
+ * @description: 	基础样式
+ * @author: 		JeffC
+ * @update: 		2017/2/24
+ *===============================================*/
+
+@charset "utf-8";
+a:hover {
+	text-decoration: underline;
+}
+a:focus {
+	outline: none;
+}
+em {
+	font-weight: bold;
+	font-style: normal;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	text-indent: -9999px;
+}
+.clearfix {
+	zoom: 1;
+}
+.clear {
+	clear: both;
+}
+.fl {
+	display: inline;
+	float: left;
+}
+.fr {
+	display: inline;
+	float: right;
+}
+.none, .hide {
+	display: none;
+}
+.block, .show {
+	display: block;
+}

@@ -1,0 +1,714 @@
+/*================================================
+ * @file: 			style.css
+ * @description: 	主样式文件
+ * @author: 		JeffC
+ * @update: 		2017/2/24
+ *
+ * structure **************************************
+ *
+ * common           公共样式
+ * diy              自定义（颜色，风格，动画等）
+ *
+ * #title           博客标题
+ * #nav             博客导航菜单
+ *
+ * #page-post       post.hbs 文章详情页
+ * #page-page       page.hbs 独立页面
+ * #page-author     author.hbs 文章作者详情
+ *
+ * #main-loop       main-loop.hbs 文章列表
+ * #main-none       main-none.hbs 暂无文章
+ * #main-author     main-author.hbs 作者信息
+ *
+ * #pagination      分页
+ * #comments        评论
+ * #footer          底部
+ *===============================================*/
+@charset "utf-8";
+
+/*================================================
+ * common
+ *===============================================*/
+body {
+    color: #2C3E50;
+    background: fixed no-repeat top center;
+    -webkit-background-size: cover;
+            background-size: cover;
+}
+a {
+    -webkit-transition: all .15s linear;
+       -moz-transition: all .15s linear;
+         -o-transition: all .15s linear;
+            transition: all .15s linear;
+}
+.wrap {
+    margin: 0 auto;
+    width: 61.8%;
+}
+.box {
+    background: #FFFFFF;
+    overflow: hidden;
+    -webkit-box-shadow: 1px 1px 4px #34495E;
+       -moz-box-shadow: 1px 1px 4px #34495E;
+            box-shadow: 1px 1px 4px #34495E;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+/* 圆角 */
+.radius,
+.md pre,
+.md code {
+    overflow: hidden;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+            border-radius: 6px;
+}
+
+/* md 样式 */
+.md h1 {
+    margin-bottom: 10px;
+    padding-top: 20px;
+    border-bottom: 1px solid #BDC3C7;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 2;
+}
+.md h2 {
+    margin-bottom: 10px;
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 2.6;
+}
+.md h3 {
+    margin-bottom: 5px;
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 2.2;
+}
+.md h4 {
+    margin-bottom: 5px;
+    padding-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 2;
+}
+.md p,
+.md ul,
+.md ol,
+.md pre,
+.md blockquote {
+    margin: 15px 0;
+}
+.md blockquote {
+    border-left: 4px solid #BDC3C7;
+    padding: 0 15px;
+    color: #7F8C8D;
+}
+.md blockquote blockquote {
+    padding-right: 0;
+}
+.md pre {
+    padding: 10px 15px;
+    border: 1px solid #BDC3C7;
+    background: #ECF0F1;
+}
+.md code {
+    padding: 2px 6px;
+    border: 1px solid #BDC3C7;
+    background-color: #ECF0F1;
+}
+.md pre code {
+    border: 0 none;
+    padding: 0;
+}
+.md ul,
+.md ol {
+    padding-left: 2em;
+}
+.md ul {
+    list-style-type: disc;
+}
+.md ol {
+    list-style-type: decimal;
+}
+.md table {
+    padding: 0;
+    word-break: initial;
+}
+.md table tr {
+    border-top: 1px solid #BDC3C7;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+.md table tr:nth-child(2n) {
+    background-color: #FFFFFF;
+}
+.md table tr th {
+    font-weight: bold;
+    border: 1px solid #BDC3C7;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+.md table tr td {
+    border: 1px solid #BDC3C7;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+.md table tr th:first-child,
+.md table tr td:first-child {
+    margin-top: 0;
+}
+.md table tr th:last-child,
+.md table tr td:last-child {
+    margin-bottom: 0;
+}
+
+/*================================================
+ * diy
+ *===============================================*/
+/* 默认背景图片 */
+.default-cover {
+    background-image: url("../img/bg.jpg");
+}
+
+/* color-turquoise 青绿色 */
+.color-turquoise a,
+.color-turquoise #nav .menu-current > a {
+    color: #1ABC9C;
+}
+.color-turquoise a:hover,
+.color-turquoise #nav a:hover {
+    color: #2fe2bf;
+}
+
+/* color-green 绿色 */
+body.color-green {
+
+}
+
+/* color-blue 蓝色 */
+body.color-blue {
+
+}
+
+/* color-purple 紫色 */
+body.color-purple {
+
+}
+
+/* color-red 红色 */
+body.color-red {
+
+}
+
+/*================================================
+ * #title
+ *===============================================*/
+#title {
+    margin-bottom: 30px;
+    padding: 100px 0 10px;
+    text-align: center;
+}
+#title > a {
+    line-height: 1;
+    font-size: 60px;
+    color: #ECF0F1;
+    text-shadow: 1px 1px 4px #2C3E50;
+}
+#title > a:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    text-shadow: 1px 1px 6px #2C3E50;
+}
+
+/*================================================
+ * #nav
+ *===============================================*/
+#nav {
+    margin-bottom: 30px;
+    padding: 0 15px;
+    overflow: hidden;
+}
+#nav a {
+    display: block;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+    color: #2C3E50;
+    text-decoration: none;
+}
+
+/*================================================
+ * #page-post
+ *===============================================*/
+.main {
+    margin-bottom: 30px;
+    padding: 20px 30px 25px;
+}
+.main > h1 {
+    margin-bottom: 20px;
+    padding: 10px 0 5px;
+    border-bottom: 4px solid #1ABC9C;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+
+/* 文章内容 */
+.main > .content {
+    padding: 10px 0 10px;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    white-space: normal;
+    word-break: break-all;
+}
+
+/* 版权声明 */
+.main > .copyright {
+    padding-top: 20px;
+    border-top: 2px solid #1ABC9C;
+}
+.main > .copyright,
+.main > .copyright > em {
+    color: #7F8C8D;
+    font-style: italic;
+}
+
+/*================================================
+ * #page-page
+ *===============================================*/
+
+
+/*================================================
+ * #page-author
+ *===============================================*/
+
+
+/*================================================
+ * #main-loop
+ *===============================================*/
+#main-loop > .loop {
+    position: relative;
+    margin-bottom: 30px;
+}
+#main-loop h2 {
+    margin: 0 30px 15px;
+    padding: 25px 0 5px;
+    border-bottom: 2px solid #1ABC9C;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#main-loop h2,
+#main-loop h2 > a {
+    color: #2C3E50;
+    font-size: 20px;
+    font-weight: bold;
+}
+#main-loop h2 > a:hover {
+    color: #1ABC9C;
+    text-decoration: none;
+}
+
+/* 摘要 */
+#main-loop .excerpt {
+    margin: 0 30px 20px;
+    max-height: 5.4em;
+    overflow: hidden;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+/* 元信息，在 post 页面也会用到该样式 */
+.post-meta {
+    position: relative;
+    padding: 13px 30px;
+    height: 16px;
+    background: #ECF0F1;
+    line-height: 1;
+    overflow: hidden;
+}
+.post-meta > li {
+    float: left;
+    margin-right: 20px;
+    height: 16px;
+    line-height: 1;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 50%;
+}
+.ico {
+    display: block;
+    float: left;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+    background: url("../img/post-meta.png") no-repeat;
+}
+.ico-author {
+    background-position: 0 0;
+}
+.ico-date {
+    background-position: 0 -25px;
+}
+.ico-tags {
+    background-position: 0 -50px;
+}
+.ico-comments {
+    background-position: 0 -75px;
+}
+.ico-views {
+    background-position: 0 -100px;
+}
+.post-meta a,
+.post-meta span {
+    height: 16px;
+    line-height: 16px;
+    color: #7F8C8D;
+}
+
+/* 阅读全文 */
+#main-loop .read-more {
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+}
+#main-loop .read-more > a {
+    display: block;
+    padding: 0 10px;
+    height: 20px;
+    border: 1px solid #7F8C8D;
+    color: #7F8C8D;
+    font-size: 12px;
+    line-height: 20px;
+    -webkit-border-radius: 14px;
+       -moz-border-radius: 14px;
+            border-radius: 14px;
+}
+#main-loop .read-more > a:hover {
+    border: 1px solid #2fe2bf;
+    color: #2fe2bf;
+    text-decoration: none;
+}
+
+/*================================================
+ * #main-none
+ *===============================================*/
+#main-none .post-none {
+    margin-bottom: 30px;
+    padding: 30px;
+    height: 250px;
+}
+
+/*================================================
+ * #main-author
+ *===============================================*/
+#main-author > .profile {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 30px;
+}
+#main-author .avatar {
+    display: block;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    margin-right: 20px;
+    width: 128px;
+    height: 128px;
+}
+#main-author .info {
+    margin-left: 158px;
+    min-height: 128px;
+}
+#main-author h5 > a {
+    color: #2C3E50;
+    font-size: 24px;
+    line-height: 2;
+}
+#main-author h5 > a:hover {
+    color: #2fe2bf;
+    text-decoration: none;
+}
+#main-author .links > li {
+    float: left;
+    margin-right: 15px;
+}
+#main-author .links a {
+    display: block;
+    padding: 0 10px;
+    border: 1px solid #7F8C8D;
+    border-radius: 14px;
+    color: #7F8C8D;
+    font-size: 12px;
+    line-height: 20px;
+}
+#main-author .links a:hover {
+    border: 1px solid #2fe2bf;
+    color: #2fe2bf;
+    text-decoration: none;
+}
+#main-author .bio {
+    margin-top: 10px;
+    color: #7F8C8D;
+    font-style: italic;
+    word-break: break-all;
+}
+
+/*================================================
+ * #pagination
+ *===============================================*/
+#pagination .pagination-box {
+    margin-bottom: 30px;
+    padding: 15px 30px;
+}
+#pagination .prev {
+    margin-right: 20px;
+}
+#pagination a {
+    display: block;
+    padding: 0 10px;
+    border: 1px solid #7F8C8D;
+    border-radius: 14px;
+    color: #7F8C8D;
+    font-size: 12px;
+    line-height: 20px;
+}
+#pagination a:hover {
+    border: 1px solid #2fe2bf;
+    color: #2fe2bf;
+    text-decoration: none;
+}
+#pagination span {
+    display: block;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/*================================================
+ * #comments
+ *===============================================*/
+#comments {
+    margin-bottom: 30px;
+}
+#comments .comments-box {
+    padding: 30px;
+}
+
+/* 多说 */
+#comments #ds-reset,
+#comments #ds-related-reads,
+#comments #ds-thread #ds-reset a,
+#comments #ds-thread #ds-reset .ds-sync label,
+#comments #ds-thread #ds-reset #ds-bubble a,
+#comments #ds-thread #ds-reset .ds-login-buttons .ds-more-services,
+body #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #2C3E50 !important;
+    color: #2C3E50;
+}
+#comments #ds-thread #ds-reset a.ds-current {
+    color: #1ABC9C !important;
+    color: #1ABC9C;
+}
+#comments #ds-thread #ds-reset a:hover,
+#comments #ds-thread #ds-reset .ds-highlight:hover,
+#comments #ds-thread #ds-reset .ds-login-buttons .ds-more-services:hover,
+#comments #ds-thread #ds-reset a.ds-like-thread-button:hover span,
+#comments #ds-thread #ds-reset li.ds-tab a.ds-current:hover,
+#comments #ds-thread #ds-reset li.ds-tab a.ds-current:hover span.ds-highlight,
+#comments #ds-thread #ds-reset .ds-user-card-meta a:hover,
+#comments #ds-thread #ds-reset .ds-user-card-meta a:hover span.ds-highlight,
+#comments #ds-thread #ds-reset #ds-bubble a:hover,
+body #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a:hover {
+    color: #2fe2bf !important;
+    color: #2fe2bf;
+}
+#comments #ds-thread #ds-reset a.ds-like-thread-button span,
+#comments #ds-thread #ds-reset li.ds-tab a.ds-current,
+#comments #ds-reset span.ds-highlight,
+#comments #ds-thread #ds-reset .ds-comment-body p,
+#comments #ds-thread #ds-reset .ds-user-card-meta a,
+body #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-content {
+    color: #7F8C8D !important;
+    color: #7F8C8D;
+}
+#comments #ds-reset a.ds-highlight {
+    color: #2C3E50 !important;
+    color: #2C3E50;
+    font-size: 14px;
+    font-weight: bold;
+}
+#comments #ds-thread #ds-reset a.ds-time,
+body #comments #ds-thread #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a.ds-time,
+body #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a.ds-time {
+    color: #BDC3C7 !important;
+    color: #BDC3C7;
+    font-style: italic;
+}
+#comments #ds-thread #ds-reset .ds-powered-by a {
+    color: #BDC3C7 !important;
+    color: #BDC3C7;
+    font-style: italic;
+    font-size: 10px;
+}
+#comments #ds-thread #ds-reset .ds-meta {
+    padding: 10px 0;
+}
+#comments #ds-thread #ds-reset a.ds-like-thread-button {
+    padding: 5px 12px;
+    color: #7F8C8D;
+    background: inherit;
+    border: 1px solid #7F8C8D;
+    box-shadow: none;
+    text-shadow: none;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#comments #ds-thread #ds-reset a.ds-like-thread-button:hover,
+#comments #ds-thread #ds-reset li.ds-tab a.ds-current:hover {
+    border-color: #2fe2bf;
+}
+#comments #ds-thread #ds-reset a.ds-like-thread-button:hover span {
+    color: #2fe2bf;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+}
+#comments #ds-thread #ds-reset .ds-replybox .ds-avatar,
+#comments #ds-thread #ds-reset .ds-replybox .ds-avatar img,
+#comments #ds-reset .ds-avatar img,
+#comments #ds-reset #ds-user-card .ds-avatar img {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: none;
+}
+#comments #ds-thread #ds-reset .ds-textarea-wrapper {
+    padding-right: 22px;
+    border: 0 none;
+    box-shadow: none;
+    background: inherit;
+}
+#comments #ds-thread #ds-reset .ds-textarea-wrapper textarea {
+    color: #7F8C8D;
+    border: 1px solid #BDC3C7;
+    background: #ECF0F1;
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    -o-transition: all .15s linear;
+    transition: all .15s linear;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+#comments #ds-thread #ds-reset .ds-textarea-wrapper textarea:focus {
+    color: #2C3E50;
+    border-color: #1ABC9C;
+}
+#comments #ds-thread #ds-reset .ds-post-toolbar {
+    padding-top: 10px;
+    box-shadow: none;
+}
+#comments #ds-thread #ds-reset .ds-toolbar-buttons {
+    top: 15px;
+}
+#comments #ds-reset .ds-gradient-bg,
+#comments #ds-reset .ds-avatar {
+    background: inherit;
+    box-shadow: none;
+}
+#comments #ds-reset #ds-user-card a.ds-avatar {
+    background: #FFFFFF;
+    box-shadow: none;
+}
+#comments #ds-thread #ds-reset .ds-post-options {
+    border: 0 none;
+}
+#comments #ds-thread #ds-reset .ds-post-button {
+    top: 10px;
+    height: 30px;
+    border: 0 none;
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 30px;
+    text-shadow: none;
+    background: #1ABC9C;
+    box-shadow: none;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+}
+#comments #ds-thread #ds-reset .ds-post-button:hover {
+    background: #2fe2bf;
+}
+#comments #ds-thread #ds-reset .ds-comments-info {
+    padding: 8px 0 10px;
+}
+#comments #ds-thread #ds-reset li.ds-tab a.ds-current {
+    padding: 5px 12px;
+    border: 1px solid #7F8C8D;
+    color: #7F8C8D;
+    background: inherit;
+    text-shadow: none;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+}
+#comments #ds-thread #ds-reset .ds-post-self {
+    border-top: 0 none;
+}
+body #ds-smilies-tooltip ul.ds-smilies-tabs {
+    display: none;
+    width: 0;
+}
+body #ds-smilies-tooltip .ds-smilies-container {
+    margin-left: 0;
+}
+
+/*================================================
+ * #footer
+ *===============================================*/
+#footer {
+    padding-bottom: 20px;
+    color: #95A5A6;
+    font-size: 12px;
+}
+#footer a {
+    color: #95A5A6;
+    text-decoration: underline;
+}
+#footer a:hover {
+    color: #BDC3C7;
+}
+
+/* 友情链接 */
+#links {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid #95A5A6;
+}
+#links > li {
+    float: left;
+    margin-right: 10px;
+}

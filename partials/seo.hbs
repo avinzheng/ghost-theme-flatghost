@@ -1,0 +1,46 @@
+{{!-- seo 相关标签 --}}
+
+{{!-- 首页 --}}
+{{#is "index"}}
+    <meta name="description" content="{{@blog.description}}" />
+    <meta name="keywords" content="{{@blog.title}},ghost" />
+{{/is}}
+
+{{!-- 文章详情页 && 独立页面 --}}
+{{#is "post, page"}}
+    {{#post}}
+
+        {{#if meta_description}}
+            <meta name="description" content="{{meta_description}}" />
+        {{else}}
+            <meta name="description" content="{{excerpt characters="150"}}" />
+        {{/if}}
+
+        {{#if tags}}
+            <meta name="keywords" content="{{tags autolink="false" separator=","}}" />
+        {{else}}
+            <meta name="keywords" content="{{title}}" />
+        {{/if}}
+    {{/post}}
+{{/is}}
+
+{{!-- 标签页 --}}
+{{#is "tag"}}
+    {{#tag}}
+        {{#if meta_description}}
+            <meta name="description" content="{{meta_description}}" />
+        {{else}}
+            <meta name="description" content="“{{@blog.title}}”博客中“{{name}}”分类下的文章列表" />
+        {{/if}}
+
+        <meta name="keywords" content="{{name}}" />
+    {{/tag}}
+{{/is}}
+
+{{!-- 作者页 --}}
+{{#is "author"}}
+    {{#author}}
+        <meta name="description" content="“{{@blog.title}}”博客中作者“{{name}}”的个人信息及文章列表" />
+        <meta name="keywords" content="{{name}}" />
+    {{/author}}
+{{/is}}

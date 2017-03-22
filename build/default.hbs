@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- WebApp -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="WebAppName" />
+    <meta name="x5-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="x5-page-mode" content="app" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="full-screen" content="yes" />
+    <meta name="browsermode" content="application" />
+
+    <!-- SEO -->
+    <title>{{meta_title}}</title>
+    {{> "seo"}}
+    <meta name="robots" content="all" />
+
+    <!-- 禁止缓存 -->
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate" />
+
+    <!-- DNS 预解析 -->
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
+    <link rel="dns-prefetch" href="https://github.com" />
+
+    <!-- 资源文件 -->
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "assets/css/style-f415bd776a.css"}}" />
+
+    <!-- Ghost Head -->
+    {{ghost_head}}
+</head>
+<body class="color-turquoise {{body_class}} {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}default-cover{{/if}}">
+    <div class="wrap">
+
+        <!-- 博客标题 -->
+        <div id="title">
+            <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
+        </div>
+
+        <!-- 导航菜单 -->
+        {{#if @blog.navigation}}
+                {{navigation}}
+        {{/if}}
+
+        {{!-- 插入内容模板："index.hbs", "post.hbs", "tag.hbs" 等文件模板 --}}
+        {{{body}}}
+
+        <!-- 底部 -->
+        <div id="footer">
+
+            <div class="clearfix">
+
+                <div class="fl">
+                    <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
+                    <span>&copy;&nbsp;{{date format="YYYY"}}</span>
+                    <span>鄂ICP备13007053号-7</span>
+                </div>
+
+                <div class="fr">
+                    <span>Powered by</span>
+                    <a href="https://ghost.org" rel="nofollow" target="_blank">Ghost</a><span>.</span>
+                    <span>Theme</span>
+                    <a href="https://github.com/imzhengfei/FlatGhost" rel="nofollow" title="从 GitHub 获取本博客主题" target="_blank">FlatGhost</a><span>.</span>
+                </div>
+            </div>
+
+            {{!-- 友情链接 --}}
+            <ul id="links" class="clearfix">
+                <li>友情链接：</li>
+                <li><a href="http://blog.imzhengfei.com" target="_blank" rel="nofollow">海月博客</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        // 多说公共 js
+        ;(function () {
+            window.duoshuoQuery = {short_name: 'imzhengfei'};
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';
+            ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
+
+    <!-- Ghost Foot -->
+    {{ghost_foot}}
+</body>
+</html>

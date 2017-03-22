@@ -1,0 +1,16 @@
+{{!-- 分页导航 --}}
+
+<div id="pagination">
+    <ul class="pagination-box radius box clearfix" role="navigation">
+
+        {{#if prev}}
+            <li class="prev fl"><a href="{{page_url prev}}">上一页</a></li>
+        {{/if}}
+
+        {{#if next}}
+            <li class="next fl"><a href="{{page_url next}}">下一页</a></li>
+        {{/if}}
+
+        <li class="fr"><span>{{page}} / {{pages}}</span></li>
+    </ul>
+</div>

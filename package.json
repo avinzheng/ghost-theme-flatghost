@@ -1,0 +1,52 @@
+{
+    "name": "FlatGhost",
+    "description": "Just a flat style theme for Ghost.",
+    "demo": "http://blog.imzhengfei.com",
+    "version": "0.0.1",
+    "engines": {
+        "ghost": ">=0.11.4 <1.0.0"
+    },
+    "license": "MIT",
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.jpg",
+        "mobile": ""
+    },
+    "author": {
+        "name": "Jeff Cheng",
+        "email": "imzhengfei@gmail.com",
+        "url": "http://www.imzhengfei.com"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Personal Blogs",
+            "Simplified Chinese",
+            "简体中文"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "flat",
+        "chinese"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/imzhengfei/ghost-theme-flatghost.git"
+    },
+    "bugs": "https://github.com/imzhengfei/ghost-theme-flatghost/issues",
+    "contributors": "https://github.com/imzhengfei/ghost-theme-flatghost/graphs/contributors",
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-clean-css": "^3.0.4",
+        "gulp-concat": "^2.6.1",
+        "gulp-processhtml": "^1.1.0",
+        "gulp-rev": "^7.1.2",
+        "gulp-rev-collector": "^1.1.1",
+        "gulp-rimraf": "^0.2.1",
+        "gulp-sequence": "^0.4.6",
+        "gulp-zip": "^4.0.0"
+    }
+}
