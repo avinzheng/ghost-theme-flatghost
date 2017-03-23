@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*================================================
  * @file: 			base.css
  * @description: 	基础样式
@@ -5,7 +6,6 @@
  * @update: 		2017/2/24
  *===============================================*/
 
-@charset "utf-8";
 a:hover {
 	text-decoration: underline;
 }
