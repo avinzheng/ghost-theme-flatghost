@@ -62,7 +62,7 @@ gulp.task('css', function() {
             remove: false
         }))
         .pipe(minifyCSS())
-        .pipe(concat('style.css'))
+        .pipe(concat('min.css'))
         .pipe(gulp.dest('./temp/assets/css'))
 })
 
@@ -75,7 +75,7 @@ gulp.task('hbs', function() {
 
 // 文件加 md5
 gulp.task('md5', function() {
-    return gulp.src('./temp/assets/css/style.css')
+    return gulp.src('./temp/assets/css/min.css')
         .pipe(rev())
         .pipe(gulp.dest('./build/assets/css'))
         .pipe(rev.manifest('manifest.json'))
@@ -91,7 +91,7 @@ gulp.task('changePath', function() {
 
 // 清除之前的旧文件
 gulp.task('cleanBuild', function() {
-    return gulp.src(['./build', './build-zip', './temp'])
+    return gulp.src(['./build', './temp'])
         .pipe(rm())
 })
 
@@ -101,18 +101,18 @@ gulp.task('cleanTemp', function() {
         .pipe(rm())
 })
 
-// 打包 zip
-gulp.task('zip', function() {
-    return gulp.src('./build/**/*.*')
-        .pipe(zip('ghost-theme-flatghost.zip'))
-        .pipe(gulp.dest('./build-zip'))
-})
-
-// run
+// build
 gulp.task('default', sequence(
     'cleanBuild',
     ['copy', 'css', 'hbs'],
     'md5',
     'changePath',
-    ['cleanTemp', 'zip']
+    'cleanTemp'
 ))
+
+// 将 build 后的文件打包成 zip 方便上传从管理后台上传主题
+gulp.task('zip', function() {
+    return gulp.src('./build/**/*.*')
+        .pipe(zip('ghost-theme-flatghost.zip'))
+        .pipe(gulp.dest('./'))
+})

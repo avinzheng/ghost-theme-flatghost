@@ -25,22 +25,19 @@
     {{> "seo"}}
     <meta name="robots" content="all" />
 
-    <!-- 禁止缓存 -->
-    <meta http-equiv="Expires" content="-1" />
-    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate" />
-
     <!-- DNS 预解析 -->
     <meta http-equiv="x-dns-prefetch-control" content="on" />
     <link rel="dns-prefetch" href="https://github.com" />
+    <link rel="dns-prefetch" href="https://ghost.org" />
 
     <!-- 资源文件 -->
     <link rel="shortcut icon" href="{{asset "favicon.ico"}}" />
 
-    <!-- build:remove -->
+    <!-- build:replace '<link rel="stylesheet" type="text/css" href="{{asset "assets/css/min.css"}}" />' -->
     <link rel="stylesheet" type="text/css" href="{{asset "plugins/neat/neat.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "css/base.css"}}" />
-    <!-- /build-->
     <link rel="stylesheet" type="text/css" href="{{asset "assets/css/style.css"}}" />
+    <!-- /build-->
 
     <!-- Ghost Head -->
     {{ghost_head}}
@@ -75,7 +72,7 @@
                     <span>Powered by</span>
                     <a href="https://ghost.org" rel="nofollow" target="_blank">Ghost</a><span>.</span>
                     <span>Theme</span>
-                    <a href="https://github.com/imzhengfei/FlatGhost" rel="nofollow" title="从 GitHub 获取本博客主题" target="_blank">FlatGhost</a><span>.</span>
+                    <a href="https://github.com/imzhengfei/ghost-theme-flatghost" rel="nofollow" title="从 GitHub 获取本博客主题" target="_blank">FlatGhost</a><span>.</span>
                 </div>
             </div>
 
