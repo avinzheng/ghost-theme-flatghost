@@ -113,6 +113,6 @@ gulp.task('default', sequence(
 // 将 build 后的文件打包成 zip 方便上传从管理后台上传主题
 gulp.task('zip', function() {
     return gulp.src('./build/**/*.*')
-        .pipe(zip('ghost-theme-flatghost.zip'))
+        .pipe(zip('ghost-theme-flatghost-v0.0.2.zip'))
         .pipe(gulp.dest('./'))
 })
