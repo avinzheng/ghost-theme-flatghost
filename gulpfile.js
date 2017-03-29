@@ -35,16 +35,16 @@ var gulp = require('gulp'),
     zip = require('gulp-zip')
 
 
-// 静态资源复制
+// 文件复制
 gulp.task('copy', function() {
     return gulp.src([
             './assets/img/*.*',
-            './assets/screenshot*.jpg',
+            './assets/*.*',
             './**/*.hbs',
             '!./default.hbs',
             './*.md',
             './*.json',
-            './LICENSE*'
+            './LICENSE'
         ], {base : './'})
         .pipe(gulp.dest('./build'))
 })
@@ -114,5 +114,5 @@ gulp.task('default', sequence(
 gulp.task('zip', function() {
     return gulp.src('./build/**/*.*')
         .pipe(zip('ghost-theme-flatghost-v0.0.2.zip'))
-        .pipe(gulp.dest('./'))
+        .pipe(gulp.dest('./build-zip'))
 })
