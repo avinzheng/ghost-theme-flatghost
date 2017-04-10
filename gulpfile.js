@@ -41,7 +41,7 @@ var gulp = require('gulp'),
     zip = require('gulp-zip')
 
 
-// 静态资源复制
+// 文件复制
 gulp.task('copy', function() {
     return gulp.src([
             './assets/img/*.*',
