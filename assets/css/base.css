@@ -16,28 +16,24 @@ em {
 	font-weight: bold;
 	font-style: normal;
 }
-
+.clearfix {
+	zoom: 1;
+}
 .clearfix:after {
-	content: ".";
+	content: "";
 	display: block;
 	height: 0;
 	clear: both;
 	visibility: hidden;
-	font-size: 0;
 	line-height: 0;
-	text-indent: -9999px;
-}
-.clearfix {
-	zoom: 1;
-}
-.clear {
-	clear: both;
 }
 .fl {
+	position: relative;
 	display: inline;
 	float: left;
 }
 .fr {
+	position: relative;
 	display: inline;
 	float: right;
 }

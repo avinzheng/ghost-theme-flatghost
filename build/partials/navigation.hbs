@@ -1,14 +1,12 @@
-{{!-- 导航菜单 --}}
+{{!-- widget: main navigation --}}
 
 
-<div id="nav" class="box clearfix">
-
-    <ul class="nav-menu fl clearfix" role="menubar">
-
+<ul class="widget-blog-nav widget" role="menubar">
+    {{#if @blog.navigation}}
         {{#foreach navigation}}
-            <li class="menu-li fl menu-{{slug}} {{#if current}}menu-current{{/if}}" role="menuitem">
+            <li class="menu-item {{#if current}}menu-current{{/if}}" role="menuitem">
                 <a href="{{url absolute="true"}}">{{label}}</a>
             </li>
         {{/foreach}}
-    </ul>
-</div>
+    {{/if}}
+</ul>

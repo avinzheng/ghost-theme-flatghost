@@ -19,8 +19,14 @@ var gulp = require('gulp'),
     // css 属性添加前缀
     autoprefixer = require('gulp-autoprefixer'),
 
+    // css 雪碧图
+    spriter = require('gulp-css-spriter'),
+
     // css 压缩
     minifyCSS = require('gulp-clean-css'),
+
+    // js 压缩
+    minifyJS = require('gulp-uglify'),
 
     // 文件加 md5 后缀
     rev = require('gulp-rev'),
@@ -39,22 +45,35 @@ var gulp = require('gulp'),
 gulp.task('copy', function() {
     return gulp.src([
             './assets/img/*.*',
-            './assets/screenshot*.jpg',
-            './**/*.hbs',
+            './assets/screenshot/*.*',
+            './partials/*.hbs',
+            './*.hbs',
             '!./default.hbs',
             './*.md',
             './*.json',
             './LICENSE*'
-        ], {base : './'})
+        ], {base: './'})
         .pipe(gulp.dest('./build'))
 })
 
-// css 处理
+// css 雪碧图，使用以下标记排除
+/* @meta {"spritesheet": {"include": false}} */
+gulp.task('sprite', function() {
+    return gulp.src('./assets/css/style.css')
+        .pipe(spriter({
+            includeMode: 'implicit',
+            spriteSheet: './build/assets/img/icos.png',
+            pathToSpriteSheetFromCSS: '../img/icos.png'
+        }))
+        .pipe(gulp.dest('./temp/assets/css'))
+})
+
+// css 压缩合并
 gulp.task('css', function() {
     return gulp.src([
-            './assets/plugins/neat/neat.css',
+            './assets/css/neat/neat.css',
             './assets/css/base.css',
-            './assets/css/style.css'
+            './temp/assets/css/style.css'
         ])
         .pipe(autoprefixer({
             browsers: ['last 4 versions'],
@@ -66,6 +85,14 @@ gulp.task('css', function() {
         .pipe(gulp.dest('./temp/assets/css'))
 })
 
+// js 压缩合并
+gulp.task('js', function() {
+    return gulp.src('./assets/js/*.js')
+        .pipe(minifyJS())
+        .pipe(concat('min.js'))
+        .pipe(gulp.dest('./temp/assets/js'))
+})
+
 // hbs 处理
 gulp.task('hbs', function() {
     return gulp.src('./default.hbs')
@@ -75,9 +102,12 @@ gulp.task('hbs', function() {
 
 // 文件加 md5
 gulp.task('md5', function() {
-    return gulp.src('./temp/assets/css/min.css')
+    return gulp.src([
+            './temp/assets/css/min.css',
+            './temp/assets/js/min.js'
+        ], {base: './temp/assets'})
         .pipe(rev())
-        .pipe(gulp.dest('./build/assets/css'))
+        .pipe(gulp.dest('./build/assets'))
         .pipe(rev.manifest('manifest.json'))
         .pipe(gulp.dest('./temp'))
 })
@@ -90,7 +120,7 @@ gulp.task('changePath', function() {
 })
 
 // 清除之前的旧文件
-gulp.task('cleanBuild', function() {
+gulp.task('clean', function() {
     return gulp.src(['./build', './temp'])
         .pipe(rm())
 })
@@ -103,16 +133,17 @@ gulp.task('cleanTemp', function() {
 
 // build
 gulp.task('default', sequence(
-    'cleanBuild',
-    ['copy', 'css', 'hbs'],
+    'clean',
+    ['copy', 'sprite'],
+    ['css', 'hbs', 'js'],
     'md5',
     'changePath',
     'cleanTemp'
 ))
 
-// 将 build 后的文件打包成 zip 方便上传从管理后台上传主题
+// 将 build 后的文件打包成 zip 文件
 gulp.task('zip', function() {
     return gulp.src('./build/**/*.*')
-        .pipe(zip('ghost-theme-flatghost-v0.0.2.zip'))
+        .pipe(zip('ghost-theme-flatghost.zip'))
         .pipe(gulp.dest('./'))
 })

@@ -1,19 +1,15 @@
-{{!-- main: 作者信息 --}}
+{{!-- main: author infomation --}}
 
 <div id="main-author">
     {{#author}}
-    <div class="profile box clearfix">
+    <div class="profile main-card clearfix">
 
-        <a class="avatar" href="{{url}}">
-            <img src="{{#if image}} {{image}} {{else}} {{asset "img/default-blog-logo.png"}} {{/if}}" alt="{{name}}" />
-        </a>
+        <div class="info fl">
 
-        <div class="info">
-
-            <h5>
+            <h1>
                 <a href="{{url}}">{{name}}</a>
                 {{#if location}}<i>( {{location}} )</i>{{/if}}
-            </h5>
+            </h1>
 
             <ul class="links clearfix">
                 {{#if website}}
@@ -31,6 +27,10 @@
                 <p>{{#if bio}} {{bio}} {{else}} 暂无简介 {{/if}}</p>
             </div>
         </div>
+
+        <a class="avatar fl" href="{{url}}">
+            <img src="{{#if image}} {{image}} {{else}} {{asset "img/default-blog-logo.png"}} {{/if}}" alt="{{name}}" />
+        </a>
     </div>
     {{/author}}
 </div>
