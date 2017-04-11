@@ -1,13 +1,11 @@
 {{!< default}}
-{{!-- 上面的标签意思是：这个文件将插入到 "default.hbs" 中的 "{{{body}}}" 处 --}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
 
 <div id="page-tag">
-
     {{#if posts}}
-    {{!-- 有文章，文章列表 --}}
         {{> "main-loop"}}
     {{else}}
-    {{!-- 无文章，暂无文章 --}}
         {{> "main-none"}}
     {{/if}}
 </div>
