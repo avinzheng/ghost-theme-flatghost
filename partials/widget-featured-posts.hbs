@@ -1,0 +1,23 @@
+{{!-- widget: featured posts --}}
+
+
+<div class="widget-featured-posts widget">
+
+    <div class="title">推荐</div>
+
+    <ul class="items">
+        {{#if @labs.publicAPI}}
+            {{#get "posts" filter="featured:true" as |featured|}}
+                {{#foreach featured}}
+                    <li class="item">
+                        <a href="{{url}}">{{title}}</a>
+                    </li>
+                {{/foreach}}
+            {{else}}
+                <li>暂无推荐</li>
+            {{/get}}
+        {{else}}
+            <li>请在博客后台"SETTINGS > Labs"底部勾选"Public API"</li>
+        {{/if}}
+    </ul>
+</div>

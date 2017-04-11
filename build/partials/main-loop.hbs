@@ -1,45 +1,57 @@
-{{!-- main: 文章列表 --}}
+{{!-- main: post list --}}
+
 
 <ul id="main-loop">
 
     {{#foreach posts}}
-    <li class="loop box {{post_class}}">
+    <li class="loop main-card {{post_class}}">
 
-        {{!-- 标题 --}}
-        <h2>
-            <a href="{{url}}" title="{{title}}">{{title}}</a>
-        </h2>
+        {{#if image}}
+            <a class="img-box" href="{{url}}" title="{{title}}">
+                <img src="{{image}}" alt="{{title}} - {{@blog.title}}" />
+            </a>
+        {{/if}}
 
-        {{!-- 摘要 --}}
-        <div class="excerpt">
-            <p>{{excerpt characters="150"}}...</p>
+        <div class="title">
+            {{#if featured}}
+                <div class="feature-ico"></div>
+            {{/if}}
+            <a class="post-link" href="{{url}}" title="{{title}}">
+                <h2>{{title}}</h2>
+            </a>
         </div>
 
-        {{!-- 元信息 --}}
-        <ul class="post-meta radius">
+        <ul class="post-meta">
             <li>
                 <div class="ico ico-author"></div>
                 {{author}}
             </li>
             <li>
                 <div class="ico ico-date"></div>
-                <span>{{date format="YYYY-MM-DD"}}</span>
+                <span>{{date updated_at format="YYYY-MM-DD"}}</span>
             </li>
-            <li>
-                <div class="ico ico-tags"></div>
-                {{tags}}
-            </li>
-            <li class="none">
-                <div class="ico ico-comments"></div>
-            </li>
+            {{#if tags}}
+                <li>
+                    <div class="ico ico-tags"></div>
+                    {{tags}}
+                </li>
+            {{/if}}
+            <!--<li>-->
+                <!--<div class="ico ico-comments"></div>-->
+                <!--<span>评论数</span>-->
+            <!--</li>-->
         </ul>
+
+        <div class="excerpt">
+            <p>{{excerpt characters="280"}}……</p>
+        </div>
 
         <div class="read-more">
             <a href="{{url}}">阅读全文</a>
         </div>
     </li>
     {{/foreach}}
-
-    {{!-- 分页 --}}
-    {{pagination}}
 </ul>
+
+{{!-- include: "partials/pagination.hbs" --}}
+{{pagination}}

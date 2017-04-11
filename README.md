@@ -1,9 +1,7 @@
 # FlatGhost
-一个伪扁平化风格 ghost 博客中文主题，主题预览：[blog.imzhengfei.com](http://blog.imzhengfei.com)
+一个响应式设计的扁平化 ghost 博客主题，主题预览：[blog.imzhengfei.com](http://blog.imzhengfei.com)
 
-**桌面端预览**
-
-![FlatGhost 主题桌面端预览](./assets/screenshot-desktop.jpg)
+![预览](assets/screenshot/desktop.jpg)
 
 
 
@@ -17,130 +15,45 @@
 
 上传下载的最新版主题 zip 安装包并 `ACTIVE` 启用主题
 
+`Labs` > `Enable Beta Features` ，勾选 `Public API ...`
 
 
-# 使用 & 二次开发
 
-### 1. 常规功能
+# 特色
 
-*   更换主题背景图片：`SETTINGS` > `General` > `Blog Cover` > `UPLOAD IMAGE`
-*   个人信息显示支持：支持 `Your Profile` 界面所有个人信息显示（ Email 除外）
-*   添加导航菜单：`SETTINGS` > `Navigation` ，按需添加即可 
+**良好的主题设置支持**
 
-### 2. 添加备案号
+*   支持背景图片 `cover` 更换
+*   支持博客 `logo` 更换（左侧栏顶部，默认显示文字链接）
+*   支持文章列表和文章内容显示特色图片
+*   博客社会化链接显示（左侧边栏底部）
+*   作者社会化链接显示（作者页面）等
 
-打开 `default.hbs` 文件，找到
+**拓展功能**
 
-```html
-<div class="fr">
-	<span>Powered by</span>
-     <a href="https://ghost.org" rel="nofollow" target="_blank">Ghost</a><span>.</span>
-     <span>Theme</span>
-     <a href="https://github.com/imzhengfei/FlatGhost" rel="nofollow" title="从 GitHub 获取本博客主题" target="_blank">FlatGhost</a><span>.</span>
-</div>
-```
+*   智能 SEO Meta 标签，自动给所有页面添加 “title”、“keywords”、“description”
+*   统计信息小工具（文章数，表签数）
+*   标签云小工具
+*   推荐文章小工具（被 “featured” 的文章）
+*   博客社会化链接图标拓展支持：github、知乎、豆瓣、微博、QQ 空间（需手动在主题文件中添加链接）
+*   作者信息页面可以玩去自定义添加社会化链接
 
-在 `</div>` 前增加，如
+**响应式设计**
 
-```html
-<div class="fr">
-	<span>Powered by</span>
-     <a href="https://ghost.org" rel="nofollow" target="_blank">Ghost</a><span>.</span>
-     <span>Theme</span>
-     <a href="https://github.com/imzhengfei/FlatGhost" rel="nofollow" title="从 GitHub 获取本博客主题" target="_blank">FlatGhost</a><span>.</span>
-	<span>鄂1000000-1号</span>
-</div>
-```
-
-### 3. 添加友情链接
-
-打开 `default.hbs` 文件，找到
-
-```html
-<ul id="links" class="clearfix">
-    <li>友情链接：</li>
-    <li><a href="http://blog.imzhengfei.com" target="_blank" rel="nofollow">海月博客</a></li>
-</ul>
-```
-
-自行添加即可，如添加 GitHub 首页为友情链接
-
-```html
-<ul id="links" class="clearfix">
-    <li>友情链接：</li>
-    <li><a href="http://blog.imzhengfei.com" target="_blank" rel="nofollow">海月博客</a></li>
-    <li><a href="https:/github.com" target="_blank" rel="nofollow">GitHub</a></li>
-</ul>
-```
-
-### 4. 在个人信息页卡片添加更多信息
-
-打开 `partials/main-author.hbs` 文件，找到
-
-```html
-<ul class="links clearfix">
-    {{#if website}}
-    <li><a href="{{website}}" target="_blank">个人主页</a></li>
-    {{/if}}
-    {{#if facebook}}
-    <li><a href="{{facebook_url}}" target="_blank" rel="nofollow">Facebook</a> </li>
-    {{/if}}
-    {{#if twitter}}
-    <li><a href="{{twitter_url}}" target="_blank" rel="nofollow">Twitter</a> </li>
-    {{/if}}
-</ul>
-```
-
-按照自己需要自行排序添加，如添加微博链接
-
-```html
-<ul class="links clearfix">
-    {{#if website}}
-    <li><a href="{{website}}" target="_blank">个人主页</a></li>
-    {{/if}}
-    {{#if facebook}}
-    <li><a href="{{facebook_url}}" target="_blank" rel="nofollow">Facebook</a></li>
-    {{/if}}
-    {{#if twitter}}
-    <li><a href="{{twitter_url}}" target="_blank" rel="nofollow">Twitter</a></li>
-    {{/if}}
-    <li><a href="http://weibo.com/imzhengfei" target="_blank" rel="nofollow">微博</a></li>
-</ul>
-```
-
-### 5. 其他按需自行修改
-
-### 6. 构建（可选）
-
-本项目使用 `gulp` 构建到 `/build` 目录，再生成 zip 安装包
-
-进入项目目录，安装 gulp 及插件
-
-```shell
-npm install
-```
-
-构建项目到 `/build` 目录
-
-```shell
-gulp
-```
-
-在项目目录下生成主题 zip 安装包
-
-```shell
-gulp zip
-```
-
-**如不需构建，可删除掉 `build` 目录文件，直接修改完当前目录文件手动打包成 zip 文件，在博客管理后台上传并启用即可**
+*   适配所有尺寸屏幕
+*   移动设备采用安卓风格侧滑菜单
 
 
 
 # 功能计划
 
--   [ ] 代码高亮显示
--   [ ] 移动浏览器适配
+-   [x] 响应式设计
+-   [ ] 多个模板页支持：友情链接、留言板、专题推荐等
 -   [ ] 主题变色
+-   [ ] 代码高亮显示
+-   [ ] 文章大纲小工具
+
+
 
 
 

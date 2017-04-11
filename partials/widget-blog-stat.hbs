@@ -1,0 +1,26 @@
+{{!-- widget: blog stat --}}
+
+
+<div class="widget-blog-stat widget">
+
+    <div class="title">统计</div>
+
+    <ul class="items clearfix">
+        {{#if @labs.publicAPI}}
+            <li class="item">
+                <span>文章</span>
+                {{#get "posts" as |posts postsObj|}}
+                    <span>{{postsObj.total}}</span>
+                {{/get}}
+            </li>
+            <li class="item">
+                <span>标签</span>
+                {{#get "tags" as |tags tagsObj|}}
+                    <span>{{tagsObj.total}}</span>
+                {{/get}}
+            </li>
+        {{else}}
+            <li>请在博客后台"SETTINGS > Labs"底部勾选"Public API"</li>
+        {{/if}}
+    </ul>
+</div>

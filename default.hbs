@@ -25,64 +25,90 @@
     {{> "seo"}}
     <meta name="robots" content="all" />
 
-    <!-- DNS 预解析 -->
+    <!-- DNS Prefetch -->
     <meta http-equiv="x-dns-prefetch-control" content="on" />
     <link rel="dns-prefetch" href="https://github.com" />
     <link rel="dns-prefetch" href="https://ghost.org" />
 
-    <!-- 资源文件 -->
-    <link rel="shortcut icon" href="{{asset "favicon.ico"}}" />
+    <!-- build:remove -->
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Pragram" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate" />
+    <!-- /build -->
 
-    <!-- build:replace '<link rel="stylesheet" type="text/css" href="{{asset "assets/css/min.css"}}" />' -->
-    <link rel="stylesheet" type="text/css" href="{{asset "plugins/neat/neat.css"}}" />
+    <!-- Static -->
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}" />
+    <!-- build:replace '<link rel="stylesheet" type="text/css" href="{{asset "css/min.css"}}" />' -->
+    <link rel="stylesheet" type="text/css" href="{{asset "css/neat/neat.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "css/base.css"}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset "assets/css/style.css"}}" />
-    <!-- /build-->
+    <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+    <!-- /build -->
 
     <!-- Ghost Head -->
     {{ghost_head}}
 </head>
 <body class="color-turquoise {{body_class}} {{#if @blog.cover}}" style="background-image: url({{@blog.cover}}){{else}}default-cover{{/if}}">
-    <div class="wrap">
+    <div id="wrap" class="clearfix">
 
-        <!-- 博客标题 -->
-        <div id="title">
-            <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
-        </div>
+        <div id="main-wrap" class="fl">
+            <div id="main">
 
-        <!-- 导航菜单 -->
-        {{#if @blog.navigation}}
-                {{navigation}}
-        {{/if}}
+                {{!-- includes: "index.hbs|post.hbs|tag.hbs|..."  --}}
+                {{{body}}}
 
-        {{!-- 插入内容模板："index.hbs", "post.hbs", "tag.hbs" 等文件模板 --}}
-        {{{body}}}
+                <div id="footer">
 
-        <!-- 底部 -->
-        <div id="footer">
+                    <div class="clearfix">
 
-            <div class="clearfix">
+                        <div class="fl">
+                            <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
+                            <span>&copy;&nbsp;{{date format="YYYY"}}</span>
+                        </div>
 
-                <div class="fl">
-                    <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
-                    <span>&copy;&nbsp;{{date format="YYYY"}}</span>
-                </div>
-
-                <div class="fr">
-                    <span>Powered by</span>
-                    <a href="https://ghost.org" rel="nofollow" target="_blank">Ghost</a><span>.</span>
-                    <span>Theme</span>
-                    <a href="https://github.com/imzhengfei/ghost-theme-flatghost" rel="nofollow" title="从 GitHub 获取本博客主题" target="_blank">FlatGhost</a><span>.</span>
+                        <div class="fr">
+                            <span>Powered by</span>
+                            <a href="https://ghost.org" rel="nofollow" target="_blank">Ghost</a><span>.</span>
+                            <span>Theme</span>
+                            <a href="https://github.com/imzhengfei/ghost-theme-flatghost" rel="nofollow" title="从 GitHub 获取本博客主题" target="_blank">FlatGhost</a><span>.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            {{!-- 友情链接 --}}
-            <ul id="links" class="clearfix">
-                <li>友情链接：</li>
-                <li><a href="http://blog.imzhengfei.com" target="_blank" rel="nofollow">海月博客</a></li>
-            </ul>
+        <div id="sidebar" class="fl">
+
+            {{!-- includes: "widget-blog-logo.hbs" --}}
+            {{> "widget-blog-logo"}}
+
+            {{!-- includes: "partials/navigaion.hbs" --}}
+            {{navigation}}
+
+            {{!-- includes: "widget-featured-posts.hbs" --}}
+            {{> "widget-featured-posts"}}
+
+            {{!-- includes: "widget-tag-cloud.hbs" --}}
+            {{> "widget-tags-cloud"}}
+
+            {{!-- includes: "widget-blog-stat.hbs" --}}
+            {{> "widget-blog-stat"}}
+
+            {{!-- includes: "widget-follow-me.hbs" --}}
+            {{> "widget-follow-me"}}
         </div>
     </div>
+
+    {{!-- includes: "mobile-nav-bar.hbs" --}}
+    {{> "mobile-nav-bar"}}
+
+    <div id="mask"></div>
+
+    {{!-- includes: "mobile-nav-menu.hbs" --}}
+    {{> "mobile-nav-menu"}}
+
+    <!-- build:replace '<script src="{{asset "js/min.js"}}" type="text/javascript" charset="utf-8"></script>' -->
+    <script src="{{asset "js/common.js"}}" type="text/javascript" charset="utf-8"></script>
+    <!-- /build -->
 
     <!-- Ghost Foot -->
     {{ghost_foot}}
