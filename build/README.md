@@ -15,6 +15,8 @@
 
 上传下载的最新版主题 zip 安装包并 `ACTIVE` 启用主题
 
+`Labs` > `Enable Beta Features` ，勾选 `Public API ...`
+
 
 
 # 特色
