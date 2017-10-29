@@ -1,18 +1,20 @@
 {{!< default}}
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
-
 {{#post}}
-    <div id="page-page">
+  <div id="page-page">
+    <div id="main-content" class="main-card {{post_class}}" role="main">
 
-        <div class="main {{post_class}}" role="main">
+      <div class="title">
+        {{#if featured}}
+          <div class="feature-ico"></div>
+        {{/if}}
+        <h1>{{title}}</h1>
+      </div>
 
-            <h1>{{title}}</h1>
-
-            <div class="content md">
-                {{content}}
-            </div>
-        </div>
-        {{> "comments"}}
+      <div class="content md">
+        {{content}}
+      </div>
     </div>
+  </div>
 {{/post}}

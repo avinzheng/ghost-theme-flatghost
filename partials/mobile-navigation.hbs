@@ -1,0 +1,48 @@
+{{!-- Mobile Navigation: Only show on mobile (screen width < 640px) --}}
+
+<div id="mobile-nav-bar">
+  <div class="wrap clearfix">
+
+    <div class="title fl">
+
+      {{#is "index"}}
+        {{@blog.title}}
+      {{/is}}
+
+      {{#is "post"}}
+        文章
+      {{/is}}
+
+      {{#is "page"}}
+        {{#post}}{{title}}{{/post}}
+      {{/is}}
+
+      {{#is "tag"}}
+        {{#tag}}{{name}}{{/tag}}
+      {{/is}}
+
+      {{#is "author"}}
+        {{#author}}{{name}}{{/author}}
+      {{/is}}
+    </div>
+
+    <a id="open-mobile-nav" class="btn nav-menu fl" href="javascript:;">
+      <div class="ico ico-menu"></div>
+    </a>
+
+    <!--<a id="open-mobile-search" class="btn nav-search fl" href="javascript:;"></a>-->
+  </div>
+</div>
+
+<div id="mask"></div>
+
+<div id="mobile-nav-menu" class="clearfix">
+  <div class="scroll-box fl">
+    <div class="wrap">
+      {{> "widget-blog-logo"}}
+      {{navigation}}
+      {{> "widget-tags-cloud"}}
+      {{> "widget-follow-me"}}
+    </div>
+  </div>
+</div>

@@ -1,57 +1,55 @@
-{{!-- main: post list --}}
-
+{{!-- Main Loop: Show posts list --}}
 
 <ul id="main-loop">
 
-    {{#foreach posts}}
+  {{#foreach posts}}
     <li class="loop main-card {{post_class}}">
 
-        {{#if image}}
-            <a class="img-box" href="{{url}}" title="{{title}}">
-                <img src="{{image}}" alt="{{title}} - {{@blog.title}}" />
-            </a>
+      {{#if feature_image}}
+        <a class="img-box" href="{{url}}" title="{{title}}">
+          <img src="{{img_url feature_image}}" alt="{{title}} - {{@blog.title}}"/>
+        </a>
+      {{/if}}
+
+      <div class="title">
+        {{#if featured}}
+          <div class="feature-ico"></div>
         {{/if}}
+        <a class="post-link" href="{{url}}" title="{{title}}">
+          <h2>{{title}}</h2>
+        </a>
+      </div>
 
-        <div class="title">
-            {{#if featured}}
-                <div class="feature-ico"></div>
-            {{/if}}
-            <a class="post-link" href="{{url}}" title="{{title}}">
-                <h2>{{title}}</h2>
-            </a>
-        </div>
+      <ul class="post-meta">
+        <li>
+          <div class="ico ico-author"></div>
+          {{author}}
+        </li>
+        <li>
+          <div class="ico ico-date"></div>
+          <span>{{date created_at format="YYYY-MM-DD"}}</span>
+        </li>
+        {{#if tags}}
+          <li>
+            <div class="ico ico-tags"></div>
+            {{tags}}
+          </li>
+        {{/if}}
+        <!--<li>-->
+        <!--<div class="ico ico-comments"></div>-->
+        <!--<span>评论数</span>-->
+        <!--</li>-->
+      </ul>
 
-        <ul class="post-meta">
-            <li>
-                <div class="ico ico-author"></div>
-                {{author}}
-            </li>
-            <li>
-                <div class="ico ico-date"></div>
-                <span>{{date updated_at format="YYYY-MM-DD"}}</span>
-            </li>
-            {{#if tags}}
-                <li>
-                    <div class="ico ico-tags"></div>
-                    {{tags}}
-                </li>
-            {{/if}}
-            <!--<li>-->
-                <!--<div class="ico ico-comments"></div>-->
-                <!--<span>评论数</span>-->
-            <!--</li>-->
-        </ul>
+      <div class="excerpt">
+        <p>{{excerpt characters="280"}}……</p>
+      </div>
 
-        <div class="excerpt">
-            <p>{{excerpt characters="280"}}……</p>
-        </div>
-
-        <div class="read-more">
-            <a href="{{url}}">阅读全文</a>
-        </div>
+      <div class="read-more">
+        <a href="{{url}}">阅读全文</a>
+      </div>
     </li>
-    {{/foreach}}
+  {{/foreach}}
 </ul>
 
-{{!-- include: "partials/pagination.hbs" --}}
 {{pagination}}
