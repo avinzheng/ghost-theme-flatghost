@@ -1,24 +1,23 @@
-{{!-- widget: tags cloud --}}
-
+{{!-- Widget: Tags Cloud --}}
 
 <div class="widget-tags-cloud widget">
 
-    <div class="title">标签</div>
+  <div class="title">标签</div>
 
-    <ul class="tags clearfix">
-        {{#if @labs.publicAPI}}
-            {{#get "tags" limit="20" include="count.posts" order="count.posts desc"}}
-                {{#foreach tags}}
-                    <li class="tag fl">
-                        <a href="/tag/{{slug}}/">
-                            {{name}}
-                            <span>({{count.posts}})</span>
-                        </a>
-                    </li>
-                {{/foreach}}
-            {{/get}}
-        {{else}}
-            <li>请在博客后台"SETTINGS > Labs"底部勾选"Public API"</li>
-        {{/if}}
-    </ul>
+  <ul class="tags clearfix">
+    {{#if @labs.publicAPI}}
+      {{#get "tags" limit="20" include="count.posts" order="count.posts desc"}}
+        {{#foreach tags}}
+          <li class="tag fl">
+            <a href="/tag/{{slug}}/">
+              {{name}}
+              <span>({{count.posts}})</span>
+            </a>
+          </li>
+        {{/foreach}}
+      {{/get}}
+    {{else}}
+      <li>请在博客后台"SETTINGS > Labs"底部勾选"Public API"</li>
+    {{/if}}
+  </ul>
 </div>
