@@ -8,21 +8,17 @@
     "ghost": "^1.0.0"
   },
   "scripts": {
-    "build": "gulp",
-    "zip": "gulp zip"
+    "build": "gulp build",
+    "pkg": "gulp pkg"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-clean-css": "^3.0.4",
     "gulp-concat": "^2.6.1",
     "gulp-css-spriter": "^0.4.0",
     "gulp-processhtml": "^1.1.0",
-    "gulp-rev": "^7.1.2",
-    "gulp-rev-collector": "^1.1.1",
     "gulp-rimraf": "^0.2.1",
     "gulp-sequence": "^0.4.6",
-    "gulp-uglify": "^2.1.2",
     "gulp-zip": "^4.0.0"
   },
   "license": "MIT",

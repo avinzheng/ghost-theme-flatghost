@@ -31,3 +31,7 @@ Desktop.ini
 
 ### JetBrains
 .idea/
+
+### Build & package
+build/
+*.zip
