@@ -1,14 +1,14 @@
 {{!-- Main: Pagination --}}
 
-<ul id="pagination" class="main-card clearfix" role="menu">
+<div id="pagination" class="main-card">
+
+  <span>{{page}} / {{pages}}</span>
 
   {{#if prev}}
-    <li class="prev fl"><a href="{{page_url prev}}">上一页</a></li>
+    <a class="prev fl" href="{{page_url prev}}">上一页</a>
   {{/if}}
 
   {{#if next}}
-    <li class="next fl"><a href="{{page_url next}}">下一页</a></li>
+    <a class="nest fr" href="{{page_url next}}">下一页</a>
   {{/if}}
-
-  <li class="fr"><span>{{page}} / {{pages}}</span></li>
-</ul>
+</div>

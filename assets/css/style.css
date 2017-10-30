@@ -490,36 +490,30 @@ body.color-red {
  *===============================================*/
 #pagination {
   padding: 20px 30px;
-}
-#pagination .prev {
-  margin-right: 30px;
-}
-#pagination a {
-  display: block;
-  padding: 5px 15px;
-  color: #FFFFFF;
-  background: #1abc9c;
+  text-align: center;
   font-size: 12px;
   line-height: 20px;
 }
-#pagination a:hover {
+#pagination > span {
+  display: inline-block;
+  margin: 5px auto;
+  color: #95A5A6;
+  line-height: 20px;
+}
+#pagination > a {
+  display: block;
+  padding: 5px 15px;
+  background: #1abc9c;
+  color: #FFFFFF;
+}
+#pagination > a:hover {
   background: #2fe2bf;
   text-decoration: none;
 }
-#pagination span {
-  display: block;
-  border: 1px solid #95A5A6;
-  padding: 5px 15px;
-  font-size: 16px;
-  line-height: 18px;
-  color: #95A5A6;
-}
+
 @media (max-width: 639px) {
   #pagination {
     padding: 15px 20px;
-  }
-  #pagination .prev {
-    margin-right: 20px;
   }
 }
 
