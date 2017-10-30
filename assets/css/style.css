@@ -413,11 +413,11 @@ body.color-red {
 /*================================================
  * #main-author
  *===============================================*/
-#main-author > .profile {
+#main-author {
   position: relative;
   padding: 0 30px 30px 178px;
 }
-#main-author .avatar {
+#main-author > img.avatar {
   display: block;
   left: -178px;
   margin-left: -100%;
@@ -425,58 +425,51 @@ body.color-red {
   width: 128px;
   height: 128px;
 }
-#main-author .avatar > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-#main-author .info {
+#main-author > .info {
   width: 100%;
 }
-#main-author h1 {
-  padding: 30px 0 10px;
+#main-author > .info > h1 {
+  padding: 35px 0 5px;
   font-size: 24px;
 }
-#main-author h1 > a {
-  color: #2C3E50;
-}
-#main-author h1 > a:hover {
-  color: #2fe2bf;
-  text-decoration: none;
+#main-author h1 > span.location {
+  font-weight: normal;
+  font-size: 14px;
+  color: #7F8C8D;
 }
 #main-author .links > li {
   float: left;
   margin: 0 15px 10px 0;
 }
-#main-author .links a {
+#main-author li > a {
   display: block;
   padding: 2px 12px;
   border: 1px solid #7F8C8D;
   color: #7F8C8D;
   font-size: 12px;
-  line-height: 20px;
 }
-#main-author .links a:hover {
+#main-author li > a:hover {
   border: 1px solid #2fe2bf;
   color: #2fe2bf;
   text-decoration: none;
 }
-#main-author .bio {
+#main-author > .info > .bio {
   color: #7F8C8D;
   font-style: italic;
   word-break: break-all;
 }
+
 @media (max-width: 639px) {
-  #main-author > .profile {
+  #main-author {
     padding: 0 20px 20px 94px;
   }
-  #main-author .avatar {
+  #main-author > img.avatar {
     left: -94px;
     padding: 20px 10px 0 20px;
     width: 64px;
     height: 64px;
   }
-  #main-author h1 {
+  #main-author > .info > h1 {
     padding: 12px 0 0;
     font-size: 22px;
   }
