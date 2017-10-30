@@ -91,7 +91,7 @@ gulp.task('clean:build', () => {
 // zip
 gulp.task('zip', () => {
   return gulp.src('./build/**/*.*')
-    .pipe(zip(`${config.name}-${config.version}.zip`))
+    .pipe(zip(`${config.name}-v${config.version}.zip`))
     .pipe(gulp.dest('./'));
 });
 
