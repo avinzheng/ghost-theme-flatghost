@@ -1,46 +1,41 @@
 {{!-- Main Author --}}
 
-<div id="main-author">
+<div id="main-author" class="main-card clearfix">
   {{#author}}
-    <div class="profile main-card clearfix">
+    <div class="info fl">
 
-      <div class="info fl">
+      <h1>
+        {{name}}
+        {{#if location}}<span class="location">( {{location}} )</span>{{/if}}
+      </h1>
 
-        <h1>
-          <a href="{{url}}">{{name}}</a>
-          {{#if location}}<i>( {{location}} )</i>{{/if}}
-        </h1>
-
-        <ul class="links clearfix">
-          {{#if website}}
-            <li><a href="{{website}}" target="_blank">个人主页</a></li>
-          {{/if}}
-          {{#if facebook}}
-            <li><a href="{{facebook_url}}" target="_blank" rel="nofollow">Facebook</a></li>
-          {{/if}}
-          {{#if twitter}}
-            <li><a href="{{twitter_url}}" target="_blank" rel="nofollow">Twitter</a></li>
-          {{/if}}
-          <!--<li><a href="https://weibo.com/xxx" target="_blank" rel="nofollow">Weibo</a></li>-->
-        </ul>
-
-        <div class="bio">
-          {{#if bio}}
-            <p>{{bio}}</p>
-          {{else}}
-            <p>暂无简介</p>
-          {{/if}}
-        </div>
-      </div>
-
-      <a class="avatar fl" href="{{url}}">
-        {{#if author.profile_image}}
-          <img src="{{img_url author.profile_image absolute="true"}}" alt="{{name}}"/>
-        {{else}}
-          <img src="{{asset "img/default-author-avatar.png"}}" alt="{{name}}"/>
+      <ul class="links clearfix">
+        {{#if website}}
+          <li><a href="{{website}}" target="_blank">个人主页</a></li>
         {{/if}}
-      </a>
+        {{#if facebook}}
+          <li><a href="{{facebook_url}}" target="_blank" rel="nofollow">Facebook</a></li>
+        {{/if}}
+        {{#if twitter}}
+          <li><a href="{{twitter_url}}" target="_blank" rel="nofollow">Twitter</a></li>
+        {{/if}}
+        <!--<li><a href="https://weibo.com/xxx" target="_blank" rel="nofollow">Weibo</a></li>-->
+      </ul>
+
+      <div class="bio">
+        {{#if bio}}
+          <p>{{bio}}</p>
+        {{else}}
+          <p>暂无简介</p>
+        {{/if}}
+      </div>
     </div>
+
+    {{#if profile_image}}
+      <img class="avatar fl" src="{{img_url profile_image absolute="true"}}" alt="{{name}}"/>
+    {{else}}
+      <img class="avatar fl" src="{{asset "img/default-author-avatar.png"}}" alt="{{name}}"/>
+    {{/if}}
   {{/author}}
 </div>
 

@@ -16,57 +16,64 @@ const zip = require('gulp-zip');
 
 
 /*
+ * Read Packages.json
+ */
+const fs = require('fs');
+const config = JSON.parse(fs.readFileSync('./package.json'));
+
+
+/*
  * Pipe
  */
 // 文件复制
 gulp.task('copy', () => {
-    return gulp.src([
-            './assets/img/*.*',
-            './assets/screenshot/*.*',
-            './assets/js/*.js',
-            './partials/*.hbs',
-            './*.hbs',
-            '!./default.hbs',
-            './*.md',
-            './*.json',
-            './LICENSE*'
-        ], {base: './'})
-        .pipe(gulp.dest('./build'));
+  return gulp.src([
+    './assets/img/*.*',
+    './assets/screenshot/*.*',
+    './assets/js/*.js',
+    './partials/*.hbs',
+    './*.hbs',
+    '!./default.hbs',
+    './*.md',
+    './*.json',
+    './LICENSE*'
+  ], {base: './'})
+    .pipe(gulp.dest('./build'));
 });
 
 // css 雪碧图，使用以下标记排除
 /* @meta {"spritesheet": {"include": false}} */
 gulp.task('sprite', () => {
-    return gulp.src('./assets/css/style.css')
-        .pipe(spriter({
-            includeMode: 'implicit',
-            spriteSheet: './build/assets/img/icos.png',
-            pathToSpriteSheetFromCSS: '../img/icos.png'
-        }))
-        .pipe(gulp.dest('./temp/assets/css'));
+  return gulp.src('./assets/css/style.css')
+    .pipe(spriter({
+      includeMode: 'implicit',
+      spriteSheet: './build/assets/img/icos.png',
+      pathToSpriteSheetFromCSS: '../img/icos.png'
+    }))
+    .pipe(gulp.dest('./temp/assets/css'));
 });
 
 // css 预处理、合并
 gulp.task('css', () => {
-    return gulp.src([
-            './assets/css/neat/neat.min.css',
-            './assets/css/base.css',
-            './temp/assets/css/style.css'
-        ])
-        .pipe(autoprefixer({
-            browsers: ['last 4 versions'],
-            cascade: false,
-            remove: false
-        }))
-        .pipe(concat('style.css'))
-        .pipe(gulp.dest('./build/assets/css'));
+  return gulp.src([
+    './assets/css/neat/neat.min.css',
+    './assets/css/base.css',
+    './temp/assets/css/style.css'
+  ])
+    .pipe(autoprefixer({
+      browsers: ['last 4 versions'],
+      cascade: false,
+      remove: false
+    }))
+    .pipe(concat('style.css'))
+    .pipe(gulp.dest('./build/assets/css'));
 });
 
 // hbs 处理
 gulp.task('hbs', () => {
-    return gulp.src('./default.hbs')
-        .pipe(processhtml())
-        .pipe(gulp.dest('./build'));
+  return gulp.src('./default.hbs')
+    .pipe(processhtml())
+    .pipe(gulp.dest('./build'));
 });
 
 // clean temp folder
@@ -84,7 +91,7 @@ gulp.task('clean:build', () => {
 // zip
 gulp.task('zip', () => {
   return gulp.src('./build/**/*.*')
-    .pipe(zip('flat-ghost.zip'))
+    .pipe(zip(`${config.name}-${config.version}.zip`))
     .pipe(gulp.dest('./'));
 });
 
@@ -96,4 +103,4 @@ gulp.task('zip', () => {
 gulp.task('build', sequence(['copy', 'sprite'], ['css', 'hbs'], 'clean:temp'));
 
 // pacakge
-gulp.task('pkg', sequence('zip', 'clean:temp', 'clean:build'));
+gulp.task('pkg', sequence('build', 'zip', 'clean:temp', 'clean:build'));

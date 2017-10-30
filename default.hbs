@@ -47,58 +47,56 @@
 </head>
 <body class="color-turquoise {{body_class}}"
       {{#if @blog.cover_image}}style="background-image: url({{@blog.cover_image}})"{{/if}}>
-  <div id="wrap" class="clearfix">
+<div id="wrap" class="clearfix">
 
-    <div id="main-wrap" class="fl">
-      <div id="main">
+  <div id="main-wrap" class="fl">
+    <div id="main">
 
-        {{!-- includes: "index.hbs|post.hbs|tag.hbs|..."  --}}
-        {{{body}}}
+      {{!-- includes: "index.hbs|post.hbs|tag.hbs|..."  --}}
+      {{{body}}}
 
-        <div id="footer">
+      <div id="footer">
 
-          <div class="clearfix">
+        <div class="clearfix">
 
-            <div class="fl">
-              <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
-              <span>&copy;&nbsp;{{date format="YYYY"}}</span>
-            </div>
+          <div class="fl">
+            <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
+            <span>&copy;&nbsp;{{date format="YYYY"}}</span>
+          </div>
 
-            <div class="fr">
-              <span>Powered by</span>
-              <a href="https://ghost.org"
-                 rel="nofollow"
-                 target="_blank">Ghost</a><span>.</span>
-              <span>Theme:</span>
-              <a href="https://github.com/imzhengfei/ghost-theme-flatghost"
-                 rel="nofollow"
-                 title="从 GitHub 获取本博客主题"
-                 target="_blank">FlatGhost</a><span>.</span>
-            </div>
+          <div class="fr">
+            <span>Powered by</span>
+            <a href="https://ghost.org"
+               rel="nofollow"
+               target="_blank">Ghost</a><span>.</span>
+            <span>Theme:</span>
+            <a href="https://github.com/imzhengfei/ghost-theme-flatghost"
+               rel="nofollow"
+               title="从 GitHub 获取本博客主题"
+               target="_blank">FlatGhost</a><span>.</span>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Widgets -->
-    <div id="sidebar" class="fl">
-      {{> "widget-blog-logo"}}
-      {{navigation}}
-      {{> "widget-featured-posts"}}
-      {{> "widget-tags-cloud"}}
-      {{> "widget-blog-stat"}}
-      {{> "widget-follow-me"}}
-    </div>
   </div>
 
-  <!-- Mobile Navigation -->
-  {{> "mobile-navigation"}}
+  <!-- Widgets -->
+  <div id="sidebar" class="fl">
+    {{> "widget-blog-logo"}}
+    {{navigation}}
+    {{> "widget-featured-posts"}}
+    {{> "widget-tags-cloud"}}
+    {{> "widget-blog-stat"}}
+    {{> "widget-follow-me"}}
+  </div>
+</div>
 
-  <!-- build:replace '<script src="{{asset "js/min.js"}}" type="text/javascript" charset="utf-8"></script>' -->
-  <script src="{{asset "js/common.js"}}" type="text/javascript" charset="utf-8"></script>
-  <!-- /build -->
+<!-- Mobile Navigation -->
+{{> "mobile-navigation"}}
 
-  <!-- Ghost Foot -->
-  {{ghost_foot}}
+<script src="{{asset "js/common.js"}}" type="text/javascript" charset="utf-8"></script>
+
+<!-- Ghost Foot -->
+{{ghost_foot}}
 </body>
 </html>

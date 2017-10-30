@@ -274,7 +274,7 @@ body.color-red {
 }
 #main-loop .title {
   position: relative;
-  padding: 30px 70px 15px 30px;
+  padding: 30px 30px 15px;
 }
 #main-loop .post-link {
   color: #2C3E50;
@@ -293,20 +293,20 @@ body.color-red {
 #main-loop .feature-ico,
 #main-content .feature-ico {
   position: absolute;
-  right: 30px;
+  right: 0;
   top: 0;
   width: 30px;
-  height: 40px;
-  background: #1abc9c;
+  height: 30px;
+  overflow: hidden;
 }
 #main-loop .feature-ico:before,
 #main-content .feature-ico:before {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 0;
-  border: 15px solid transparent;
-  border-bottom-color: #FFFFFF;
+  right: -30px;
+  top: 0;
+  border: 30px solid transparent;
+  border-top-color: #1abc9c;
   width: 0;
 }
 /* also used in "post.hbs" */
@@ -379,7 +379,7 @@ body.color-red {
   }
   #main-loop .post-link {
     display: block;
-    padding: 15px 40px 15px 20px;
+    padding: 15px;
   }
   #main-loop .post-link > h2 {
     font-weight: normal;
@@ -387,13 +387,13 @@ body.color-red {
   }
   #main-loop .feature-ico,
   #main-content .feature-ico {
-    right: 10px;
     width: 20px;
-    height: 30px;
+    height: 20px;
   }
   #main-loop .feature-ico:before,
   #main-content .feature-ico:before {
-    border-width: 10px;
+    right: -20px;
+    border-width: 20px;
   }
   #main-loop .post-meta,
   #main-loop .excerpt,
@@ -405,7 +405,7 @@ body.color-red {
 /*================================================
  * #main-none
  *===============================================*/
-#main-none .post-none {
+#main-none {
   padding: 30px;
   height: 250px;
 }
@@ -413,11 +413,11 @@ body.color-red {
 /*================================================
  * #main-author
  *===============================================*/
-#main-author > .profile {
+#main-author {
   position: relative;
   padding: 0 30px 30px 178px;
 }
-#main-author .avatar {
+#main-author > img.avatar {
   display: block;
   left: -178px;
   margin-left: -100%;
@@ -425,58 +425,52 @@ body.color-red {
   width: 128px;
   height: 128px;
 }
-#main-author .avatar > img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-#main-author .info {
+#main-author > .info {
   width: 100%;
 }
-#main-author h1 {
-  padding: 30px 0 10px;
+#main-author > .info > h1 {
+  padding: 35px 0 5px;
   font-size: 24px;
+  font-weight: bold;
 }
-#main-author h1 > a {
-  color: #2C3E50;
-}
-#main-author h1 > a:hover {
-  color: #2fe2bf;
-  text-decoration: none;
+#main-author h1 > span.location {
+  font-weight: normal;
+  font-size: 14px;
+  color: #7F8C8D;
 }
 #main-author .links > li {
   float: left;
   margin: 0 15px 10px 0;
 }
-#main-author .links a {
+#main-author li > a {
   display: block;
   padding: 2px 12px;
   border: 1px solid #7F8C8D;
   color: #7F8C8D;
   font-size: 12px;
-  line-height: 20px;
 }
-#main-author .links a:hover {
+#main-author li > a:hover {
   border: 1px solid #2fe2bf;
   color: #2fe2bf;
   text-decoration: none;
 }
-#main-author .bio {
+#main-author > .info > .bio {
   color: #7F8C8D;
   font-style: italic;
   word-break: break-all;
 }
+
 @media (max-width: 639px) {
-  #main-author > .profile {
+  #main-author {
     padding: 0 20px 20px 94px;
   }
-  #main-author .avatar {
+  #main-author > img.avatar {
     left: -94px;
     padding: 20px 10px 0 20px;
     width: 64px;
     height: 64px;
   }
-  #main-author h1 {
+  #main-author > .info > h1 {
     padding: 12px 0 0;
     font-size: 22px;
   }
@@ -489,37 +483,38 @@ body.color-red {
  * #pagination
  *===============================================*/
 #pagination {
-  padding: 20px 30px;
+  margin-bottom: 30px;
 }
-#pagination .prev {
-  margin-right: 30px;
+#pagination > li.prev {
+  margin-right: 20px;
 }
-#pagination a {
+#pagination > li.next {
+  margin-left: 20px;
+}
+#pagination > li > span {
   display: block;
-  padding: 5px 15px;
-  color: #FFFFFF;
-  background: #1abc9c;
-  font-size: 12px;
+  padding: 4px 14px;
+  border: 1px solid #95A5A6;
+  color: #95A5A6;
+  font-size: 14px;
   line-height: 20px;
 }
-#pagination a:hover {
+#pagination > li > a {
+  display: block;
+  padding: 5px 15px;
+  font-size: 12px;
+  line-height: 20px;
+  background: #1abc9c;
+  color: #FFFFFF;
+}
+#pagination > li > a:hover {
   background: #2fe2bf;
   text-decoration: none;
 }
-#pagination span {
-  display: block;
-  border: 1px solid #95A5A6;
-  padding: 5px 15px;
-  font-size: 16px;
-  line-height: 18px;
-  color: #95A5A6;
-}
+
 @media (max-width: 639px) {
   #pagination {
-    padding: 15px 20px;
-  }
-  #pagination .prev {
-    margin-right: 20px;
+    margin-bottom: 15px;
   }
 }
 
@@ -540,15 +535,15 @@ body.color-red {
  *===============================================*/
 #footer {
   margin-bottom: 10px;
-  color: #bdc3c7;
+  color: #95A5A6;
   font-size: 12px;
 }
 #footer a {
-  color: #bdc3c7;
+  color: #95A5A6;
   text-decoration: underline;
 }
 #footer a:hover {
-  color: #ECF0F1;
+  color: #bdc3c7;
 }
 
 /*================================================
@@ -564,7 +559,7 @@ body.color-red {
 }
 #main-content > .title {
   position: relative;
-  padding: 30px 70px 15px 30px;
+  padding: 30px 30px 15px;
 }
 #main-content > .title > h1 {
   font-size: 28px;
@@ -582,6 +577,7 @@ body.color-red {
   margin: 0 30px;
   padding: 10px 20px;
   background: #ECF0F1;
+  font-size: 12px;
 }
 #main-content > .copyright,
 #main-content > .copyright > em {
@@ -643,6 +639,7 @@ body.color-red {
   display: inline;
   font-size: 16px;
 }
+
 @media (max-width: 639px) {
   #main-content {
     padding-bottom: 20px;
@@ -763,6 +760,7 @@ body.color-red {
   text-overflow: clip;
   text-align: center;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 .widget-blog-nav > .menu-item > a:hover,
 .widget-blog-nav > .menu-current > a {
@@ -771,12 +769,15 @@ body.color-red {
 .widget-blog-nav > .menu-current > a {
   color: #1abc9c;
 }
+.widget-blog-nav > .menu-current > a:hover {
+  color: #2fe2bf;
+}
 #mobile-nav-menu .widget-blog-nav,
 #mobile-nav-menu .widget-tags-cloud {
   border-bottom: 2px solid #1abc9c;
 }
 #mobile-nav-menu .widget-blog-nav .menu-item > a {
-  padding: 4px 20px 4px 40px;
+  padding: 4px 20px;
 }
 
 /*================================================
