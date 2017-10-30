@@ -1,6 +1,8 @@
 # FlatGhost
 一个响应式设计的扁平化 ghost 博客主题，主题预览：[blog.imzhengfei.com](http://blog.imzhengfei.com)
 
+**仅支持 Ghost v1.x.x**
+
 
 
 
