@@ -518,7 +518,7 @@ body.color-red {
 
 @media (max-width: 639px) {
   #pagination {
-    padding: 15px 20px;
+    margin-bottom: 15px;
   }
 }
 
