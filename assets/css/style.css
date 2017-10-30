@@ -431,6 +431,7 @@ body.color-red {
 #main-author > .info > h1 {
   padding: 35px 0 5px;
   font-size: 24px;
+  font-weight: bold;
 }
 #main-author h1 > span.location {
   font-weight: normal;
@@ -483,10 +484,12 @@ body.color-red {
  *===============================================*/
 #pagination {
   margin-bottom: 30px;
-  text-align: center;
 }
-#pagination > li.pages {
-  margin: 0 20px;
+#pagination > li.prev {
+  margin-right: 20px;
+}
+#pagination > li.next {
+  margin-left: 20px;
 }
 #pagination > li > span {
   display: block;
