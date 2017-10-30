@@ -274,7 +274,7 @@ body.color-red {
 }
 #main-loop .title {
   position: relative;
-  padding: 30px 70px 15px 30px;
+  padding: 30px 30px 15px;
 }
 #main-loop .post-link {
   color: #2C3E50;
@@ -293,20 +293,20 @@ body.color-red {
 #main-loop .feature-ico,
 #main-content .feature-ico {
   position: absolute;
-  right: 30px;
+  right: 0;
   top: 0;
   width: 30px;
-  height: 40px;
-  background: #1abc9c;
+  height: 30px;
+  overflow: hidden;
 }
 #main-loop .feature-ico:before,
 #main-content .feature-ico:before {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: 0;
-  border: 15px solid transparent;
-  border-bottom-color: #FFFFFF;
+  right: -30px;
+  top: 0;
+  border: 30px solid transparent;
+  border-top-color: #1abc9c;
   width: 0;
 }
 /* also used in "post.hbs" */
@@ -379,7 +379,7 @@ body.color-red {
   }
   #main-loop .post-link {
     display: block;
-    padding: 15px 40px 15px 20px;
+    padding: 15px;
   }
   #main-loop .post-link > h2 {
     font-weight: normal;
@@ -387,13 +387,13 @@ body.color-red {
   }
   #main-loop .feature-ico,
   #main-content .feature-ico {
-    right: 10px;
     width: 20px;
-    height: 30px;
+    height: 20px;
   }
   #main-loop .feature-ico:before,
   #main-content .feature-ico:before {
-    border-width: 10px;
+    right: -20px;
+    border-width: 20px;
   }
   #main-loop .post-meta,
   #main-loop .excerpt,
@@ -564,7 +564,7 @@ body.color-red {
 }
 #main-content > .title {
   position: relative;
-  padding: 30px 70px 15px 30px;
+  padding: 30px 30px 15px;
 }
 #main-content > .title > h1 {
   font-size: 28px;
@@ -763,6 +763,7 @@ body.color-red {
   text-overflow: clip;
   text-align: center;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 .widget-blog-nav > .menu-item > a:hover,
 .widget-blog-nav > .menu-current > a {
@@ -771,12 +772,15 @@ body.color-red {
 .widget-blog-nav > .menu-current > a {
   color: #1abc9c;
 }
+.widget-blog-nav > .menu-current > a:hover {
+  color: #2fe2bf;
+}
 #mobile-nav-menu .widget-blog-nav,
 #mobile-nav-menu .widget-tags-cloud {
   border-bottom: 2px solid #1abc9c;
 }
 #mobile-nav-menu .widget-blog-nav .menu-item > a {
-  padding: 4px 20px 4px 40px;
+  padding: 4px 20px;
 }
 
 /*================================================
