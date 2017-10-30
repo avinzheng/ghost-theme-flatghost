@@ -577,6 +577,7 @@ body.color-red {
   margin: 0 30px;
   padding: 10px 20px;
   background: #ECF0F1;
+  font-size: 12px;
 }
 #main-content > .copyright,
 #main-content > .copyright > em {
@@ -638,6 +639,7 @@ body.color-red {
   display: inline;
   font-size: 16px;
 }
+
 @media (max-width: 639px) {
   #main-content {
     padding-bottom: 20px;
