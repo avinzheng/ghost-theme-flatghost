@@ -12,6 +12,15 @@ body {
 a {
   transition: all .15s linear;
 }
+.main-card {
+  margin-bottom: 30px;
+  background: #FFFFFF;
+}
+@media (max-width: 639px) {
+  .main-card {
+    margin-bottom: 15px;
+  }
+}
 
 /*================================================
  * colorful
@@ -186,39 +195,7 @@ body.color-red {
   padding: 30px 0 0 20px;
   width: 240px;
 }
-.main-card {
-  margin-bottom: 30px;
-  background: #FFFFFF;
-}
-#mobile-nav-bar {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  margin-bottom: 30px;
-  width: 100%;
-}
-#mask {
-  display: none;
-  opacity: 0;
-  position: fixed;
-  z-index: 3000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .6);
-}
-#mobile-nav-menu {
-  display: none;
-  position: fixed;
-  z-index: 4000;
-  left: -280px;
-  top: 0;
-  width: 280px;
-  height: 100%;
-}
+
 @media (max-width: 959px) {
   #wrap {
     min-width: 320px;
@@ -228,9 +205,6 @@ body.color-red {
   }
   #sidebar {
     display: none;
-  }
-  #mobile-nav-bar {
-    display: block;
   }
 }
 @media (min-width: 640px) and (max-width: 959px) {
@@ -244,19 +218,12 @@ body.color-red {
   }
 }
 @media (max-width: 639px) {
-  .default-cover {
-    /* @meta {"spritesheet": {"include": false}} */
-    background-image: url("../img/bg-750.jpg");
-  }
   #wrap {
     width: 100%;
     max-width: 600px;
   }
   #main {
     padding: 71px 15px 0;
-  }
-  .main-card {
-    margin-bottom: 15px;
   }
 }
 
@@ -772,11 +739,13 @@ body.color-red {
 .widget-blog-nav > .menu-current > a:hover {
   color: #2fe2bf;
 }
-#mobile-nav-menu .widget-blog-nav,
-#mobile-nav-menu .widget-tags-cloud {
+
+/* on mobile menu */
+#mobile-menu .widget-blog-nav,
+#mobile-menu .widget-tags-cloud {
   border-bottom: 2px solid #1abc9c;
 }
-#mobile-nav-menu .widget-blog-nav .menu-item > a {
+#mobile-menu .widget-blog-nav .menu-item > a {
   padding: 4px 20px;
 }
 
@@ -843,7 +812,8 @@ body.color-red {
   border-radius: 50%;
   overflow: hidden;
 }
-/* scocial icos: 32x32 */
+
+/* scocial icos */
 .widget-follow-me .ico {
   display: block;
   width: 35px;
@@ -877,16 +847,22 @@ body.color-red {
 }
 
 /*================================================
- * #mobile-navigation
+ * #mobile-nav
  *===============================================*/
-#mobile-nav-bar {
+#mobile-nav {
+  display: none;
+  position: absolute;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
   background: #2c3e50;
   color: #ecf0f1;
 }
-#mobile-nav-bar > .wrap {
+#mobile-nav > .wrap {
   padding: 0 56px;
 }
-#mobile-nav-bar .title {
+#mobile-nav > .wrap > .title {
   width: 100%;
   height: 56px;
   font-size: 24px;
@@ -895,28 +871,77 @@ body.color-red {
   white-space: nowrap;
   text-overflow: clip;
 }
-#mobile-nav-bar .nav-menu {
-  left: -56px;
-  margin-left: -100%;
-}
-#mobile-nav-bar .nav-search {
-  margin-right: -56px;
-}
-#mobile-nav-bar .btn {
+#mobile-nav > .wrap > a.btn {
   display: block;
   padding: 12px;
 }
-#mobile-nav-bar .btn:hover {
+#mobile-nav > .wrap > a.btn:hover {
   background-color: #34495e;
 }
-#mobile-nav-bar .ico {
+#mobile-nav > .wrap > a.btn-menu {
+  left: -56px;
+  margin-left: -100%;
+}
+#mobile-nav > .wrap > a.btn-search {
+  margin-right: -56px;
+}
+#mobile-nav a.btn > .ico {
   width: 32px;
   height: 32px;
 }
-#mobile-nav-bar .ico-menu {
-  background-image: url("../img/icos/nav-menu.png");
+#mobile-nav a.btn > .ico-menu {
+  background-image: url("../img/icos/btn-menu.png");
 }
-#mobile-nav-menu > .scroll-box {
+#mobile-nav a.btn > .ico-search {
+}
+
+@media (max-width: 959px) {
+  #mobile-nav {
+    display: block;
+  }
+}
+
+/*================================================
+ * #mobile-menu
+ *===============================================*/
+#mobile-menu {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#menu-mask {
+  opacity: .01;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  -webkit-transform: translateZ(0);
+     -moz-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
+     -moz-transition:    -moz-transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
+          transition:         transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+#menu-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  max-width: 280px;
+  height: 100%;
+  -webkit-transform: translateX(-280px);
+     -moz-transform: translateX(-280px);
+          transform: translateX(-280px);
+  -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
+     -moz-transition:    -moz-transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
+          transition:         transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+#menu-inner > .scroll-box {
   position: relative;
   left: 0;
   top: 0;
@@ -926,7 +951,8 @@ body.color-red {
   overflow-y: auto;
   overflow-x: hidden;
 }
-#mobile-nav-menu > .scroll-box > .wrap {
+#menu-inner > .scroll-box > .wrap {
   width: 100%;
   overflow-x: hidden;
 }
+

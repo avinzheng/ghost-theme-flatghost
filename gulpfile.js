@@ -1,11 +1,13 @@
-/*================================================
- * @description: 	Build and package
- * @author: 		  Avin Cheng
- *===============================================*/
-/*
- * Gulp with Plugins
- */
+/**----------------------------------------------
+ * @author: 		Avin Cheng
+ * @decription: Build and package for theme FlatGhost.
+ * ---------------------------------------------*/
 const gulp = require('gulp');
+
+
+/**----------------------------------------------
+ * @decription: Gulp Plugins
+ * ---------------------------------------------*/
 const rm = require('gulp-rimraf');
 const concat = require("gulp-concat");
 const sequence = require('gulp-sequence');
@@ -15,16 +17,16 @@ const processhtml = require('gulp-processhtml');
 const zip = require('gulp-zip');
 
 
-/*
- * Read Packages.json
- */
+/**----------------------------------------------
+ * @decription: Read Packages.json
+ * ---------------------------------------------*/
 const fs = require('fs');
 const config = JSON.parse(fs.readFileSync('./package.json'));
 
 
-/*
- * Pipe
- */
+/**----------------------------------------------
+ * @decription: Stream
+ * ---------------------------------------------*/
 // 文件复制
 gulp.task('copy', () => {
   return gulp.src([
@@ -96,9 +98,9 @@ gulp.task('zip', () => {
 });
 
 
-/*
- * Task
- */
+/**----------------------------------------------
+ * @decription: Final Tasks
+ * ---------------------------------------------*/
 // build
 gulp.task('build', sequence(['copy', 'sprite'], ['css', 'hbs'], 'clean:temp'));
 

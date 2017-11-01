@@ -1,8 +1,7 @@
 {{!-- Mobile Navigation: Only show on mobile (screen width < 640px) --}}
 
-<div id="mobile-nav-bar">
+<div id="mobile-nav">
   <div class="wrap clearfix">
-
     <div class="title fl">
 
       {{#is "index"}}
@@ -26,23 +25,28 @@
       {{/is}}
     </div>
 
-    <a id="open-mobile-nav" class="btn nav-menu fl" href="javascript:;">
+    <a id="show-mobile-menu" class="btn btn-menu fl" href="javascript:;">
       <div class="ico ico-menu"></div>
     </a>
 
-    <!--<a id="open-mobile-search" class="btn nav-search fl" href="javascript:;"></a>-->
+    {{!--<a id="show-mobile-search" class="btn btn-search fl" href="javascript:;">--}}
+      {{!--<div class="ico ico-search"></div>--}}
+    {{!--</a>--}}
   </div>
 </div>
 
-<div id="mask"></div>
+<div id="mobile-menu" class="clearfix">
 
-<div id="mobile-nav-menu" class="clearfix">
-  <div class="scroll-box fl">
-    <div class="wrap">
-      {{> "widget-blog-logo"}}
-      {{navigation}}
-      {{> "widget-tags-cloud"}}
-      {{> "widget-follow-me"}}
+  <div id="menu-mask"></div>
+
+  <div id="menu-inner">
+    <div class="scroll-box fl">
+      <div class="wrap">
+        {{> "widget-blog-logo"}}
+        {{navigation}}
+        {{> "widget-tags-cloud"}}
+        {{> "widget-follow-me"}}
+      </div>
     </div>
   </div>
 </div>
