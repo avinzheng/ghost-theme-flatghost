@@ -3,8 +3,8 @@
 
 
 acorn@^5.0.0:
-  version "5.1.2"
-  resolved "http://registry.npm.taobao.org/acorn/download/acorn-5.1.2.tgz#911cb53e036807cf0fa778dc5d370fbd864246d7"
+  version "5.2.1"
+  resolved "http://registry.npm.taobao.org/acorn/download/acorn-5.2.1.tgz#317ac7821826c22c702d66189ab8359675f135d7"
 
 ajv@^5.1.0:
   version "5.3.0"
@@ -177,8 +177,8 @@ camelcase@^1.0.2:
   resolved "http://registry.npm.taobao.org/camelcase/download/camelcase-1.2.1.tgz#9bb5304d2e0b56698b2c758b08a3eaa9daa58a39"
 
 caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000752"
-  resolved "http://registry.npm.taobao.org/caniuse-db/download/caniuse-db-1.0.30000752.tgz#daa129d54ce700e94ad14388bdef514ec1e2dd54"
+  version "1.0.30000756"
+  resolved "http://registry.npm.taobao.org/caniuse-db/download/caniuse-db-1.0.30000756.tgz#e938a6b991630f30d2263dd3458beb65d362268b"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -2022,7 +2022,7 @@ yargs@~3.10.0:
     window-size "0.1.0"
 
 yazl@^2.1.0:
-  version "2.4.2"
-  resolved "http://registry.npm.taobao.org/yazl/download/yazl-2.4.2.tgz#14cb19083e1e25a70092c1588aabe0f4e4dd4d88"
+  version "2.4.3"
+  resolved "http://registry.npm.taobao.org/yazl/download/yazl-2.4.3.tgz#ec26e5cc87d5601b9df8432dbdd3cd2e5173a071"
   dependencies:
     buffer-crc32 "~0.2.3"
