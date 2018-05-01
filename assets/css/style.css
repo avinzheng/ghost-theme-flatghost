@@ -1,7 +1,9 @@
 @charset "utf-8";
-/*================================================
- * common
- *===============================================*/
+/**
+ * @desc    Styles for Theme FlatGhost
+ * @author  Avin Cheng
+ * @license MIT
+ */
 body {
   position: relative;
   color: #2C3E50;
@@ -21,9 +23,9 @@ a {
   }
 }
 
-/*================================================
- * colorful
- *===============================================*/
+/**
+ * Color Styles
+ */
 /* color-turquoise */
 .color-turquoise a {
   color: #1ABC9C;
@@ -48,9 +50,9 @@ body.color-red {
 
 }
 
-/*================================================
- * .md
- *===============================================*/
+/**
+ * Markdown Styles
+ */
 .md h1 {
   margin: 25px 0 15px;
   border-bottom: 3px solid #ECF0F1;
@@ -171,9 +173,9 @@ body.color-red {
   margin-bottom: 0;
 }
 
-/*================================================
- * layout
- *===============================================*/
+/**
+ * Layout
+ */
 #wrap {
   position: relative;
   z-index: 1000;
@@ -226,9 +228,9 @@ body.color-red {
   }
 }
 
-/*================================================
- * #main-loop
- *===============================================*/
+/**
+ * Main
+ */
 #main-loop > .loop {
   position: relative;
   overflow: hidden;
@@ -368,17 +370,11 @@ body.color-red {
   }
 }
 
-/*================================================
- * #main-none
- *===============================================*/
 #main-none {
   padding: 30px;
   height: 250px;
 }
 
-/*================================================
- * #main-author
- *===============================================*/
 #main-author {
   position: relative;
   padding: 0 30px 30px 178px;
@@ -445,9 +441,9 @@ body.color-red {
   }
 }
 
-/*================================================
- * #pagination
- *===============================================*/
+/**
+ * Pagination
+ */
 #pagination {
   margin-bottom: 30px;
 }
@@ -484,9 +480,9 @@ body.color-red {
   }
 }
 
-/*================================================
- * #comments
- *===============================================*/
+/**
+ * Comments
+ */
 #comments .comments-box {
   padding: 30px;
 }
@@ -496,9 +492,9 @@ body.color-red {
   }
 }
 
-/*================================================
- * #footer
- *===============================================*/
+/**
+ * Footer
+ */
 #footer {
   margin-bottom: 10px;
   color: #95A5A6;
@@ -512,9 +508,9 @@ body.color-red {
   color: #bdc3c7;
 }
 
-/*================================================
- * #page-post
- *===============================================*/
+/**
+ * Posts
+ */
 /* also uesed in page */
 #main-content {
   padding-bottom: 30px;
@@ -644,9 +640,9 @@ body.color-red {
   }
 }
 
-/*================================================
- * .widget
- *===============================================*/
+/**
+ * Widgets
+ */
 .widget,
 .widget a {
   color: #ECF0F1;
@@ -670,9 +666,7 @@ body.color-red {
   display: none;
 }
 
-/*================================================
- * .widget-blog-logo
- *===============================================*/
+/* Blog Logo Widget */
 .widget-blog-logo {
   border-bottom: 2px solid #16A085;
   background: #2c3e50;
@@ -707,9 +701,7 @@ body.color-red {
   color: #FFFFFF;
 }
 
-/*================================================
- * .widget-blog-nav
- *===============================================*/
+/* Blog Navigation Widget */
 .widget-blog-nav > .menu-item {
   border-top: 2px solid #34495e;
 }
@@ -748,9 +740,7 @@ body.color-red {
   padding: 4px 20px;
 }
 
-/*================================================
- * .widget-featured-posts
- *===============================================*/
+/* Widget Featured Posts */
 .widget-featured-posts > .items {
   padding: 20px;
 }
@@ -763,9 +753,7 @@ body.color-red {
   border-top: 1px solid #34495e;
 }
 
-/*================================================
- * .widget-tags-cloud
- *===============================================*/
+/* Widget Tags Cloud */
 .widget-tags-cloud > .tags {
   padding: 20px 10px 10px 20px;
 }
@@ -783,23 +771,36 @@ body.color-red {
   text-decoration: none;
 }
 
-/*================================================
- * .widget-blog-stat
- *===============================================*/
+/* Blog Stat Widget */
 .widget-blog-stat > .items {
-  padding: 20px;
+  padding: 15px 20px 20px;
 }
-.widget-blog-stat > .items > .item {
+.widget-blog-stat .item {
   position: relative;
   display: inline;
   float: left;
-  width: 50%;
+  width: 33%;
   text-align: center;
+  color: #ecf0f1;
+}
+.widget-blog-stat .ico-stat {
+  display: block;
+  margin: 0 auto;
+  width: 32px;
+  height: 32px;
+  transform: scale(.5);
+}
+.widget-blog-stat .ico-stat-docs {
+  background-image: url("../img/icos/stat-docs.png");
+}
+.widget-blog-stat .ico-stat-tags {
+  background-image: url("../img/icos/stat-tags.png");
+}
+.widget-blog-stat .ico-stat-views {
+  background-image: url("../img/icos/stat-views.png");
 }
 
-/*================================================
- * .widget-follow-me
- *===============================================*/
+/* Follow Me Widget */
 .widget-follow-me > .items {
   padding: 20px 0 0 20px;
 }
@@ -845,9 +846,9 @@ body.color-red {
   background-image: url("../img/icos/social-twitter.png");
 }
 
-/*================================================
- * #mobile-nav
- *===============================================*/
+/**
+ * Mobile Navigation
+ */
 #mobile-nav {
   display: none;
   position: absolute;
@@ -900,9 +901,9 @@ body.color-red {
   }
 }
 
-/*================================================
- * #mobile-menu
- *===============================================*/
+/**
+ * Mobile Menu
+ */
 #mobile-menu {
   display: none;
   position: fixed;
@@ -920,12 +921,8 @@ body.color-red {
   width: 100%;
   height: 100%;
   background-color: #000000;
-  -webkit-transform: translateZ(0);
-     -moz-transform: translateZ(0);
-          transform: translateZ(0);
-  -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
-     -moz-transition:    -moz-transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
-          transition:         transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
+  transform: translateZ(0);
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 #menu-inner {
   position: absolute;
@@ -933,12 +930,8 @@ body.color-red {
   top: 0;
   max-width: 280px;
   height: 100%;
-  -webkit-transform: translateX(-280px);
-     -moz-transform: translateX(-280px);
-          transform: translateX(-280px);
-  -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
-     -moz-transition:    -moz-transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
-          transition:         transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
+  transform: translateX(-280px);
+  transition: transform 280ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 #menu-inner > .scroll-box {
   position: relative;

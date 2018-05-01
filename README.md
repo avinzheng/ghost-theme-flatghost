@@ -1,9 +1,7 @@
 # FlatGhost
-一个响应式设计的扁平化 ghost 博客主题，主题预览：[blog.imzhengfei.com](http://blog.imzhengfei.com)
+一个响应式设计的扁平化 ghost 博客主题，主题预览：[blog.imzhengfei.com](https://blog.imzhengfei.com)
 
-**仅支持 Ghost v1.x.x**
-
-
+**仅支持 Ghost v1.x**
 
 
 ## Installing
@@ -14,16 +12,12 @@
 
 
 
-
-
 ## Features
 
-*   扁平化响应式设计，移动设备采用安卓风格侧滑菜单；
+*   扁平化响应式设计，移动设备采用安卓风格侧滑菜单（仿 Ionic 2）；
 *   智能 SEO，自动给所有页面添加 `title`、`keywords`、`description`  标签；
 *   侧边栏多种小工具支持（推荐文章，标签云，博客统计等）；
-*   博客社会化链接图标拓展：github、知乎、豆瓣、微博、QQ 空间（需手动在主题文件中启用相关代码）。
-
-
+*   博客社会化链接图标拓展：github、知乎、豆瓣、微博、QQ 空间（需手动在主题文件中修改相关代码）。
 
 
 
@@ -38,8 +32,7 @@
 
 
 
-
-
 ## License
 
 MIT
+

@@ -8,17 +8,22 @@
     {{#if @labs.publicAPI}}
 
       <li class="item">
-        <span>文章</span>
+        <i class="ico-stat ico-stat-docs"></i>
         {{#get "posts" as |posts postsObj|}}
           <span>{{postsObj.total}}</span>
         {{/get}}
       </li>
 
       <li class="item">
-        <span>标签</span>
+        <i class="ico-stat ico-stat-tags"></i>
         {{#get "tags" as |tags tagsObj|}}
           <span>{{tagsObj.total}}</span>
         {{/get}}
+      </li>
+
+      <li class="item" id="">
+        <i class="ico-stat ico-stat-views"></i>
+        <span id="busuanzi_value_site_pv"></span>
       </li>
     {{else}}
       <li>请在博客后台"SETTINGS > Labs"底部勾选"Public API"</li>

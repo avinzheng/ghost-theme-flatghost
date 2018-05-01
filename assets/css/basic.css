@@ -1,8 +1,9 @@
 @charset "utf-8";
-/*================================================
- * @description: 	Base Styles
- * @author: 			Avin Cheng
- *===============================================*/
+/**
+ * @desc    Basic Styles
+ * @author  Avin Cheng
+ * @license MIT
+ */
 a:hover {
 	text-decoration: underline;
 }

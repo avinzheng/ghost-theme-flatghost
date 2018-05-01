@@ -61,7 +61,7 @@ gulp.task('sprite', () => {
 gulp.task('css:process', () => {
   return gulp.src([
     './assets/css/neat/neat.min.css',
-    './assets/css/base.css',
+    './assets/css/basic.css',
     './temp/assets/css/style.css'
   ])
     .pipe(autoprefixer({
