@@ -33,6 +33,6 @@ Desktop.ini
 .idea/
 
 ### Build & package
-build/
+dist/
 temp/
 *.zip

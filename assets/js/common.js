@@ -1,14 +1,14 @@
-/**----------------------------------------------
- * @author: 		Avin Cheng
- * @decription: Common JS for theme FlatGhost.
- * ---------------------------------------------*/
+/**
+ * @author  Avin Cheng
+ * @desc    Common JS for theme FlatGhost.
+ * @license MIT
+ */
 'use strict';
 
-/**----------------------------------------------
- * @decription: Mobile Menu
- * ---------------------------------------------*/
+/**
+ * Mobile Menu
+ */
 !function () {
-
   var btn = document.getElementById('show-mobile-menu'),
     menu = document.getElementById('mobile-menu'),
     mask = document.getElementById('menu-mask'),
@@ -23,7 +23,7 @@
       inner.style.webkitTransform = 'translateX(0)';
       inner.style.mozTransform = 'translateX(0)';
     }, 0);
-  }
+  };
 
   // hide menu
   mask.onclick = function () {
@@ -34,5 +34,5 @@
     setTimeout(function () {
       menu.style.display = 'none';
     }, 280);
-  }
+  };
 }();

@@ -1,7 +1,7 @@
 {
   "name": "flat-ghost",
   "description": "Just a flat style theme for Ghost.",
-  "demo": "http://blog.imzhengfei.com",
+  "demo": "https://blog.imzhengfei.com",
   "homepage": "https://github.com/imzhengfei/ghost-theme-flatghost",
   "version": "0.2.1",
   "engines": {
@@ -28,15 +28,16 @@
   },
   "author": {
     "name": "Avin Cheng",
-    "email": "imzhengfei@gmail.com",
-    "url": "http://www.imzhengfei.com"
+    "email": "me@imzhengfei.com",
+    "url": "https://imzhengfei.com"
   },
   "gpm": {
     "type": "theme",
     "categories": [
       "Minimal",
       "Flat UI",
-      "Personal Blogs"
+      "Personal Blogs",
+      "zh-CN"
     ]
   },
   "keywords": [
