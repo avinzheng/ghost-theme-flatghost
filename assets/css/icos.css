@@ -1,0 +1,89 @@
+@charset "utf-8";
+/** ----------------------------------------------------------------------------
+ * @desc    Icos, will be proceed via gulp
+ * @author  Avin Cheng
+ * @license MIT
+ ** --------------------------------------------------------------------------*/
+/**
+ * Icos for Post Meta
+ */
+.ico-meta {
+  width: 32px;
+  height: 32px;
+  transform: scale(.5);
+  transform-origin: 0 0;
+}
+.ico-meta.ico-meta-author {
+  background-image: url("../img/icos/meta-author.png");
+}
+.ico-meta.ico-meta-date {
+  background-image: url("../img/icos/meta-date.png");
+}
+.ico-meta.ico-meta-tags {
+  background-image: url("../img/icos/meta-tags.png");
+}
+.ico-meta.ico-meta-views {
+  background-image: url("../img/icos/meta-views.png");
+}
+.ico-meta.ico-meta-comments {
+  background-image: url("../img/icos/meta-comments.png");
+}
+
+/**
+ * Icos for Blog Stat Widget
+ */
+.ico-stat {
+  width: 32px;
+  height: 32px;
+  transform: scale(.5);
+  transform-origin: 0 0;
+}
+.ico-stat.ico-stat-docs {
+  background-image: url("../img/icos/stat-docs.png");
+}
+.ico-stat.ico-stat-tags {
+  background-image: url("../img/icos/stat-tags.png");
+}
+.ico-stat.ico-stat-views {
+  background-image: url("../img/icos/stat-views.png");
+}
+
+/**
+ * Icos for Follow Me Widget
+ */
+.ico-social {
+  width: 48px;
+  height: 48px;
+  transform: scale(.5);
+  transform-origin: 0 0;
+}
+.ico-social.ico-social-github {
+  background-image: url("../img/icos/social-github.png");
+}
+.ico-social.ico-social-zhihu {
+  background-image: url("../img/icos/social-zhihu.png");
+}
+.ico-social.ico-social-weibo {
+  background-image: url("../img/icos/social-weibo.png");
+}
+.ico-social.ico-social-facebook {
+  background-image: url("../img/icos/social-facebook.png");
+}
+.ico-social.ico-social-twitter {
+  background-image: url("../img/icos/social-twitter.png");
+}
+
+/**
+ * Icos for Btns on Mobile
+ */
+.ico-btn {
+  width: 64px;
+  height: 64px;
+  transform: scale(.5);
+  transform-origin: 0 0;
+}
+.ico-btn.ico-btn-menu {
+  background-image: url("../img/icos/btn-menu.png");
+}
+.ico-btn.ico-btn-search {
+}

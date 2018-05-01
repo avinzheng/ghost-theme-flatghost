@@ -19,23 +19,24 @@
 
       <ul class="post-meta">
         <li>
-          <div class="ico ico-author"></div>
+          <div class="ico-meta ico-meta-author"></div>
           {{author}}
         </li>
+
         <li>
-          <div class="ico ico-date"></div>
+          <div class="ico-meta ico-meta-date"></div>
           <span>{{date published_at format="YYYY-MM-DD"}}</span>
         </li>
 
-        <!--<li>-->
-        <!--<div class="ico ico-comments"></div>-->
-        <!--<span>评论数</span>-->
-        <!--</li>-->
+        <li>
+          <div class="ico-meta ico-meta-views"></div>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
 
         {{!-- Hide on mobile (screen width < 640px) --}}
         <li class="mobile-hide">
           {{#if tags}}
-            <div class="ico ico-tags"></div>
+            <div class="ico-meta ico-meta-tags"></div>
             {{tags}}
           {{/if}}
         </li>
@@ -45,24 +46,15 @@
         {{content}}
       </div>
 
-      {{!-- Show on mobile (screen width < 640px) --}}
-      <ul class="post-meta mobile-show">
-        {{#if tags}}
-          <li>
-            <div class="ico ico-tags"></div>
-            {{tags}}
-          </li>
-        {{/if}}
-      </ul>
-
       <div class="copyright">
         <p>
           <em>版权声明：</em>
           <span>本作品采用</span>
           <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
              target="_blank"
-             rel="nofollow">《署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)》</a>
-          <span>进行许可，共享或演绎请注明本文作者：{{author}}。</span>
+             title="《署名-非商业性使用-相同方式共享 4.0 国际》"
+             rel="nofollow">《CC BY-NC-SA 4.0》</a>
+          <span>协议进行许可，共享或演绎请注明本文作者：{{author}}。</span>
         </p>
       </div>
     </div>
@@ -70,7 +62,6 @@
     <!-- Link to Previous/Next post -->
     <div id="prev-next-link" class="main-card">
       <ul class="items">
-
         <li class="item prev">
           {{#prev_post}}
             <div class="arrow-left"></div>

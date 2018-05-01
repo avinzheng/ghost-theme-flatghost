@@ -3,7 +3,7 @@
 <ul id="main-loop">
 
   {{#foreach posts}}
-    <li class="loop main-card {{post_class}}">
+    <li class="main-card {{post_class}}">
 
       {{#if feature_image}}
         <a class="img-box" href="{{url}}" title="{{title}}">
@@ -22,23 +22,21 @@
 
       <ul class="post-meta">
         <li>
-          <div class="ico ico-author"></div>
+          <div class="ico-meta ico-meta-author"></div>
           {{author}}
         </li>
+
         <li>
-          <div class="ico ico-date"></div>
-          <span>{{date published_at format="YYYY-MM-DD"}}</span>
+          <div class="ico-meta ico-meta-date"></div>
+          <span>{{date updated_at format="YYYY-MM-DD"}}</span>
         </li>
+
         {{#if tags}}
           <li>
-            <div class="ico ico-tags"></div>
+            <div class="ico-meta ico-meta-tags"></div>
             {{tags}}
           </li>
         {{/if}}
-        <!--<li>-->
-        <!--<div class="ico ico-comments"></div>-->
-        <!--<span>评论数</span>-->
-        <!--</li>-->
       </ul>
 
       <div class="excerpt">

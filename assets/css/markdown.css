@@ -1,0 +1,131 @@
+@charset "utf-8";
+/** ----------------------------------------------------------------------------
+ * @desc    Styles for markdown
+ * @author  Avin Cheng
+ * @license MIT
+ ** --------------------------------------------------------------------------*/
+.md h1 {
+  margin: 25px 0 15px;
+  border-bottom: 2px solid #ECF0F1;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 2.2;
+}
+.md h2 {
+  margin: 20px 0 15px;
+  border-bottom: 1px solid #ECF0F1;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 2.2;
+}
+.md h3 {
+  margin: 15px 0;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 2;
+}
+.md h4 {
+  margin: 15px 0;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.8;
+}
+.md h5 {
+  margin: 15px 0;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.8;
+}
+
+.md p,
+.md ul,
+.md ol,
+.md pre,
+.md img,
+.md blockquote {
+  margin: 15px 0;
+}
+
+.md code {
+  padding: 2px 6px;
+  background-color: #ECF0F1;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+.md pre {
+  padding: 10px 15px;
+  background: #ECF0F1;
+  overflow: auto;
+}
+.md pre code {
+  border: 0 none;
+  padding: 0;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.md ul,
+.md ol {
+  padding-left: 2em;
+}
+.md ul {
+  list-style-type: disc;
+}
+.md ol {
+  list-style-type: decimal;
+}
+
+.md img {
+  display: block;
+  max-width: 100%;
+}
+
+.md blockquote {
+  border-left: 4px solid #BDC3C7;
+  padding: 0 15px;
+  color: #7F8C8D;
+}
+.md blockquote blockquote {
+  padding-right: 0;
+}
+
+.md table {
+  margin: 15px 0;
+  min-width: 100%;
+  padding: 0;
+  word-break: initial;
+}
+.md table p {
+  margin: 0;
+}
+.md table tr {
+  border-top: 1px solid #BDC3C7;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+.md table thead tr,
+.md table tbody tr:nth-child(2n) {
+  background-color: #ECF0F1;
+}
+.md table tr th {
+  font-weight: bold;
+  border: 1px solid #BDC3C7;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+.md table tr td {
+  border: 1px solid #BDC3C7;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+.md table tr th:first-child,
+.md table tr td:first-child {
+  margin-top: 0;
+}
+.md table tr th:last-child,
+.md table tr td:last-child {
+  margin-bottom: 0;
+}
