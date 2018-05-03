@@ -141,11 +141,14 @@
 /**
  * Fix Widgets on Mobile Device
  */
+#mobile-nav-menu .widget > .title {
+  display: none;
+}
 #mobile-menu .widget-blog-nav,
 #mobile-menu .widget-tags-cloud {
   border-bottom: 2px solid #1abc9c;
 }
-#mobile-menu .widget-blog-nav .menu-item > a {
+#mobile-menu #nav .menu-item > a {
   padding: 4px 20px;
 }
 

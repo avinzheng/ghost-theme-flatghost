@@ -1,10 +1,10 @@
-{{!-- Widget: Main navigation --}}
+{{!-- Blog Navigation --}}
 
-<ul class="widget-blog-nav widget" role="menubar">
+<ul id="nav" role="menu">
   {{#if @blog.navigation}}
     {{#foreach navigation}}
-      <li class="menu-item {{#if current}}menu-current{{/if}}" role="menuitem">
-        <a href="{{url absolute="true"}}">{{label}}</a>
+      <li class="nav-item {{#if current}}nav-current{{/if}}">
+        <a href="{{url absolute="true"}}" role="menuitem">{{label}}</a>
       </li>
     {{/foreach}}
   {{/if}}

@@ -1,0 +1,16 @@
+{{!-- Logo --}}
+
+<div id="logo">
+  {{#if @blog.logo}}
+    <a href="{{@blog.url}}">
+      <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+    </a>
+  {{else}}
+    <a href="{{@blog.url}}">
+      <div class="title">{{@blog.title}}</div>
+      {{#if @blog.description}}
+        <div class="des">{{@blog.description}}</div>
+      {{/if}}
+    </a>
+  {{/if}}
+</div>

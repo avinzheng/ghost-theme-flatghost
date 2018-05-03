@@ -1,9 +1,7 @@
 {{!-- Widget: Tags Cloud --}}
 
-<div class="widget-tags-cloud widget">
-
-  <div class="title">标签</div>
-
+<div class="widget widget-tags-cloud">
+  <div class="widget-title">标签</div>
   <ul class="tags clearfix">
     {{#if @labs.publicAPI}}
       {{#get "tags" limit="20" include="count.posts" order="count.posts desc"}}

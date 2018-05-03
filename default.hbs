@@ -12,7 +12,7 @@
   <!-- WebApp -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="WebAppName">
+  <meta name="apple-mobile-web-app-title" content="Blog">
   <meta name="x5-orientation" content="portrait">
   <meta name="x5-fullscreen" content="true">
   <meta name="x5-page-mode" content="app">
@@ -60,9 +60,7 @@
       {{{body}}}
 
       <div id="footer">
-
         <div class="clearfix">
-
           <div class="fl">
             <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
             <span>&copy;&nbsp;{{date format="YYYY"}}</span>
@@ -86,8 +84,7 @@
 
   <!-- Widgets -->
   <div id="sidebar" class="fl">
-    {{> "widget-blog-logo"}}
-    {{navigation}}
+    {{> "widget-blog-nav"}}
     {{> "widget-featured-posts"}}
     {{> "widget-tags-cloud"}}
     {{> "widget-blog-stat"}}
@@ -96,7 +93,7 @@
 </div>
 
 <!-- Mobile Navigation -->
-{{> "mobile-navigation"}}
+{{> "mobile-nav"}}
 
 <!-- JS -->
 <script src="{{asset "js/common.js"}}"></script>

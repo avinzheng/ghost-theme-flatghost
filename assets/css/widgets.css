@@ -5,9 +5,13 @@
  * @license MIT
  ** --------------------------------------------------------------------------*/
 /**
- * Widgets Common
+ * Widgets Common Styles
  */
-.widget,
+.widget {
+  margin-bottom: 20px;
+  background: #2c3e50;
+  color: #ECF0F1;
+}
 .widget a {
   color: #ECF0F1;
 }
@@ -15,68 +19,59 @@
   color: #2fe2bf;
   text-decoration: none;
 }
-.widget > .title {
+.widget > .widget-title {
   border-bottom: 2px solid #16A085;
   padding: 10px 20px;
   color: #95a5a6;
   font-size: 16px;
 }
-#sidebar .widget {
-  margin-bottom: 20px;
-  background: #2c3e50;
-}
-/* hide title on mobile */
-#mobile-nav-menu .widget > .title {
-  display: none;
-}
 
 /**
- * Blog Logo Widget
+ * Blog Navigation Widget
  */
-.widget-blog-logo {
-  border-bottom: 2px solid #16A085;
-  background: #2c3e50;
-}
-.widget-blog-logo > .logo,
-.widget-blog-logo > .logo > img {
+/* Logo */
+#logo > a {
   display: block;
   width: 100%;
+  text-align: center;
 }
-.widget-blog-logo > .logo:hover,
-.widget-blog-logo > .blog-title:hover {
+#logo > a:hover {
   background: #34495e;
   text-decoration: none;
 }
-.widget-blog-logo > .blog-title {
+#logo > a > img {
   display: block;
-  padding: 35px 0 25px;
-  text-align: center;
+  width: 100%;
 }
-.widget-blog-logo > .blog-title > h1 {
+#logo .title {
+  padding-top: 35px;
   font-size: 28px;
   color: #ECF0F1;
   line-height: 1;
   letter-spacing: 0.2em;
 }
-.widget-blog-logo > .blog-title > .des {
+#logo > a:hover > .title {
+  color: #FFFFFF;
+}
+#logo .des {
+  padding-bottom: 25px;
   color: #95a5a6;
   font-style: italic;
   text-decoration: none;
 }
-.widget-blog-logo > .blog-title:hover > h1 {
-  color: #FFFFFF;
-}
 
-/**
- * Blog Navigation Widget
- */
-.widget-blog-nav > .menu-item {
+/* Navigation */
+#nav {
+  border-top: 2px solid #16A085;
+  background: #2c3e50;
+}
+#nav > .nav-item {
   border-top: 2px solid #34495e;
 }
-.widget-blog-nav > .menu-item:first-child {
+#nav > .nav-item:first-child {
   border-top: 0 none;
 }
-.widget-blog-nav > .menu-item > a {
+#nav > .nav-item > a {
   display: block;
   padding: 0 20px;
   height: 44px;
@@ -88,14 +83,14 @@
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.widget-blog-nav > .menu-item > a:hover,
-.widget-blog-nav > .menu-current > a {
+#nav > .nav-item > a:hover,
+#nav > .nav-current > a {
   background: #34495e;
 }
-.widget-blog-nav > .menu-current > a {
+#nav > .nav-current > a {
   color: #1abc9c;
 }
-.widget-blog-nav > .menu-current > a:hover {
+#nav > .nav-current > a:hover {
   color: #2fe2bf;
 }
 
