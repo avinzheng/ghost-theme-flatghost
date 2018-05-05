@@ -1,14 +1,27 @@
-{{!-- Widget: Follow Me --}}
+{{!-- Blog Info Widget --}}
 
-<div class="widget widget-follow-me">
-  <div class="widget-title">关注我</div>
-  <ul class="clearfix">
+<div class="widget widget-blog-info">
+  <a class="icon" href="{{@blog.url}}">
+    {{#if @blog.icon}}
+      <img src="{{@blog.icon}}" alt="{{@blog.title}}">
+    {{else}}
+      <img src="{{asset 'img/avatars/default-blog-avatar.png'}}" alt="{{@blog.title}}">
+    {{/if}}
+  </a>
+
+  <a class="title" href="{{@blog.url}}">{{@blog.title}}</a>
+
+  {{#if @blog.description}}
+    <div class="des">{{@blog.description}}</div>
+  {{/if}}
+
+  <ul class="social">
     <li>
-      <a href="https://github.com/imzhengfei"
+      <a href="https://github.com/imzhengfei/ghost-theme-flatghost"
          title="GitHub"
          target="_blank"
          rel="nofollow">
-        <i class="ico-social ico-social-github"></i>
+        <i class="icon-social icon-social-github"></i>
       </a>
     </li>
 
@@ -17,7 +30,7 @@
          <!--title="知乎"-->
          <!--target="_blank"-->
          <!--rel="nofollow">-->
-        <!--<i class="ico-social ico-social-zhihu"></i>-->
+        <!--<i class="icon-social icon-social-zhihu"></i>-->
       <!--</a>-->
     <!--</li>-->
 
@@ -26,7 +39,7 @@
          <!--title="新浪微博"-->
          <!--target="_blank"-->
          <!--rel="nofollow">-->
-        <!--<i class="ico-social ico-social-weibo"></i>-->
+        <!--<i class="icon-social icon-social-weibo"></i>-->
       <!--</a>-->
     <!--</li>-->
 
@@ -36,7 +49,7 @@
            title="FaceBook"
            target="_blank"
            rel="nofollow">
-          <i class="ico-social ico-social-facebook"></i>
+          <i class="icon-social icon-social-facebook"></i>
         </a>
       </li>
     {{/if}}
@@ -47,7 +60,7 @@
            title="Twitter"
            target="_blank"
            rel="nofollow">
-          <i class="ico-social ico-social-twitter"></i>
+          <i class="icon-social icon-social-twitter"></i>
         </a>
       </li>
     {{/if}}

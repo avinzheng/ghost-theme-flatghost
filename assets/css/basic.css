@@ -4,6 +4,9 @@
  * @author  Avin Cheng
  * @license MIT
  ** --------------------------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+}
 a:hover {
 	text-decoration: underline;
 }

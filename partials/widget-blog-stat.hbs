@@ -1,29 +1,22 @@
 {{!-- Widget: Blog Stat --}}
 
 <div class="widget widget-blog-stat">
-
   <div class="widget-title">统计</div>
 
-  <ul class="items clearfix">
+  <ul class="clearfix">
     {{#if @labs.publicAPI}}
-
-      <li class="item">
-        <i class="ico-stat ico-stat-docs"></i>
-        {{#get "posts" as |posts postsObj|}}
+      <li>
+        <i class="icon-stat icon-stat-docs"></i>
+        {{#get 'posts' as |posts postsObj|}}
           <span>{{postsObj.total}}</span>
         {{/get}}
       </li>
 
-      <li class="item">
-        <i class="ico-stat ico-stat-tags"></i>
-        {{#get "tags" as |tags tagsObj|}}
+      <li>
+        <i class="icon-stat icon-stat-tags"></i>
+        {{#get 'tags' as |tags tagsObj|}}
           <span>{{tagsObj.total}}</span>
         {{/get}}
-      </li>
-
-      <li class="item" id="">
-        <i class="ico-stat ico-stat-views"></i>
-        <span id="busuanzi_value_site_pv"></span>
       </li>
     {{else}}
       <li>请在博客后台"SETTINGS > Labs"底部勾选"Public API"</li>
