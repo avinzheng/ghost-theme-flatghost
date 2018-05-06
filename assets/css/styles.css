@@ -7,14 +7,20 @@
 /**
  * Basic Layout
  */
-.wrap {
+.page-wrap {
   margin: 0 auto;
   padding: 0 30px;
   width: 88%;
-  max-width: 1360px;
-  min-width: 980px;
+  min-width: 320px;
+  max-width: 1200px;
 }
+
+#header,
+#mobile-header{
+   z-index: 2000;
+ }
 #main-wrap {
+  z-index: 1000;
   width: 100%;
 }
 #main {
@@ -25,6 +31,9 @@
   margin-left: -100%;
   margin-top: 20px;
   width: 240px;
+}
+#mobile-nav {
+  z-index: 5000;
 }
 
 /**
@@ -40,42 +49,42 @@ body {
  * Header
  */
 #header {
+  position: relative;
   background-color: #2C3E50;
   font-size: 0;
   line-height: 0;
 }
-#header > .wrap > a {
+
+/* Logo & Title */
+#header > .page-wrap > a {
   display: inline-block;
   vertical-align: top;
   margin-right: 20px;
   min-width: 240px;
-  line-height: 50px;
+  line-height: 56px;
 }
-
-#header > .wrap > a.logo:hover {
+#header > .page-wrap > a.logo:hover {
   background-color: #34495e;
 }
-#header > .wrap img {
+#header > .page-wrap img {
   display: block;
   width: 240px;
-  height: 50px;
+  height: 56px;
 }
-
-#header > .wrap > a.title {
+#header > .page-wrap > a.title {
   background-color: #16A085;
   color: #FFFFFF;
   font-size: 22px;
   text-align: center;
   letter-spacing: 2px;
 }
-#header > .wrap > a.title:hover {
+#header > .page-wrap > a.title:hover {
   background-color: #1abc9c;
   text-decoration: none;
 }
 
 /* Navigation */
-ul#nav,
-ul#nav > li {
+ul#nav, ul#nav > li {
   display: inline-block;
   vertical-align: top;
 }
@@ -83,9 +92,9 @@ ul#nav > li > a {
   display: inline-block;
   vertical-align: top;
   padding: 0 20px;
-  color: #ECF0F1;
+  color: #FFFFFF;
   font-size: 16px;
-  line-height: 50px;
+  line-height: 56px;
   white-space: nowrap;
   text-overflow: clip;
   letter-spacing: 2px;

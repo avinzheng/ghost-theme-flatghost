@@ -1,20 +1,20 @@
-/**
+/** ----------------------------------------------------------------------------
+ * @desc    Common JS for theme FlatGhost
  * @author  Avin Cheng
- * @desc    Common JS for theme FlatGhost.
  * @license MIT
- */
+ ** --------------------------------------------------------------------------*/
 'use strict';
 
 /**
  * Mobile Menu
  */
 !function () {
-  var btn = document.getElementById('show-mobile-menu'),
-    menu = document.getElementById('mobile-menu'),
-    mask = document.getElementById('menu-mask'),
-    inner = document.getElementById('menu-inner');
+  var btn = document.getElementById('show-mobile-nav'),
+    menu = document.getElementById('mobile-nav'),
+    mask = document.getElementById('mobile-nav-mask'),
+    inner = document.getElementById('mobile-nav-inner');
 
-  // show menu
+  // show nav
   btn.onclick = function () {
     menu.style.display = 'block';
     setTimeout(function () {
@@ -25,7 +25,7 @@
     }, 0);
   };
 
-  // hide menu
+  // hide nav
   mask.onclick = function () {
     mask.style.opacity = .01;
     inner.style.transform = 'translateX(-280px)';

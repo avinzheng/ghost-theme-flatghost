@@ -4,21 +4,11 @@
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
   <meta name="format-detection" content="telephone=no">
   <meta name="format-detection" content="email=no">
   <meta http-equiv="Cache-Control" content="no-siteapp">
-
-  <!-- WebApp -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Blog">
-  <meta name="x5-orientation" content="portrait">
-  <meta name="x5-fullscreen" content="true">
-  <meta name="x5-page-mode" content="app">
-  <meta name="screen-orientation" content="portrait">
-  <meta name="full-screen" content="yes">
-  <meta name="browsermode" content="application">
 
   <!-- SEO -->
   <title>{{meta_title}}</title>
@@ -36,7 +26,8 @@
   <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
 
   <!-- CSS -->
-  <!-- build:replace '<link rel="stylesheet" href="{{asset "css/style.css"}}" >' -->
+  <!-- build:replace '<link rel="stylesheet" href="{{asset
+    "css/style.css"}}" >' -->
   <link rel="stylesheet" href="{{asset "css/neat/neat.css"}}">
   <link rel="stylesheet" href="{{asset "css/global.css"}}">
   <link rel="stylesheet" href="{{asset "css/styles.css"}}">
@@ -47,10 +38,12 @@
   {{ghost_head}}
 </head>
 <body class="color-turquoise {{body_class}}"
-      {{#if @blog.cover_image}}style="background-image: url({{@blog.cover_image}})"{{/if}}>
+{{#if @blog.cover_image}}
+      style="background-image: url({{@blog.cover_image}})"
+{{/if}}>
 {{> 'header'}}
 
-<div class="wrap clearfix">
+<div class="page-wrap clearfix">
   <div id="main-wrap" class="fl">
     <div id="main">
       {{!-- includes: "index.hbs|post.hbs|tag.hbs|..."  --}}
@@ -68,6 +61,7 @@
   </div>
 </div>
 
+{{> 'mobile-header'}}
 {{> 'mobile-nav'}}
 
 <!-- JS -->

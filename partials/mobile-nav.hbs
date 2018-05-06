@@ -1,47 +1,25 @@
-{{!-- Mobile Navigation: Only show on mobile (screen width < 640px) --}}
+{{!-- Mobile Header: Only show on mobile (screen width < 640px) --}}
 
 <div id="mobile-nav">
-  <div class="wrap clearfix">
-    <div class="title fl">
+  <div id="mobile-nav-mask"></div>
 
-      {{#is "index"}}
-        {{@blog.title}}
-      {{/is}}
-
-      {{#is "post"}}
-        文章
-      {{/is}}
-
-      {{#is "page"}}
-        {{#post}}{{title}}{{/post}}
-      {{/is}}
-
-      {{#is "tag"}}
-        {{#tag}}{{name}}{{/tag}}
-      {{/is}}
-
-      {{#is "author"}}
-        {{#author}}{{name}}{{/author}}
-      {{/is}}
-    </div>
-
-    <a id="show-mobile-menu" class="btn-menu fl" href="javascript:;">
-      <i class="ico-btn ico-btn-menu"></i>
-    </a>
-
-    {{!--<a id="show-mobile-search" class="btn-search fl" href="javascript:;">--}}
-      {{!--<i class="ico-btn ico-btn-search"></i>--}}
-    {{!--</a>--}}
-  </div>
-</div>
-
-<div id="mobile-menu" class="clearfix">
-  <div id="menu-mask"></div>
-  <div id="menu-inner">
+  <div id="mobile-nav-inner" class="clearfix">
     <div class="scroll-box fl">
       <div class="wrap">
+        <a class="logo" href="{{@blog.url}}" title="{{@blog.description}}">
+          {{#if @blog.logo}}
+            <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+          {{else}}
+            <div class="title">{{@blog.title}}</div>
+            {{#if @blog.description}}
+              <div class="des">{{@blog.description}}</div>
+            {{/if}}
+          {{/if}}
+        </a>
+
         {{navigation}}
-        {{> "widget-tags-cloud"}}
+
+        {{> 'widget-blog-follow'}}
       </div>
     </div>
   </div>
