@@ -8,7 +8,7 @@
  * - 959px
  */
 @media (max-width: 959px) {
-  #wrap {
+  .wrap {
     min-width: 320px;
   }
   #main {
@@ -32,7 +32,7 @@
  * 640px - 767px
  */
 @media (min-width: 640px) and (max-width: 767px) {
-  #wrap {
+  .wrap {
     width: 600px;
   }
 }
@@ -41,7 +41,40 @@
  * - 639px
  */
 @media (max-width: 639px) {
-  #wrap {
+  #nav {
+    border-top: 2px solid #16A085;
+    background: #2c3e50;
+  }
+  #nav > .nav-item {
+    border-top: 2px solid #34495e;
+  }
+  #nav > .nav-item:first-child {
+    border-top: 0 none;
+  }
+  #nav > .nav-item > a {
+    display: block;
+    padding: 0 20px;
+    height: 44px;
+    font-size: 16px;
+    line-height: 44px;
+    white-space: nowrap;
+    text-overflow: clip;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  #nav > .nav-item > a:hover,
+  #nav > .nav-current > a {
+    background: #34495e;
+  }
+  #nav > .nav-current > a {
+    color: #1abc9c;
+  }
+  #nav > .nav-current > a:hover {
+    color: #2fe2bf;
+  }
+
+  .wrap {
     width: 100%;
     max-width: 600px;
   }

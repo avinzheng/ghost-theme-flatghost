@@ -1,19 +1,7 @@
 {{!-- Blog Info Widget --}}
 
-<div class="widget widget-blog-info">
-  <a class="icon" href="{{@blog.url}}">
-    {{#if @blog.icon}}
-      <img src="{{@blog.icon}}" alt="{{@blog.title}}">
-    {{else}}
-      <img src="{{asset 'img/avatars/default-blog-avatar.png'}}" alt="{{@blog.title}}">
-    {{/if}}
-  </a>
-
-  <a class="title" href="{{@blog.url}}">{{@blog.title}}</a>
-
-  {{#if @blog.description}}
-    <div class="des">{{@blog.description}}</div>
-  {{/if}}
+<div class="widget widget-blog-follow">
+  <div class="widget-title">关注</div>
 
   <ul class="social">
     <li>

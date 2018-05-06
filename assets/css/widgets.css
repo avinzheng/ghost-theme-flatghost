@@ -27,85 +27,6 @@
 }
 
 /**
- * Blog Info Widget
- */
-.widget-blog-info {
-  padding-top: 40px;
-  text-align: center;
-}
-
-.widget-blog-info > .icon {
-  display: block;
-  margin: 0 auto;
-  padding: 3px;
-  width: 134px;
-  height: 134px;
-  border-radius: 50%;
-  background-color: #ecf0f1;
-}
-.widget-blog-info > .icon:hover {
-  background-color: #FFFFFF;
-  transform: scale(1.02);
-}
-.widget-blog-info > .icon > img {
-  display: block;
-  width: 100%;
-  border-radius: 50%;
-}
-
-.widget-blog-info > .title {
-  display: inline-block;
-  margin: 20px 10px 0;
-  font-size: 20px;
-  letter-spacing: 2px;
-  white-space: nowrap;
-}
-.widget-blog-info > .title:hover {
-  color: #FFFFFF;
-  transform: scale(1.02);
-}
-
-.widget-blog-info > .des {
-  padding: 0 20px;
-  color: #95A5A6;
-  text-align: center;
-  font-style: italic;
-  font-size: 14px;
-}
-
-.widget-blog-info > .social {
-  margin-top: 15px;
-  padding: 20px 20px;
-  border-top: 2px solid #16A085;
-  text-align: center;
-  font-size: 0;
-}
-.widget-blog-info > .social > li {
-  display: inline-block;
-  margin-right: 10px;
-  border-radius: 50%;
-}
-.widget-blog-info > .social > li:last-child {
-  margin-right: 0;
-}
-.widget-blog-info > .social a {
-  display: block;
-  border-radius: 50%;
-  padding: 6px;
-  width: 32px;
-  height: 32px;
-  background-color: #34495e;
-}
-.widget-blog-info > .social a:hover {
-  background-color: #2fe2bf;
-}
-.widget-blog-info > .social .icon-social {
-  display: block;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-/**
  * Featured Posts Widget
  */
 .widget-featured-posts > .items {
@@ -166,4 +87,36 @@
   vertical-align: top;
   line-height: 16px;
   font-size: 14px;
+}
+
+/**
+ * Blog Follow Widget
+ */
+.widget-blog-follow > .social {
+  padding: 20px 20px;
+  font-size: 0;
+}
+.widget-blog-follow > .social > li {
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.widget-blog-follow > .social > li:last-child {
+  margin-right: 0;
+}
+.widget-blog-follow > .social a {
+  display: block;
+  border-radius: 50%;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  background-color: #34495e;
+}
+.widget-blog-follow > .social a:hover {
+  background-color: #2fe2bf;
+}
+.widget-blog-follow > .social .icon-social {
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
 }
