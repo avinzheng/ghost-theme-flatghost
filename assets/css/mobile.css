@@ -192,7 +192,7 @@
   }
 }
 @media (max-width: 639px) {
-  .post-meta {
+  .mobile-hide {
     display: none;
   }
 }
@@ -274,10 +274,7 @@
     margin: 0 20px;
     padding: 10px 20px;
   }
-  #main-content > .post-meta > .mobile-hide {
-    display: none;
-  }
-  #main-content > .content {
+  #content {
     padding: 0 20px 10px;
   }
   #main-content > .copyright {

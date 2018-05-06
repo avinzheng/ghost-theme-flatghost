@@ -17,10 +17,14 @@
 
 #header,
 #mobile-header{
+  position: relative;
    z-index: 2000;
  }
-#main-wrap {
+#container {
+  position: relative;
   z-index: 1000;
+}
+#main-wrap {
   width: 100%;
 }
 #main {
@@ -33,6 +37,7 @@
   width: 240px;
 }
 #mobile-nav {
+  position: fixed;
   z-index: 5000;
 }
 
@@ -320,7 +325,7 @@ ul#nav > li.current > a:hover {
   font-weight: bold;
   line-height: 1.5;
 }
-#main-content > .content {
+#content {
   padding: 0 30px 10px;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -32,7 +32,7 @@ Desktop.ini
 ### JetBrains
 .idea/
 
-### Build & package
+### Build & Package
 dist/
 temp/
 *.zip
