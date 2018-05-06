@@ -4,45 +4,8 @@
  * @author  Avin Cheng
  * @license MIT
  ** --------------------------------------------------------------------------*/
-body {
-  position: relative;
-  color: #2C3E50;
-  background: #ECF0F1 no-repeat fixed top center;
-  background-size: cover;
-}
-a {
-  transition: all .15s linear;
-}
-
 /**
- * Color Styles
- */
-/* color-turquoise */
-.color-turquoise a {
-  color: #1ABC9C;
-}
-.color-turquoise a:hover {
-  color: #2fe2bf;
-}
-/* color-green */
-body.color-green {
-
-}
-/* color-blue */
-body.color-blue {
-
-}
-/* color-purple */
-body.color-purple {
-
-}
-/* color-red */
-body.color-red {
-
-}
-
-/**
- * Layout
+ * Basic Layout
  */
 .wrap {
   margin: 0 auto;
@@ -62,6 +25,15 @@ body.color-red {
   margin-left: -100%;
   margin-top: 30px;
   width: 240px;
+}
+
+/**
+ * Body
+ */
+body {
+  color: #2C3E50;
+  background: #ECF0F1 no-repeat fixed top center;
+  background-size: cover;
 }
 
 /**
