@@ -2,93 +2,81 @@
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
 {{#post}}
-  <div id="page-post">
+<div id="page-post">
+  <div id="main-content" class="main-card {{post_class}}" role="main">
+    {{#if feature_image}}
+      <img src="{{img_url feature_image}}" alt="{{title}}">
+    {{/if}}
 
-    <div id="main-content" class="main-card {{post_class}}" role="main">
-
-      {{#if feature_image}}
-        <img src="{{img_url feature_image}}" alt="{{title}} - {{@blog.title}}">
+    <div class="title">
+      {{#if featured}}
+        <div class="feature-ico"></div>
       {{/if}}
-
-      <div class="title">
-        {{#if featured}}
-          <div class="feature-ico"></div>
-        {{/if}}
-        <h1>{{title}}</h1>
-      </div>
-
-      <ul class="post-meta">
-        <li>
-          <div class="ico ico-author"></div>
-          {{author}}
-        </li>
-        <li>
-          <div class="ico ico-date"></div>
-          <span>{{date published_at format="YYYY-MM-DD"}}</span>
-        </li>
-
-        <!--<li>-->
-        <!--<div class="ico ico-comments"></div>-->
-        <!--<span>评论数</span>-->
-        <!--</li>-->
-
-        {{!-- Hide on mobile (screen width < 640px) --}}
-        <li class="mobile-hide">
-          {{#if tags}}
-            <div class="ico ico-tags"></div>
-            {{tags}}
-          {{/if}}
-        </li>
-      </ul>
-
-      <div class="content md">
-        {{content}}
-      </div>
-
-      {{!-- Show on mobile (screen width < 640px) --}}
-      <ul class="post-meta mobile-show">
-        {{#if tags}}
-          <li>
-            <div class="ico ico-tags"></div>
-            {{tags}}
-          </li>
-        {{/if}}
-      </ul>
-
-      <div class="copyright">
-        <p>
-          <em>版权声明：</em>
-          <span>本作品采用</span>
-          <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
-             target="_blank"
-             rel="nofollow">《署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)》</a>
-          <span>进行许可，共享或演绎请注明本文作者：{{author}}。</span>
-        </p>
-      </div>
+      <h1>{{title}}</h1>
     </div>
 
-    <!-- Link to Previous/Next post -->
-    <div id="prev-next-link" class="main-card">
-      <ul class="items">
+    <ul class="post-meta">
+      <li>
+        <div class="icon-meta icon-meta-author"></div>
+        {{author}}
+      </li>
 
-        <li class="item prev">
-          {{#prev_post}}
-            <div class="arrow-left"></div>
-            <a class="link" title="阅读前一篇文章" href="{{url}}">
-              <h2>{{title}}</h2>
-            </a>
-          {{/prev_post}}
+      <li>
+        <div class="icon-meta icon-meta-date"></div>
+        <span>{{date published_at format="YYYY-MM-DD"}}</span>
+      </li>
+
+      {{#if tags}}
+        <li class="tags">
+          <div class="icon-meta icon-meta-tags"></div>
+          {{tags}}
         </li>
+      {{/if}}
+    </ul>
 
-        <Li class="item next">
-          {{#next_post}}
-            <a class="link" title="阅读后一篇文章" href="{{url}}">
-              <h2>{{title}}</h2>
-            </a>
-            <div class="arrow-right"></div>
-          {{/next_post}}
-        </Li>
-      </ul>
+    <div id="content" class="md">
+      {{content}}
+    </div>
+
+    <div class="copyright">
+      <p>
+        <em>最后更新：</em>
+        <span>{{date updated_at format="YYYY-MM-DD"}}</span>
+      </p>
+
+      <p>
+        <em>版权声明：</em>
+        <span>本作品采用</span>
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"
+           target="_blank"
+           title="《署名-非商业性使用-相同方式共享 4.0 国际》"
+           rel="nofollow">《CC BY-NC-SA 4.0》</a>
+        <span>协议进行许可，共享或演绎请注明本文作者：{{author}}。</span>
+      </p>
     </div>
   </div>
+
+  <!-- Link to Previous/Next Post -->
+  <div id="prev-next-link" class="main-card">
+    <ul class="items">
+      <li class="item prev">
+        {{#prev_post}}
+          <div class="icon-arrow arrow-left"></div>
+          <a class="link" title="阅读前一篇文章" href="{{url}}">
+            <h2>{{title}}</h2>
+          </a>
+        {{/prev_post}}
+      </li>
+
+      <Li class="item next">
+        {{#next_post}}
+          <a class="link" title="阅读后一篇文章" href="{{url}}">
+            <h2>{{title}}</h2>
+          </a>
+          <div class="icon-arrow arrow-right"></div>
+        {{/next_post}}
+      </Li>
+    </ul>
+  </div>
+</div>
 {{/post}}

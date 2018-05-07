@@ -1,103 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
-  <meta name="renderer" content="webkit"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-  <meta name="format-detection" content="telephone=no"/>
-  <meta name="format-detection" content="email=no"/>
-  <meta http-equiv="Cache-Control" content="no-siteapp"/>
-
-  <!-- WebApp -->
-  <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-  <meta name="apple-mobile-web-app-title" content="WebAppName"/>
-  <meta name="x5-orientation" content="portrait"/>
-  <meta name="x5-fullscreen" content="true"/>
-  <meta name="x5-page-mode" content="app"/>
-  <meta name="screen-orientation" content="portrait"/>
-  <meta name="full-screen" content="yes"/>
-  <meta name="browsermode" content="application"/>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
   <!-- SEO -->
   <title>{{meta_title}}</title>
   {{> "seo"}}
-  <meta name="robots" content="all"/>
+  <meta name="robots" content="all">
 
   <!-- DNS Prefetch -->
-  <meta http-equiv="x-dns-prefetch-control" content="on"/>
-  <link rel="dns-prefetch" href="https://github.com"/>
-  <link rel="dns-prefetch" href="https://ghost.org"/>
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://github.com">
+  <link rel="dns-prefetch" href="https://ghost.org">
 
   <!-- No Cache -->
-  <meta http-equiv="Expires" content="-1"/>
-  <meta http-equiv="Pragram" content="no-cache"/>
-  <meta http-equiv="Cache-Control" content="no-cache,must-revalidate"/>
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="Pragram" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
 
   <!-- CSS -->
-  <!-- build:replace '<link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />' -->
-  <link rel="stylesheet" type="text/css" href="{{asset "css/neat/neat.css"}}"/>
-  <link rel="stylesheet" type="text/css" href="{{asset "css/base.css"}}"/>
-  <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}"/>
+  <!-- build:replace '<link rel="stylesheet" href="{{asset 'css/bundle.css'}}">' -->
+  <link rel="stylesheet" href="{{asset 'libs/neat/neat.css'}}">
+  <link rel="stylesheet" href="{{asset 'libs/prism/prism.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/global.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/styles.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/widgets.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/mobile.css'}}">
   <!-- /build -->
 
-  <!-- Ghost Head -->
   {{ghost_head}}
 </head>
 <body class="color-turquoise {{body_class}}"
-      {{#if @blog.cover_image}}style="background-image: url({{@blog.cover_image}})"{{/if}}>
-<div id="wrap" class="clearfix">
+{{#if @blog.cover_image}}
+      style="background-image: url({{@blog.cover_image}})"
+{{/if}}>
+{{> 'header'}}
 
+<div id="container" class="page-wrap clearfix">
   <div id="main-wrap" class="fl">
     <div id="main">
-
       {{!-- includes: "index.hbs|post.hbs|tag.hbs|..."  --}}
       {{{body}}}
 
-      <div id="footer">
-
-        <div class="clearfix">
-
-          <div class="fl">
-            <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
-            <span>&copy;&nbsp;{{date format="YYYY"}}</span>
-          </div>
-
-          <div class="fr">
-            <span>Powered by</span>
-            <a href="https://ghost.org"
-               rel="nofollow"
-               target="_blank">Ghost</a><span>.</span>
-            <span>Theme:</span>
-            <a href="https://github.com/imzhengfei/ghost-theme-flatghost"
-               rel="nofollow"
-               title="从 GitHub 获取本博客主题"
-               target="_blank">FlatGhost</a><span>.</span>
-          </div>
-        </div>
-      </div>
+      {{> 'footer'}}
     </div>
   </div>
 
-  <!-- Widgets -->
   <div id="sidebar" class="fl">
-    {{> "widget-blog-logo"}}
-    {{navigation}}
-    {{> "widget-featured-posts"}}
-    {{> "widget-tags-cloud"}}
-    {{> "widget-blog-stat"}}
-    {{> "widget-follow-me"}}
+    {{> 'widget-featured-posts'}}
+    {{> 'widget-tags-cloud'}}
+    {{> 'widget-blog-stat'}}
+    {{> 'widget-blog-follow'}}
   </div>
 </div>
 
-<!-- Mobile Navigation -->
-{{> "mobile-navigation"}}
+{{> 'mobile-header'}}
+{{> 'mobile-nav'}}
 
 <!-- JS -->
-<script src="{{asset "js/common.js"}}" type="text/javascript" charset="utf-8"></script>
+<!-- build:replace '<script src="{{asset 'js/bundle.js'}}"></script>' -->
+<script src="{{asset 'js/common.js'}}"></script>
+<script src="{{asset 'libs/prism/prism.js'}}"></script>
+<!-- /build -->
 
-<!-- Ghost Foot -->
 {{ghost_foot}}
 </body>
 </html>

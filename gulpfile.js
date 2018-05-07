@@ -1,108 +1,149 @@
-/**----------------------------------------------
- * @author: 		Avin Cheng
- * @decription: Build and package for theme FlatGhost.
- * ---------------------------------------------*/
+/** ----------------------------------------------------------------------------
+ * @author  Avin Cheng
+ * @desc    Build and package theme flat-ghost.
+ * @license MIT
+ ** --------------------------------------------------------------------------*/
 const gulp = require('gulp');
+const fs = require('fs');
 
-
-/**----------------------------------------------
- * @decription: Gulp Plugins
- * ---------------------------------------------*/
+/**
+ * Gulp Plugins
+ */
 const rm = require('gulp-rimraf');
-const concat = require("gulp-concat");
 const sequence = require('gulp-sequence');
+const concat = require("gulp-concat");
 const autoprefixer = require('gulp-autoprefixer');
 const spriter = require('gulp-css-spriter');
+const minifyCSS = require('gulp-clean-css');
+const minifyJS = require('gulp-uglify');
 const processhtml = require('gulp-processhtml');
 const zip = require('gulp-zip');
 
-
-/**----------------------------------------------
- * @decription: Read Packages.json
- * ---------------------------------------------*/
-const fs = require('fs');
-const config = JSON.parse(fs.readFileSync('./package.json'));
-
-
-/**----------------------------------------------
- * @decription: Stream
- * ---------------------------------------------*/
-// 文件复制
-gulp.task('copy', () => {
+/**
+ * Desc Files Processing
+ */
+gulp.task('DESC_FILES', () => {
   return gulp.src([
-    './assets/img/*.*',
-    './assets/screenshot/*.*',
-    './assets/js/*.js',
-    './partials/*.hbs',
-    './*.hbs',
-    '!./default.hbs',
     './*.md',
     './*.json',
     './LICENSE*'
-  ], {base: './'})
-    .pipe(gulp.dest('./build'));
+  ]).pipe(gulp.dest('./dist'));
 });
 
-// css 雪碧图，使用以下标记排除
-/* @meta {"spritesheet": {"include": false}} */
+/**
+ * IMG Processing
+ */
+gulp.task('IMG', () => {
+  return gulp.src([
+    './assets/img/avatars/*.*',
+    './assets/screenshot/*.*',
+  ], {base: './'})
+    .pipe(gulp.dest('./dist'));
+});
+
+/**
+ * CSS Processing
+ */
+// Css Spriter
+// Add exception using: /* @meta {"spritesheet": {"include": false}} */
 gulp.task('sprite', () => {
-  return gulp.src('./assets/css/style.css')
+  return gulp.src('./assets/css/global.css')
     .pipe(spriter({
       includeMode: 'implicit',
-      spriteSheet: './build/assets/img/icos.png',
-      pathToSpriteSheetFromCSS: '../img/icos.png'
+      spriteSheet: './dist/assets/img/_icons.png',
+      pathToSpriteSheetFromCSS: '../img/_icons.png'
     }))
     .pipe(gulp.dest('./temp/assets/css'));
 });
 
-// css 预处理、合并
-gulp.task('css', () => {
+gulp.task('css:bundle', () => {
   return gulp.src([
-    './assets/css/neat/neat.min.css',
-    './assets/css/base.css',
-    './temp/assets/css/style.css'
+    './assets/libs/neat/neat.css',
+    './assets/libs/prism/prism.css',
+    './temp/assets/css/global.css',
+    './assets/css/styles.css',
+    './assets/css/widgets.css',
+    './assets/css/mobile.css'
   ])
     .pipe(autoprefixer({
       browsers: ['last 4 versions'],
       cascade: false,
       remove: false
     }))
-    .pipe(concat('style.css'))
-    .pipe(gulp.dest('./build/assets/css'));
+    .pipe(concat('bundle.css'))
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('./dist/assets/css'));
 });
 
-// hbs 处理
-gulp.task('hbs', () => {
+gulp.task('CSS', sequence('sprite', 'css:bundle'));
+
+/**
+ * JS Processing
+ */
+gulp.task('JS', () => {
+  return gulp.src([
+    './assets/js/*.js',
+    './assets/libs/prism/*.js'
+  ])
+    .pipe(concat('bundle.js'))
+    .pipe(minifyJS())
+    .pipe(gulp.dest('./dist/assets/js'));
+});
+
+/**
+ * HBS Processing
+ */
+gulp.task('hbs:copy', () => {
+  return gulp.src([
+    './partials/*.hbs',
+    './*.hbs',
+    '!./default.hbs'
+  ], {base: './'})
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('hbs:process', () => {
   return gulp.src('./default.hbs')
     .pipe(processhtml())
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest('./dist'));
 });
 
-// clean temp folder
+gulp.task('HBS', sequence(['hbs:copy', 'hbs:process']));
+
+/**
+ * Clean
+ */
 gulp.task('clean:temp', () => {
   return gulp.src('./temp')
     .pipe(rm());
 });
 
-// clean build folder
-gulp.task('clean:build', () => {
-  return gulp.src('./build')
+gulp.task('clean:dist', () => {
+  return gulp.src('./dist')
     .pipe(rm());
 });
 
-// zip
+/**
+ * Package
+ */
+const config = JSON.parse(fs.readFileSync('./package.json'));
 gulp.task('zip', () => {
-  return gulp.src('./build/**/*.*')
+  return gulp.src('./dist/**/*.*')
     .pipe(zip(`${config.name}-v${config.version}.zip`))
     .pipe(gulp.dest('./'));
 });
 
+/**
+ * Final Tasks
+ */
+gulp.task('build', sequence(
+  'clean:dist',
+  ['DESC_FILES', 'IMG', 'CSS', 'JS', 'HBS'],
+  'clean:temp'
+));
 
-/**----------------------------------------------
- * @decription: Final Tasks
- * ---------------------------------------------*/
-// build
-gulp.task('build', sequence(['copy', 'sprite'], ['css', 'hbs'], 'clean:temp'));
-
-// pacakge
-gulp.task('pkg', sequence('build', 'zip', 'clean:temp', 'clean:build'));
+gulp.task('pkg', sequence(
+  'build',
+  'zip',
+  'clean:dist'
+));

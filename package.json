@@ -1,9 +1,9 @@
 {
   "name": "flat-ghost",
   "description": "Just a flat style theme for Ghost.",
-  "demo": "http://blog.imzhengfei.com",
+  "demo": "https://blog.imzhengfei.com",
   "homepage": "https://github.com/imzhengfei/ghost-theme-flatghost",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "engines": {
     "ghost": "^1.0.0"
   },
@@ -14,11 +14,13 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.9.4",
     "gulp-concat": "^2.6.1",
     "gulp-css-spriter": "^0.4.0",
     "gulp-processhtml": "^1.1.0",
     "gulp-rimraf": "^0.2.1",
     "gulp-sequence": "^0.4.6",
+    "gulp-uglify": "^3.0.0",
     "gulp-zip": "^4.0.0"
   },
   "license": "MIT",
@@ -28,15 +30,16 @@
   },
   "author": {
     "name": "Avin Cheng",
-    "email": "imzhengfei@gmail.com",
-    "url": "http://www.imzhengfei.com"
+    "email": "me@imzhengfei.com",
+    "url": "https://imzhengfei.com"
   },
   "gpm": {
     "type": "theme",
     "categories": [
       "Minimal",
       "Flat UI",
-      "Personal Blogs"
+      "Personal Blogs",
+      "zh-CN"
     ]
   },
   "keywords": [

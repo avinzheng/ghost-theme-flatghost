@@ -1,20 +1,20 @@
-/**----------------------------------------------
- * @author: 		Avin Cheng
- * @decription: Common JS for theme FlatGhost.
- * ---------------------------------------------*/
+/** ----------------------------------------------------------------------------
+ * @desc    Common JS for theme FlatGhost
+ * @author  Avin Cheng
+ * @license MIT
+ ** --------------------------------------------------------------------------*/
 'use strict';
 
-/**----------------------------------------------
- * @decription: Mobile Menu
- * ---------------------------------------------*/
+/**
+ * Mobile Navigation
+ */
 !function () {
+  var btn = document.getElementById('show-mobile-nav'),
+    menu = document.getElementById('mobile-nav'),
+    mask = document.getElementById('mobile-nav-mask'),
+    inner = document.getElementById('mobile-nav-inner');
 
-  var btn = document.getElementById('show-mobile-menu'),
-    menu = document.getElementById('mobile-menu'),
-    mask = document.getElementById('menu-mask'),
-    inner = document.getElementById('menu-inner');
-
-  // show menu
+  // show nav
   btn.onclick = function () {
     menu.style.display = 'block';
     setTimeout(function () {
@@ -23,9 +23,9 @@
       inner.style.webkitTransform = 'translateX(0)';
       inner.style.mozTransform = 'translateX(0)';
     }, 0);
-  }
+  };
 
-  // hide menu
+  // hide nav
   mask.onclick = function () {
     mask.style.opacity = .01;
     inner.style.transform = 'translateX(-280px)';
@@ -34,5 +34,15 @@
     setTimeout(function () {
       menu.style.display = 'none';
     }, 280);
-  }
+  };
 }();
+
+/**
+ * for Prism - A Syntax Highlight Tool
+ */
+(function () {
+  var _pres = document.getElementsByTagName('pre');
+  for (var i = 0, l = _pres.length; i < l; i ++) {
+    _pres[i].className = 'line-numbers ' + _pres[i].className;
+  }
+}());

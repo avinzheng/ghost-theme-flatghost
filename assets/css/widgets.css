@@ -1,0 +1,122 @@
+@charset "utf-8";
+/** ----------------------------------------------------------------------------
+ * @desc    Widgets Styles
+ * @author  Avin Cheng
+ * @license MIT
+ ** --------------------------------------------------------------------------*/
+/**
+ * Widgets Common Styles
+ */
+.widget {
+  margin-bottom: 20px;
+  background: #2c3e50;
+  color: #ECF0F1;
+}
+.widget a {
+  color: #ECF0F1;
+}
+.widget a:hover {
+  color: #2fe2bf;
+  text-decoration: none;
+}
+.widget > .widget-title {
+  border-bottom: 2px solid #16A085;
+  padding: 10px 20px;
+  color: #95a5a6;
+  font-size: 16px;
+}
+
+/**
+ * Featured Posts Widget
+ */
+.widget-featured-posts > .items {
+  padding: 20px;
+}
+.widget-featured-posts > .items > .item {
+  border-bottom: 1px solid #34495e;
+  padding: 5px 0;
+  word-break: break-all;
+}
+.widget-featured-posts > .items > .item:first-child {
+  border-top: 1px solid #34495e;
+}
+
+/**
+ * Tags Cloud Widget
+ */
+.widget-tags-cloud > .tags {
+  padding: 20px 10px 10px 20px;
+}
+.widget-tags-cloud .tag {
+  margin: 0 10px 10px 0;
+  background: #34495e;
+}
+.widget-tags-cloud .tag > a {
+  display: block;
+  padding: 0 10px;
+  color: #ECF0F1;
+}
+.widget-tags-cloud .tag > a:hover {
+  background: #2fe2bf;
+  text-decoration: none;
+}
+
+/**
+ * Blog Stat Widget
+ */
+.widget-blog-stat > ul {
+  padding: 15px 20px 20px;
+}
+.widget-blog-stat > ul > li {
+  position: relative;
+  display: inline;
+  float: left;
+  width: 50%;
+  text-align: center;
+  color: #ecf0f1;
+  font-size: 0;
+}
+.widget-blog-stat .icon-stat {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 16px;
+}
+.widget-blog-stat span {
+  margin-left: 5px;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 16px;
+  font-size: 14px;
+}
+
+/**
+ * Blog Follow Widget
+ */
+.widget-blog-follow > .social {
+  padding: 20px 20px;
+  font-size: 0;
+}
+.widget-blog-follow > .social > li {
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.widget-blog-follow > .social > li:last-child {
+  margin-right: 0;
+}
+.widget-blog-follow > .social a {
+  display: block;
+  border-radius: 50%;
+  padding: 6px;
+  width: 32px;
+  height: 32px;
+  background-color: #34495e;
+}
+.widget-blog-follow > .social a:hover {
+  background-color: #2fe2bf;
+}
+.widget-blog-follow > .social .icon-social {
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+}

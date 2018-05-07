@@ -1,22 +1,20 @@
 {{!-- Widget: Blog Stat --}}
 
-<div class="widget-blog-stat widget">
+<div class="widget widget-blog-stat">
+  <div class="widget-title">统计</div>
 
-  <div class="title">统计</div>
-
-  <ul class="items clearfix">
+  <ul class="clearfix">
     {{#if @labs.publicAPI}}
-
-      <li class="item">
-        <span>文章</span>
-        {{#get "posts" as |posts postsObj|}}
+      <li>
+        <i class="icon-stat icon-stat-docs"></i>
+        {{#get 'posts' as |posts postsObj|}}
           <span>{{postsObj.total}}</span>
         {{/get}}
       </li>
 
-      <li class="item">
-        <span>标签</span>
-        {{#get "tags" as |tags tagsObj|}}
+      <li>
+        <i class="icon-stat icon-stat-tags"></i>
+        {{#get 'tags' as |tags tagsObj|}}
           <span>{{tagsObj.total}}</span>
         {{/get}}
       </li>
