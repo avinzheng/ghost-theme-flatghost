@@ -6,7 +6,7 @@
 'use strict';
 
 /**
- * Mobile Menu
+ * Mobile Navigation
  */
 !function () {
   var btn = document.getElementById('show-mobile-nav'),
@@ -36,3 +36,13 @@
     }, 280);
   };
 }();
+
+/**
+ * for Prism - A Syntax Highlight Tool
+ */
+(function () {
+  var _pres = document.getElementsByTagName('pre');
+  for (var i = 0, l = _pres.length; i < l; i ++) {
+    _pres[i].className = 'line-numbers ' + _pres[i].className;
+  }
+}());

@@ -13,6 +13,7 @@
   left: 0;
   top: 0;
   width: 100%;
+  min-width: 320px;
   background: #2c3e50;
   color: #FFFFFF;
 }
@@ -192,7 +193,7 @@
   }
 }
 @media (max-width: 639px) {
-  .mobile-hide {
+  .post-meta > li.tags {
     display: none;
   }
 }
@@ -201,24 +202,54 @@
  * 0 - 479px on Mobile Phone
  */
 @media (max-width: 479px) {
+  /* Basic Layout */
   .page-wrap {
-    padding: 0 15px;
+    padding: 0 10px;
+  }
+  #main {
+    margin-top: 66px;
   }
 
-  /* Main */
+  /* Markdown */
+  .md h1 {
+    margin: 15px 0 5px;
+    font-size: 20px;
+  }
+  .md h2 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+  }
+  .md h3 {
+    margin: 10px 0 0;
+    font-size: 16px;
+  }
+  .md h4 {
+    margin: 10px 0 0;
+    font-size: 14px;
+  }
+  .md p,
+  .md ul,
+  .md ol,
+  .md pre,
+  .md img,
+  .md blockquote {
+    margin: 8px 0;
+  }
+
+  /* Main Loop */
   .main-card {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
   #main-loop .title {
     padding: 0;
   }
   #main-loop .post-link {
     display: block;
-    padding: 15px;
+    padding: 10px;
   }
   #main-loop .post-link > h2 {
     font-weight: normal;
-    font-size: 20px;
+    font-size: 18px;
   }
   #main-loop .feature-ico,
   #main-content .feature-ico {
@@ -261,38 +292,38 @@
 
   /* Main Content */
   #main-content {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
   #main-content > .title {
-    padding: 20px 40px 10px 20px;
+    padding: 20px 10px 10px;
   }
   #main-content > .title > h1 {
-    font-size: 24px;
-    line-height: 1.5;
+    font-size: 20px;
   }
   #main-content > .post-meta {
-    margin: 0 20px;
-    padding: 10px 20px;
+    margin: 0 10px;
+    padding: 10px 10px;
   }
   #content {
-    padding: 0 20px 10px;
+    padding: 0 10px 10px;
   }
   #main-content > .copyright {
-    margin: 0 20px;
-    padding: 10px 20px;
+    margin: 0 10px;
+    padding: 10px;
     background: #ECF0F1;
   }
 
   /* Prev/Nex Post Link */
   #prev-next-link {
-    padding: 15px 20px;
+    padding: 10px;
   }
   #prev-next-link h2 {
     line-height: 1.4;
+    font-size: 14px;
   }
 
   /* Comments */
   #comments .comments-box {
-    padding: 15px 20px;
+    padding: 10px;
   }
 }

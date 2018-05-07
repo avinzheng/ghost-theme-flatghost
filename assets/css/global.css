@@ -133,16 +133,9 @@ body.color-red {
   white-space: nowrap;
   word-break: keep-all;
 }
-.md pre {
-  padding: 10px 15px;
-  background: #ECF0F1;
-  overflow: auto;
-}
-.md pre code {
-  border: 0 none;
-  padding: 0;
-  white-space: pre-wrap;
-  word-break: keep-all;
+.md pre > code {
+  padding: 2px 0 0; /* fix prism styles */
+  vertical-align: baseline;
 }
 
 .md ul,

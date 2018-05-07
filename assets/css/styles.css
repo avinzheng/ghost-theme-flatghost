@@ -148,6 +148,7 @@ ul#nav > li.current > a:hover {
   font-size: 22px;
   line-height: 1.2;
   word-break: break-all;
+  vertical-align: middle;
 }
 #main-loop .feature-ico,
 #main-content .feature-ico {
@@ -324,6 +325,7 @@ ul#nav > li.current > a:hover {
   font-size: 24px;
   font-weight: bold;
   line-height: 1.5;
+  word-break: break-all;
 }
 #content {
   padding: 0 30px 10px;
@@ -332,6 +334,8 @@ ul#nav > li.current > a:hover {
   white-space: normal;
   word-break: break-all;
 }
+
+/* Copyright */
 #main-content > .copyright {
   margin: 0 30px;
   padding: 10px 20px;
@@ -342,9 +346,6 @@ ul#nav > li.current > a:hover {
 #main-content > .copyright > em {
   color: #7F8C8D;
   font-style: italic;
-}
-#main-content .mobile-show {
-  display: none;
 }
 
 /* Prev/Next Post Links */

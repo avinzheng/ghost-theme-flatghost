@@ -26,13 +26,12 @@
         <span>{{date published_at format="YYYY-MM-DD"}}</span>
       </li>
 
-      {{!-- Hide on mobile (screen width < 640px) --}}
-      <li class="mobile-hide">
-        {{#if tags}}
+      {{#if tags}}
+        <li class="tags">
           <div class="icon-meta icon-meta-tags"></div>
           {{tags}}
-        {{/if}}
-      </li>
+        </li>
+      {{/if}}
     </ul>
 
     <div id="content" class="md">
@@ -40,6 +39,11 @@
     </div>
 
     <div class="copyright">
+      <p>
+        <em>最后更新：</em>
+        <span>{{date updated_at format="YYYY-MM-DD"}}</span>
+      </p>
+
       <p>
         <em>版权声明：</em>
         <span>本作品采用</span>

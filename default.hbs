@@ -26,13 +26,13 @@
   <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
 
   <!-- CSS -->
-  <!-- build:replace '<link rel="stylesheet" href="{{asset
-    "css/style.css"}}" >' -->
-  <link rel="stylesheet" href="{{asset "css/neat/neat.css"}}">
-  <link rel="stylesheet" href="{{asset "css/global.css"}}">
-  <link rel="stylesheet" href="{{asset "css/styles.css"}}">
-  <link rel="stylesheet" href="{{asset "css/widgets.css"}}">
-  <link rel="stylesheet" href="{{asset "css/mobile.css"}}">
+  <!-- build:replace '<link rel="stylesheet" href="{{asset 'css/bundle.css'}}">' -->
+  <link rel="stylesheet" href="{{asset 'libs/neat/neat.css'}}">
+  <link rel="stylesheet" href="{{asset 'libs/prism/prism.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/global.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/styles.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/widgets.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/mobile.css'}}">
   <!-- /build -->
 
   {{ghost_head}}
@@ -65,7 +65,11 @@
 {{> 'mobile-nav'}}
 
 <!-- JS -->
+<!-- build:replace '<script src="{{asset 'js/bundle.js'}}"></script>' -->
 <script src="{{asset 'js/common.js'}}"></script>
+<script src="{{asset 'libs/prism/prism.js'}}"></script>
+<!-- /build -->
+
 {{ghost_foot}}
 </body>
 </html>
