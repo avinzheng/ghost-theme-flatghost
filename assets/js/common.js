@@ -39,6 +39,7 @@
 
 /**
  * for Prism - A Syntax Highlight Tool
+ * Must run before 'prism.js'
  */
 (function () {
   var _pres = document.getElementsByTagName('pre');
