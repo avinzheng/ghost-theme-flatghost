@@ -1,9 +1,21 @@
 {
   "name": "flat-ghost",
+  "version": "0.3.1",
+  "license": "MIT",
   "description": "Just a flat style theme for Ghost.",
-  "demo": "https://blog.imzhengfei.com",
   "homepage": "https://github.com/imzhengfei/ghost-theme-flatghost",
-  "version": "0.3.0",
+  "demo": "https://blog.imzhengfei.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imzhengfei/ghost-theme-flatghost.git"
+  },
+  "bugs": "https://github.com/imzhengfei/ghost-theme-flatghost/issues",
+  "author": {
+    "name": "Avin Cheng",
+    "email": "me@imzhengfei.com",
+    "url": "https://imzhengfei.com"
+  },
+  "contributors": ["https://github.com/imzhengfei/ghost-theme-flatghost/graphs/contributors"],
   "engines": {
     "ghost": "^1.0.0"
   },
@@ -23,15 +35,9 @@
     "gulp-uglify": "^3.0.0",
     "gulp-zip": "^4.0.0"
   },
-  "license": "MIT",
   "screenshots": {
     "desktop": "assets/screenshot/desktop.jpg",
     "mobile": "assets/screenshot/mobile.jpg"
-  },
-  "author": {
-    "name": "Avin Cheng",
-    "email": "me@imzhengfei.com",
-    "url": "https://imzhengfei.com"
   },
   "gpm": {
     "type": "theme",
@@ -47,12 +53,6 @@
     "theme",
     "flat"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/imzhengfei/ghost-theme-flatghost.git"
-  },
-  "bugs": "https://github.com/imzhengfei/ghost-theme-flatghost/issues",
-  "contributors": "https://github.com/imzhengfei/ghost-theme-flatghost/graphs/contributors",
   "config": {
     "posts_per_page": 10
   }

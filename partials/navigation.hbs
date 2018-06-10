@@ -1,11 +1,11 @@
 {{!-- Blog Navigation --}}
 
-<ul id="nav" role="menu">
-  {{#if @blog.navigation}}
+{{#if @blog.navigation}}
+  <ul id="nav" role="menu">
     {{#foreach navigation}}
       <li {{#if current}}class="current"{{/if}}>
         <a href="{{url absolute="true"}}" role="menuitem">{{label}}</a>
       </li>
     {{/foreach}}
-  {{/if}}
-</ul>
+  </ul>
+{{/if}}

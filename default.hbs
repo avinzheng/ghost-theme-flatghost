@@ -41,7 +41,6 @@
 {{#if @blog.cover_image}}
       style="background-image: url({{@blog.cover_image}})"
 {{/if}}>
-{{> 'header'}}
 
 <div id="container" class="page-wrap clearfix">
   <div id="main-wrap" class="fl">
@@ -54,6 +53,7 @@
   </div>
 
   <div id="sidebar" class="fl">
+    {{> 'widget-blog-nav'}}
     {{> 'widget-featured-posts'}}
     {{> 'widget-tags-cloud'}}
     {{> 'widget-blog-stat'}}
