@@ -152,5 +152,6 @@ exports.zip = series(
   cleanFiles,
   processHbs,
   parallel(copyFiles, processCss, processJs),
+  reWriteRefs,
   zipper
 );
