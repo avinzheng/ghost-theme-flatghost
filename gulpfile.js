@@ -53,6 +53,8 @@ function copyFiles() {
     // assets
     './assets/images/*.*',
     './assets/screenshots/*.*',
+    './assets/libraries/prism/clipboard.min.js',
+    './assets/libraries/prism/prism.js',
 
     // handlebars
     './*.hbs',
