@@ -1,0 +1,6 @@
+# Browsers that we support
+# https://github.com/browserslist/browserslist
+
+last 2 version
+> 1%
+IE 11

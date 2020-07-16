@@ -1,18 +1,18 @@
-{{!-- Mobile Header: Only show on mobile (screen width < 640px) --}}
+{{!-- Mobile Header: Only show on mobile (screen width < 1024px) --}}
 
 <div id="mobile-nav">
   <div id="mobile-nav-mask"></div>
 
   <div id="mobile-nav-inner" class="clearfix">
-    <div class="scroll-box fl">
+    <div class="fl scroll-box">
       <div class="wrap">
-        <a class="logo" href="{{@blog.url}}" title="{{@blog.description}}">
-          {{#if @blog.logo}}
-            <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+        <a class="logo" href="{{@site.url}}" title="{{@site.description}}">
+          {{#if @site.logo}}
+            <img src="{{@site.logo}}" alt="{{@site.title}}">
           {{else}}
-            <div class="title">{{@blog.title}}</div>
-            {{#if @blog.description}}
-              <div class="des">{{@blog.description}}</div>
+            <div class="title">{{@site.title}}</div>
+            {{#if @site.description}}
+              <div class="des">{{@site.description}}</div>
             {{/if}}
           {{/if}}
         </a>

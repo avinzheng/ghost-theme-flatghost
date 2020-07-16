@@ -1,0 +1,47 @@
+{{!--
+This error template is used for all 404 errors, which might occur on your site.
+It's a good idea to keep this template as minimal as possible in terms of both file size and complexity.
+--}}
+
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+<head>
+  {{!-- Document Settings --}}
+  <meta charset="utf-8">
+
+  {{!-- Base Meta --}}
+  <title>ERROR: {{statusCode}}</title>
+  <meta name="robots" content="none">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+
+  {{!-- Styles --}}
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      margin: 0;
+      display: table;
+      background-color: #ECF0F1;
+      color: #2c3e50;
+    }
+    main {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1 class="error-code">ERROR: {{statusCode}}</h1>
+  <p class="error-des">{{message}}</p>
+  <a class="error-link" href="{{@site.url}}">Go to the front page →</a>
+</main>
+</body>
+</html>

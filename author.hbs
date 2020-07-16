@@ -2,6 +2,68 @@
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
 <div id="page-author">
-    {{> "main-author"}}
-    {{> "main-loop"}}
+  {{#author}}
+    <header id="author" class="clearfix main-card">
+      <div class="fl info">
+        <h1>{{name}}</h1>
+
+        <div class="meta">
+          {{#if location}}
+            <small>{{location}}</small>
+          {{/if}}
+
+          <small>
+            {{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}}
+          </small>
+        </div>
+
+        <ul class="clearfix links">
+          {{#if website}}
+            <li>
+              <a href="{{website}}" target="_blank" rel="noopener">
+                <small>Website</small>
+              </a>
+            </li>
+          {{/if}}
+
+          {{#if facebook}}
+            <li>
+              <a href="{{facebook_url}}" target="_blank" rel="noopener">
+                <small>Facebook</small>
+              </a>
+            </li>
+          {{/if}}
+
+          {{#if twitter}}
+            <li>
+              <a href="{{twitter_url}}" target="_blank" rel="noopener">
+                <small>Twitter</small>
+              </a>
+            </li>
+          {{/if}}
+        </ul>
+
+        {{#if bio}}
+          <div class="bio">
+            <small>{{bio}}</small>
+          </div>
+        {{/if}}
+      </div>
+
+      <img class="fl avatar"
+        {{#if profile_image}}
+           src="{{profile_image}}"
+        {{else}}
+           src="{{asset "images/default-author-avatar.png"}}"
+        {{/if}}
+           alt="{{name}}">
+    </header>
+  {{/author}}
+
+  {{#if posts}}
+    {{> 'posts-list'}}
+    {{pagination}}
+  {{else}}
+    {{> 'post-none'}}
+  {{/if}}
 </div>

@@ -1,0 +1,65 @@
+{{!--
+This error template is used for all 400/500 errors, except 404, which might occur on your site.
+It's a good idea to keep this template as minimal as possible in terms of both file size and complexity.
+You'll notice that we *don't* use any JavaScript, or ghost_head / ghost_foot in this file.
+--}}
+
+<!DOCTYPE html>
+<html lang="{{@site.lang}}">
+<head>
+  {{!-- Document Settings --}}
+  <meta charset="utf-8">
+
+  {{!-- Base Meta --}}
+  <title>ERROR: {{statusCode}}</title>
+  <meta name="robots" content="none">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no">
+
+  {{!-- Styles --}}
+  <style>
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    body {
+      margin: 0;
+      display: table;
+      background-color: #ECF0F1;
+      color: #2c3e50;
+    }
+    main {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1 class="error-code">ERROR: {{statusCode}}</h1>
+  <p class="error-des">{{message}}</p>
+  <a class="error-link" href="{{@site.url}}">Go to the front page →</a>
+
+  {{#if errorDetails}}
+    <section class="error-stack">
+      <h3>Theme errors</h3>
+      <ul class="error-stack-list">
+        {{#foreach errorDetails}}
+          <li>
+            <em class="error-stack-function">{{{rule}}}</em>
+            {{#foreach failures}}
+              <p><span class="error-stack-file">Ref: {{ref}}</span></p>
+              <p><span class="error-stack-file">Message: {{message}}</span></p>
+            {{/foreach}}
+          </li>
+        {{/foreach}}
+      </ul>
+    </section>
+  {{/if}}
+</main>
+</body>
+</html>

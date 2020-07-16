@@ -2,9 +2,38 @@
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
 <div id="page-tag">
+  {{#tag}}
+    <header id="tag" class="clearfix main-card">
+      <div class="fl info">
+        <h1>TAG: {{name}}</h1>
+
+        <div class="total">
+          <small>
+            {{plural ../pagination.total empty='No Posts' singular='% Post' plural='% Posts'}}
+          </small>
+        </div>
+
+        {{#if description}}
+          <div class="des">
+            <small>{{description}}</small>
+          </div>
+        {{/if}}
+      </div>
+
+      <img class="fl avatar"
+        {{#if feature_image}}
+           src="{{img_url feature_image}}"
+        {{else}}
+           src="{{asset "images/default-tag-avatar.png"}}"
+        {{/if}}
+           alt="{{name}}">
+    </header>
+  {{/tag}}
+
   {{#if posts}}
-    {{> "main-loop"}}
+    {{> 'posts-list'}}
+    {{pagination}}
   {{else}}
-    {{> "main-none"}}
+    {{> 'post-none'}}
   {{/if}}
 </div>

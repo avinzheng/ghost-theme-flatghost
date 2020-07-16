@@ -4,23 +4,21 @@
  * @author  Avin Cheng
  * @license MIT
  ** --------------------------------------------------------------------------*/
-/**
- * Mobile Header
- */
+/** ----------------------------------------------------------------------------
+ * partials/mobile-header.hbs
+ ** --------------------------------------------------------------------------*/
 #mobile-header {
   display: none;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
+  padding: 0 56px;
   min-width: 320px;
   background: #2c3e50;
   color: #FFFFFF;
 }
-#mobile-header > .box {
-  padding: 0 56px;
-}
-#mobile-header > .box > .title {
+#mobile-header > .title {
   width: 100%;
   height: 56px;
   font-size: 24px;
@@ -28,32 +26,30 @@
   text-align: center;
   white-space: nowrap;
   text-overflow: clip;
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
-#mobile-header > .box > a {
+#mobile-header > a {
+  position: relative;
   display: block;
   padding: 12px;
   width: 56px;
   height: 56px;
   overflow: hidden;
+  cursor: pointer;
 }
-#mobile-header > .box > a:hover {
+#mobile-header > a:hover {
   background-color: #34495e;
 }
-#mobile-header > .box > a.btn-menu {
+#mobile-header > a.btn-menu {
   left: -56px;
   margin-left: -100%;
 }
-#mobile-header > .box > a.btn-search {
-  margin-right: -56px;
-}
-#mobile-header > .box i.icon-btn {
-  display: block;
-}
 
-/**
- * Mobile Nav
- */
+/** ----------------------------------------------------------------------------
+ * partials/mobile-nav.hbs
+ ** --------------------------------------------------------------------------*/
 #mobile-nav {
   display: none;
   position: fixed;
@@ -98,10 +94,11 @@
   overflow-x: hidden;
 }
 
-/* Logo & Title */
+/**
+ * Logo & Title
+ */
 #mobile-nav-inner .wrap > a.logo {
   display: block;
-  border-bottom: 2px solid #16A085;
   text-align: center;
 }
 #mobile-nav-inner .wrap > a.logo:hover {
@@ -124,48 +121,51 @@
   font-style: italic;
 }
 
-/**
+/** ----------------------------------------------------------------------------
  * on Mobile Device
  * 1164 * 0.88 = 1024
- */
+ ** --------------------------------------------------------------------------*/
 @media (max-width: 1164px) {
-  .page-wrap {
+  #main-wrapper {
     width: 100%;
   }
 }
 
-/**
- * 0 - 1023px on Pad
- */
+/** ----------------------------------------------------------------------------
+ * 0-1023px on Pad
+ ** --------------------------------------------------------------------------*/
 @media (max-width: 1023px) {
-  /* Basic Layout */
+  /**
+   * Basic Layout
+   */
   #header {
     display: none;
   }
   #mobile-header {
     display: block;
   }
-  #main {
-    margin-top: 76px;
-    margin-left: 0;
+  #main-wrapper {
+    padding: 88px 32px 0;
   }
   #sidebar {
     display: none;
   }
 
-  /* Navigation */
-  ul#nav {
+  /**
+   * partials/navigation.hbs
+   */
+  #nav {
     display: block;
-    border-bottom: 2px solid #16A085;
+    border-bottom: 2px solid var(--dark-color);
   }
-  ul#nav > li {
+  #nav > li {
     display: block;
     border-bottom: 1px solid #34495e;
   }
-  ul#nav > li > a {
+  #nav > li > a {
     display: block;
     vertical-align: top;
-    padding: 0 20px;
+    padding: 0 24px;
     color: #FFFFFF;
     font-size: 16px;
     line-height: 56px;
@@ -174,156 +174,195 @@
     letter-spacing: 2px;
     text-transform: uppercase;
   }
-  ul#nav > li > a:hover {
+  #nav > li > a:hover {
     text-decoration: none;
     background: #34495e;
-    color: #2fe2bf;
+    color: var(--light-color);
   }
-  ul#nav > li.current > a {
-    background: #34495e;
-    color: #1abc9c;
+  #nav > li.current > a {
+    color: var(--standard-color);
   }
-  ul#nav > li.current > a:hover {
-    color: #2fe2bf;
+  #nav > li.current > a:hover {
+    color: var(--light-color);
   }
 
-  /* Hide Widgets Title*/
+  /**
+   * Hide Widgets Title
+   */
   .widget > .widget-title {
     display: none;
   }
 }
+
 @media (max-width: 639px) {
+  /**
+   * Hide Post Metas
+   */
   .post-meta > li.tags {
     display: none;
   }
 }
 
-/**
- * 0 - 479px on Mobile Phone
- */
+/** ----------------------------------------------------------------------------
+ * 0-479px on Mobile Phone
+ ** --------------------------------------------------------------------------*/
 @media (max-width: 479px) {
-  /* Basic Layout */
-  .page-wrap {
-    padding: 0 10px;
-  }
-  #main {
-    margin-top: 66px;
+  /**
+   * Basic Layout
+   */
+  #main-wrapper {
+    padding: 68px 12px 0;
   }
 
-  /* Markdown */
-  .md h1 {
-    margin: 15px 0 5px;
-    font-size: 20px;
+  /**
+   * Markdown
+   */
+  .markdown h1,
+  .markdown h2,
+  .markdown h3,
+  .markdown h4,
+  .markdown h5,
+  .markdown h6 {
+    margin: 16px 0 8px;
   }
-  .md h2 {
-    margin: 10px 0 5px;
-    font-size: 18px;
+  .markdown h1 {
+    font-size: 1.5em;
   }
-  .md h3 {
-    margin: 10px 0 0;
-    font-size: 16px;
+  .markdown h2 {
+    font-size: 1.25em
   }
-  .md h4 {
-    margin: 10px 0 0;
-    font-size: 14px;
+  .markdown h3 {
+    font-size: 1.2em;
   }
-  .md p,
-  .md ul,
-  .md ol,
-  .md pre,
-  .md img,
-  .md blockquote {
+  .markdown h4 {
+    font-size: 1em;
+  }
+  .markdown h5 {
+    font-size: 0.875em;
+  }
+  .markdown h6 {
+    font-size: 0.85em;
+  }
+  .markdown p,
+  .markdown hr,
+  .markdown ul,
+  .markdown ol,
+  .markdown pre,
+  .markdown figure,
+  .markdown img,
+  .markdown blockquote {
+    margin-bottom: 8px;
+  }
+
+  /**
+   * .main-card
+   */
+  .main-card {
+    margin-bottom: 12px;
+    padding: 16px 12px;
+  }
+  .main-card > .post-header > figure {
+    margin: -16px -12px 12px;
+  }
+  .main-card > .post-header > .post-title {
+    margin-bottom: 8px;
+  }
+  .main-card > .post-header > .post-title > .featured-icon,
+  .main-card > .post-header > .post-title > a > h2,
+  .main-card > .card-header > .card-title {
+    font-size: 1.25em;
+  }
+  .main-card > .card-header {
+    margin-bottom: 8px;
+  }
+
+  /**
+   * ul.post-meta
+   */
+  ul.post-meta > li {
+    margin-right: 12px;
+  }
+
+  /**
+   * partials/*.hbs
+   */
+  #posts-list .post-excerpt {
     margin: 8px 0;
   }
-
-  /* Main Loop */
-  .main-card {
-    margin-bottom: 10px;
-  }
-  #main-loop .title {
-    padding: 0;
-  }
-  #main-loop .post-link {
-    display: block;
-    padding: 10px;
-  }
-  #main-loop .post-link > h2 {
-    font-weight: normal;
-    font-size: 18px;
-  }
-  #main-loop .feature-ico,
-  #main-content .feature-ico {
-    width: 20px;
-    height: 20px;
-  }
-  #main-loop .feature-ico:before,
-  #main-content .feature-ico:before {
-    right: -20px;
-    border-width: 20px;
-  }
-  #main-loop .post-meta,
-  #main-loop .excerpt,
-  #main-loop .read-more {
-    display: none;
-  }
-
-  /* Main Author */
-  #main-author {
-    padding: 0 20px 20px 94px;
-  }
-  #main-author > img.avatar {
-    left: -94px;
-    padding: 20px 10px 0 20px;
-    width: 64px;
-    height: 64px;
-  }
-  #main-author > .info > h1 {
-    padding: 12px 0 0;
-    font-size: 22px;
-  }
-  #main-author .links > li {
-    margin: 0 10px 5px 0;
-  }
-
-  /* Pagination */
+  #post-related > ul,
   #pagination {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
-
-  /* Main Content */
-  #main-content {
-    padding-bottom: 10px;
+  #post-prev-next {
+    padding: 16px 4px;
   }
-  #main-content > .title {
-    padding: 20px 10px 10px;
-  }
-  #main-content > .title > h1 {
-    font-size: 20px;
-  }
-  #main-content > .post-meta {
-    margin: 0 10px;
-    padding: 10px 10px;
-  }
-  #content {
-    padding: 0 10px 10px;
-  }
-  #main-content > .copyright {
-    margin: 0 10px;
-    padding: 10px;
-    background: #ECF0F1;
-  }
-
-  /* Prev/Nex Post Link */
-  #prev-next-link {
-    padding: 10px;
-  }
-  #prev-next-link h2 {
+  #post-prev-next > .link > a {
     line-height: 1.4;
     font-size: 14px;
   }
+  #footer {
+    flex-flow: column wrap;
+  }
 
-  /* Comments */
-  #comments .comments-box {
-    padding: 10px;
+  /**
+   * post.hbs
+   * page.hbs
+   */
+  #post-content {
+    padding-bottom: 12px;
+  }
+  #post-content > .post-header {
+    margin-bottom: 12px;
+  }
+  #post-content > .post-header > figure {
+    margin: -16px -12px 12px;
+  }
+  #post-content > .post-header > .post-title {
+    margin-bottom: 8px;
+  }
+  #post-content > .post-header > .post-title > .featured-icon,
+  #post-content > .post-header > .post-title > h1 {
+    font-size: 1.5em;
+  }
+  .kg-gallery-row:not(:first-of-type) {
+    margin-top: 8px;
+  }
+  .kg-gallery-image:not(:first-of-type) {
+    margin-left: 8px;
+  }
+  .kg-bookmark-container {
+    padding: 12px;
+  }
+  .kg-bookmark-thumbnail {
+    margin-bottom: 8px;
+  }
+
+  /**
+   * author.hbs
+   * tag.hbs
+   */
+  #author,
+  #tag {
+    position: relative;
+    padding: 156px 12px 16px;
+  }
+  #author > img.avatar,
+  #tag > img.avatar {
+    float: none;
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    margin-left: -64px;
+  }
+  #author > .info,
+  #tag > .info {
+    float: none;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  #author > .info > h1,
+  #tag > .info > h1 {
+    font-size: 1.5em;
   }
 }

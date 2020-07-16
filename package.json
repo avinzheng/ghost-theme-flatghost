@@ -1,59 +1,63 @@
 {
   "name": "flat-ghost",
-  "version": "0.3.1",
-  "license": "MIT",
+  "version": "3.0.0",
   "description": "Just a flat style theme for Ghost.",
-  "homepage": "https://github.com/imzhengfei/ghost-theme-flatghost",
-  "demo": "https://blog.imzhengfei.com",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/imzhengfei/ghost-theme-flatghost.git"
-  },
-  "bugs": "https://github.com/imzhengfei/ghost-theme-flatghost/issues",
-  "author": {
-    "name": "Avin Cheng",
-    "email": "me@imzhengfei.com",
-    "url": "https://imzhengfei.com"
-  },
-  "contributors": ["https://github.com/imzhengfei/ghost-theme-flatghost/graphs/contributors"],
   "engines": {
-    "ghost": "^1.0.0"
-  },
-  "scripts": {
-    "build": "gulp build",
-    "pkg": "gulp pkg"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-clean-css": "^3.9.4",
-    "gulp-concat": "^2.6.1",
-    "gulp-css-spriter": "^0.4.0",
-    "gulp-processhtml": "^1.1.0",
-    "gulp-rimraf": "^0.2.1",
-    "gulp-sequence": "^0.4.6",
-    "gulp-uglify": "^3.0.0",
-    "gulp-zip": "^4.0.0"
-  },
-  "screenshots": {
-    "desktop": "assets/screenshot/desktop.jpg",
-    "mobile": "assets/screenshot/mobile.jpg"
-  },
-  "gpm": {
-    "type": "theme",
-    "categories": [
-      "Minimal",
-      "Flat UI",
-      "Personal Blogs",
-      "zh-CN"
-    ]
+    "node": ">=12 <13",
+    "ghost": ">=3.0.0",
+    "ghost-api": "v3"
   },
   "keywords": [
-    "ghost",
-    "theme",
+    "ghost-theme",
     "flat"
   ],
+  "homepage": "https://github.com/avincheng/ghost-theme-flatghost",
+  "bugs": "https://github.com/avincheng/ghost-theme-flatghost/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Avin Cheng",
+    "email": "im@avincheng.com",
+    "url": "https://avincheng.com"
+  },
+  "contributors": [
+    "https://github.com/avincheng/ghost-theme-flatghost/graphs/contributors"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/avincheng/ghost-theme-flatghost.git"
+  },
+  "scripts": {
+    "gscan": "gscan ./",
+    "build": "gulp build",
+    "zip": "gulp zip"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.5",
+    "cssnano": "^4.1.10",
+    "gscan": "^3.5.4",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-processhtml": "^1.2.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-rev-rewrite": "^3.0.3",
+    "gulp-uglify": "2.1.2",
+    "gulp-zip": "^5.0.2",
+    "postcss-url": "^8.0.0",
+    "rimraf": "^3.0.2"
+  },
   "config": {
-    "posts_per_page": 10
+    "posts_per_page": 10,
+    "image_sizes": {
+      "s": {
+        "width": 750
+      },
+      "m": {
+        "width": 1080
+      },
+      "l": {
+        "width": 1920
+      }
+    }
   }
 }

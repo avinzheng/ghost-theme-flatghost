@@ -1,14 +1,11 @@
-# FlatGhost v0.3.0
-一个响应式设计的扁平化 ghost 博客主题，主题预览：[blog.imzhengfei.com](https://blog.imzhengfei.com)
-
-**仅支持 Ghost v1.x**
+# FlatGhost
+一个响应式设计的扁平化 **Ghost v3.x** 博客主题，[主题预览](https://blog.avincheng.com)。
 
 
 ## Installing
 
-1. 前往 [release](https://github.com/imzhengfei/ghost-theme-flatghost/releases) 页面下载最新版 zip 安装包。
-2. 登录 ghsot 博客管理后台或者打开 ghost 桌面 app 进入管理，在 `SETTINGS > Design > Themes > Upload a theme` 上传主题 zip 安装包并 `Active now` 启用主题，点右上角 `Save` 保存。
-3. 前往 `Labs > Enable Beta Features` ，勾选 `Public API` ，点右上角 `Save` 保存。
+1. 前往 [releases](https://github.com/avincheng/ghost-theme-flatghost/releases) 页面下载最新版 zip 安装包。
+2. 登录 Ghsot 博客管理后台或者打开 ghost 桌面 app 进入管理，在 `SETTINGS > Design > Themes > Upload a theme` 上传主题 zip 安装包并 `Active now` 启用主题，点右上角 `Save` 保存。
 
 ## Features
 

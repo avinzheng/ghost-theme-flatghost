@@ -34,5 +34,3 @@ Desktop.ini
 
 ### Build & Package
 dist/
-temp/
-*.zip

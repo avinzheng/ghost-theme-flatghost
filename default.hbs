@@ -1,75 +1,107 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="{{@site.lang}}">
 <head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  {{!-- Document Settings --}}
+  <meta charset="utf-8">
+
+  {{!-- Base Meta --}}
+  <title>{{meta_title}}</title>
+  <meta name="robots" content="index, follow">
+  <meta name="HandheldFriendly" content="True">
   <meta name="viewport"
-        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
   <meta name="format-detection" content="email=no">
-  <meta http-equiv="Cache-Control" content="no-siteapp">
 
-  <!-- SEO -->
-  <title>{{meta_title}}</title>
-  {{> "seo"}}
-  <meta name="robots" content="all">
+  {{!-- Styles --}}
+  <style>
+    :root {
+      /* Color: Turquoise */
+      --dark-color: #16A085;
+      --standard-color: #1ABC9C;
+      --light-color: #48C9B0;
 
-  <!-- DNS Prefetch -->
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="dns-prefetch" href="https://github.com">
-  <link rel="dns-prefetch" href="https://ghost.org">
+      /* Color: Blue */
+      /*--dark-color: #2980B9;*/
+      /*--standard-color: #3498DB;*/
+      /*--light-color: #5DADE2;*/
 
-  <!-- No Cache -->
-  <meta http-equiv="Expires" content="-1">
-  <meta http-equiv="Pragram" content="no-cache">
-  <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
+      /* Color: Green */
+      /*--dark-color: #27AE60;*/
+      /*--standard-color: #2ECC71;*/
+      /*--light-color: #58D68D;*/
 
-  <!-- CSS -->
+      /* Color: Red */
+      /*--dark-color: #C0392B;*/
+      /*--standard-color: #E74C3C;*/
+      /*--light-color: #EC7063;*/
+
+      /* Color: Orange */
+      /*--dark-color: #D35400;*/
+      /*--standard-color: #E67E22;*/
+      /*--light-color: #F69036;*/
+
+      /* Color: Yellow */
+      /*--dark-color: #F39C12;*/
+      /*--standard-color: #F1C40F;*/
+      /*--light-color: #F4D313;*/
+
+      /* Color: Purple */
+      /*--dark-color: #8E44AD;*/
+      /*--standard-color: #9B59B6;*/
+      /*--light-color: #B574D0;*/
+    }
+  </style>
   <!-- build:replace '<link rel="stylesheet" href="{{asset 'css/bundle.css'}}">' -->
-  <link rel="stylesheet" href="{{asset 'libs/neat/neat.css'}}">
-  <link rel="stylesheet" href="{{asset 'libs/prism/prism.css'}}">
+  <link rel="stylesheet" href="{{asset 'libraries/prism/prism.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/basic.css'}}">
   <link rel="stylesheet" href="{{asset 'css/global.css'}}">
-  <link rel="stylesheet" href="{{asset 'css/styles.css'}}">
+  <link rel="stylesheet" href="{{asset 'css/screen.css'}}">
   <link rel="stylesheet" href="{{asset 'css/widgets.css'}}">
   <link rel="stylesheet" href="{{asset 'css/mobile.css'}}">
   <!-- /build -->
 
+  {{!-- DNS Prefetch --}}
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://github.com">
+  <link rel="dns-prefetch" href="https://ghost.org">
+
+  {{!-- This tag outputs SEO meta, structured data and other important settings --}}
   {{ghost_head}}
 </head>
-<body class="color-turquoise {{body_class}}"
-{{#if @blog.cover_image}}
-      style="background-image: url({{@blog.cover_image}})"
+<body class="{{body_class}}"
+{{#if @site.cover_image}}
+      style="background-image: url({{@site.cover_image}})"
 {{/if}}>
 
-<div id="container" class="page-wrap clearfix">
-  <div id="main-wrap" class="fl">
-    <div id="main">
-      {{!-- includes: "index.hbs|post.hbs|tag.hbs|..."  --}}
-      {{{body}}}
+<div id="main-wrapper" class="clearfix">
+  <main id="main" class="fl" role="main">
+    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+    {{{body}}}
 
-      {{> 'footer'}}
-    </div>
-  </div>
+    {{!-- The footer at the very bottom of the screen --}}
+    {{> 'footer'}}
+  </main>
 
-  <div id="sidebar" class="fl">
+  <aside id="sidebar" class="fl">
     {{> 'widget-blog-nav'}}
     {{> 'widget-featured-posts'}}
     {{> 'widget-tags-cloud'}}
     {{> 'widget-blog-stat'}}
     {{> 'widget-blog-follow'}}
-  </div>
+  </aside>
 </div>
 
 {{> 'mobile-header'}}
 {{> 'mobile-nav'}}
 
-<!-- JS -->
+{{!-- Scripts --}}
+{{{block 'prism-scripts'}}}
 <!-- build:replace '<script src="{{asset 'js/bundle.js'}}"></script>' -->
 <script src="{{asset 'js/common.js'}}"></script>
-<script src="{{asset 'libs/prism/prism.js'}}"></script>
 <!-- /build -->
 
+{{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
 {{ghost_foot}}
 </body>
 </html>

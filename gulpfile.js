@@ -1,149 +1,156 @@
 /** ----------------------------------------------------------------------------
  * @author  Avin Cheng
- * @desc    Build and package theme flat-ghost.
+ * @desc    Build and zip theme flat-ghost.
  * @license MIT
  ** --------------------------------------------------------------------------*/
-const gulp = require('gulp');
 const fs = require('fs');
+const path = require('path');
+const rimraf = require('rimraf');
+const { src, dest, series, parallel } = require('gulp');
 
 /**
  * Gulp Plugins
  */
-const rm = require('gulp-rimraf');
-const sequence = require('gulp-sequence');
-const concat = require("gulp-concat");
-const autoprefixer = require('gulp-autoprefixer');
-const spriter = require('gulp-css-spriter');
-const minifyCSS = require('gulp-clean-css');
-const minifyJS = require('gulp-uglify');
-const processhtml = require('gulp-processhtml');
+const concat = require('gulp-concat');
+const processHtml = require('gulp-processhtml');
+const postCss = require('gulp-postcss');
+const minifyJs = require('gulp-uglify');
+const rev = require('gulp-rev');
+const revRewrite = require('gulp-rev-rewrite')
 const zip = require('gulp-zip');
 
 /**
- * Desc Files Processing
+ * PostCSS Plugins
  */
-gulp.task('DESC_FILES', () => {
-  return gulp.src([
+const autoPreFixer = require('autoprefixer');
+const url = require('postcss-url');
+const cssNano = require('cssnano');
+
+/**
+ * Global Variables
+ */
+const DIST_DIR = './dist/';
+const BUILD_DIR = './dist/build/';
+const ASSETS_DIR = './dist/build/assets/';
+const MANIFEST_FILE = path.join('./dist/rev-manifest.json');
+
+/**
+ * Clean Files
+ */
+function cleanFiles(cb) {
+  rimraf(DIST_DIR, cb);
+}
+
+/**
+ * Copy Files
+ */
+function copyFiles() {
+  return src([
     './*.md',
     './*.json',
-    './LICENSE*'
-  ]).pipe(gulp.dest('./dist'));
-});
+    './LICENSE',
 
-/**
- * IMG Processing
- */
-gulp.task('IMG', () => {
-  return gulp.src([
-    './assets/img/avatars/*.*',
-    './assets/screenshot/*.*',
-  ], {base: './'})
-    .pipe(gulp.dest('./dist'));
-});
+    // assets
+    './assets/images/*.*',
+    './assets/screenshots/*.*',
 
-/**
- * CSS Processing
- */
-// Css Spriter
-// Add exception using: /* @meta {"spritesheet": {"include": false}} */
-gulp.task('sprite', () => {
-  return gulp.src('./assets/css/global.css')
-    .pipe(spriter({
-      includeMode: 'implicit',
-      spriteSheet: './dist/assets/img/_icons.png',
-      pathToSpriteSheetFromCSS: '../img/_icons.png'
-    }))
-    .pipe(gulp.dest('./temp/assets/css'));
-});
-
-gulp.task('css:bundle', () => {
-  return gulp.src([
-    './assets/libs/neat/neat.css',
-    './assets/libs/prism/prism.css',
-    './temp/assets/css/global.css',
-    './assets/css/styles.css',
-    './assets/css/widgets.css',
-    './assets/css/mobile.css'
-  ])
-    .pipe(autoprefixer({
-      browsers: ['last 4 versions'],
-      cascade: false,
-      remove: false
-    }))
-    .pipe(concat('bundle.css'))
-    .pipe(minifyCSS())
-    .pipe(gulp.dest('./dist/assets/css'));
-});
-
-gulp.task('CSS', sequence('sprite', 'css:bundle'));
-
-/**
- * JS Processing
- */
-gulp.task('JS', () => {
-  return gulp.src([
-    './assets/js/*.js',
-    './assets/libs/prism/*.js'
-  ])
-    .pipe(concat('bundle.js'))
-    .pipe(minifyJS())
-    .pipe(gulp.dest('./dist/assets/js'));
-});
-
-/**
- * HBS Processing
- */
-gulp.task('hbs:copy', () => {
-  return gulp.src([
-    './partials/*.hbs',
+    // handlebars
     './*.hbs',
+    './partials/*.hbs',
     '!./default.hbs'
-  ], {base: './'})
-    .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('hbs:process', () => {
-  return gulp.src('./default.hbs')
-    .pipe(processhtml())
-    .pipe(gulp.dest('./dist'));
-});
-
-gulp.task('HBS', sequence(['hbs:copy', 'hbs:process']));
+  ], { base: './' })
+    .pipe(dest(BUILD_DIR));
+}
 
 /**
- * Clean
+ * Process Handlebars
  */
-gulp.task('clean:temp', () => {
-  return gulp.src('./temp')
-    .pipe(rm());
-});
-
-gulp.task('clean:dist', () => {
-  return gulp.src('./dist')
-    .pipe(rm());
-});
+function processHbs() {
+  return src('./default.hbs')
+    .pipe(processHtml())
+    .pipe(dest(BUILD_DIR));
+}
 
 /**
- * Package
+ * Process CSS
  */
-const config = JSON.parse(fs.readFileSync('./package.json'));
-gulp.task('zip', () => {
-  return gulp.src('./dist/**/*.*')
-    .pipe(zip(`${config.name}-v${config.version}.zip`))
-    .pipe(gulp.dest('./'));
-});
+function processCss() {
+  const urlOptions = {
+    url: 'inline',
+    encodeType: 'base64',
+    maxSize: 8 * 1024
+  }
+
+  const postCssPlugins = [
+    autoPreFixer(),
+    url(urlOptions),
+    cssNano()
+  ];
+
+  return src([
+    './assets/libraries/prism/prism.css',
+    './assets/css/basic.css',
+    './assets/css/global.css',
+    './assets/css/screen.css',
+    './assets/css/widgets.css',
+    './assets/css/mobile.css',
+  ], { base: './assets/' })
+    .pipe(concat('css/bundle.css'))
+    .pipe(postCss(postCssPlugins))
+    .pipe(rev())
+    .pipe(dest(ASSETS_DIR))
+    .pipe(rev.manifest(MANIFEST_FILE, { base: DIST_DIR, merge: true }))
+    .pipe(dest(DIST_DIR));
+}
 
 /**
- * Final Tasks
+ * Process JS
  */
-gulp.task('build', sequence(
-  'clean:dist',
-  ['DESC_FILES', 'IMG', 'CSS', 'JS', 'HBS'],
-  'clean:temp'
-));
+function processJs() {
+  return src('./assets/js/*.js', { base: './assets/' })
+    .pipe(concat('js/bundle.js'))
+    .pipe(minifyJs())
+    .pipe(rev())
+    .pipe(dest(ASSETS_DIR))
+    .pipe(rev.manifest(MANIFEST_FILE, { base: DIST_DIR, merge: true }))
+    .pipe(dest(DIST_DIR));
+}
 
-gulp.task('pkg', sequence(
-  'build',
-  'zip',
-  'clean:dist'
-));
+/**
+ * Rewrite references to assets revisioned by `gulp-rev`
+ */
+function reWriteRefs() {
+  return src(path.join(BUILD_DIR, 'default.hbs'))
+    .pipe(revRewrite({ manifest: src(MANIFEST_FILE) }))
+    .pipe(dest(BUILD_DIR));
+}
+
+/**
+ * Zip Theme
+ */
+// require(./package.json) can run into caching issues
+const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
+const filename = packageJson.name + '_v' + packageJson.version + '.zip';
+
+function zipper() {
+  return src('./dist/build/**/*.*')
+    .pipe(zip(filename))
+    .pipe(dest(DIST_DIR));
+}
+
+/**
+ * Exports
+ */
+exports.build = series(
+  cleanFiles,
+  processHbs,
+  parallel(copyFiles, processCss, processJs),
+  reWriteRefs
+);
+
+exports.zip = series(
+  cleanFiles,
+  processHbs,
+  parallel(copyFiles, processCss, processJs),
+  zipper
+);

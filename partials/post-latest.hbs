@@ -1,0 +1,39 @@
+{{!-- Latest Posts --}}
+
+{{#if primary_tag}}
+  {{#get 'posts' filter='tags:{{primary_tag.slug}}+comment_id:-{{comment_id}}' limit='5' as |related_posts|}}
+    {{#if related_posts}}
+      <aside id="post-related" class="main-card">
+        <header class="card-header">
+          <div class="card-title">Related Posts</div>
+        </header>
+
+        <ul>
+          {{#foreach related_posts}}
+            <li>
+              <a class="fl" href="{{url}}" title="{{title}}">{{title}}</a>
+              <span>{{date format="YYYY-MM-DD"}}</span>
+            </li>
+          {{/foreach}}
+        </ul>
+      </aside>
+    {{/if}}
+  {{/get}}
+{{/if}}
+
+{{#get "posts" limit="5" include="authors,tags"}}
+  <aside id="post-related" class="main-card">
+    <header class="card-header">
+      <div class="card-title">Latest Posts</div>
+    </header>
+
+    <ul>
+      {{#foreach posts}}
+        <li>
+          <a class="fl" href="{{url}}" title="{{title}}">{{title}}</a>
+          <span>{{date format="YYYY-MM-DD"}}</span>
+        </li>
+      {{/foreach}}
+    </ul>
+  </aside>
+{{/get}}

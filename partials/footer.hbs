@@ -1,22 +1,29 @@
 {{!-- Footer --}}
 
-<div id="footer">
-  <div class="clearfix">
-    <div class="fl">
-      <a href="{{@blog.url}}" title="{{@blog.description}}">{{@blog.title}}</a>
-      <span>&copy;&nbsp;{{date format="YYYY"}}</span>
-    </div>
+<footer id="footer">
+  <div class="left">
+    <a href="{{@site.url}}" title="{{@site.description}}">{{@site.title}}</a>
 
-    <div class="fr">
-      <span>Powered by</span>
-      <a href="https://ghost.org"
-         rel="nofollow"
-         target="_blank">Ghost</a><span>.</span>
-      <span>Theme:</span>
-      <a href="https://github.com/imzhengfei/ghost-theme-flatghost"
-         rel="nofollow"
-         title="从 GitHub 获取本博客主题"
-         target="_blank">FlatGhost</a><span>.</span>
-    </div>
+    <span>&copy;&nbsp;{{date format="YYYY"}}&nbsp;</span>
+
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0"
+       target="_blank"
+       title="Attribution-NonCommercial-ShareAlike 4.0 International"
+       rel="nofollow">CC BY-NC-SA 4.0</a>
   </div>
-</div>
+
+  <div class="right">
+    <span>Published with</span>
+
+    <a href="https://ghost.org"
+       target="_blank"
+       rel="nofollow">Ghost</a><span>.&nbsp;</span>
+
+    <span>Theme:</span>
+
+    <a href="https://github.com/avincheng/ghost-theme-flatghost"
+       target="_blank"
+       title="Get this theme from GitHub."
+       rel="nofollow">flat-ghost</a><span>.</span>
+  </div>
+</footer>

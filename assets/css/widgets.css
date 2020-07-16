@@ -4,11 +4,11 @@
  * @author  Avin Cheng
  * @license MIT
  ** --------------------------------------------------------------------------*/
-/**
+/** ----------------------------------------------------------------------------
  * Widgets Common Styles
- */
+ ** --------------------------------------------------------------------------*/
 .widget {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   background: #2c3e50;
   color: #ECF0F1;
 }
@@ -16,20 +16,20 @@
   color: #ECF0F1;
 }
 .widget a:hover {
-  color: #2fe2bf;
+  color: var(--light-color);
   text-decoration: none;
 }
 .widget > .widget-title {
-  border-bottom: 2px solid #16A085;
+  border-bottom: 2px solid var(--dark-color);
   padding: 10px 20px;
   color: #95a5a6;
   font-size: 16px;
+  text-transform: uppercase;
 }
 
-/**
- * Blog Navigation Widget
- */
-/* Logo & Title */
+/** ----------------------------------------------------------------------------
+ * partials/widget-blog-nav.hbs
+ ** --------------------------------------------------------------------------*/
 .widget-blog-nav > .wrap {
   background: #FFFFFF;
 }
@@ -42,7 +42,7 @@
   opacity: .88;
 }
 .widget-blog-nav > .wrap > a.title {
-  padding: 30px 20px;
+  padding: 35px 20px 25px;
   background: #2c3e50;
   color: #FFFFFF;
   text-align: center;
@@ -57,14 +57,48 @@
   letter-spacing: 5px;
   line-height: 1.4em;
 }
-.widget-blog-nav a.title > i {
+.widget-blog-nav a.title > small {
   display: block;
   color: #95A5A6;
 }
 
-/**
- * Featured Posts Widget
- */
+/** ----------------------------------------------------------------------------
+ * partials/navigation.hbs
+ ** --------------------------------------------------------------------------*/
+#nav {
+  border-top: 2px solid var(--dark-color);
+}
+#nav > li {
+  border-top: 1px solid #34495e;
+}
+#nav > li:first-child {
+  border-top: 0 none;
+}
+#nav > li > a {
+  display: block;
+  padding: 0 20px;
+  color: #FFFFFF;
+  font-size: 16px;
+  line-height: 56px;
+  white-space: nowrap;
+  text-overflow: clip;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+}
+#nav > li.current > a {
+  color: var(--standard-color);
+}
+#nav > li > a:hover,
+#nav > li.current > a:hover {
+  text-decoration: none;
+  background: #34495e;
+  color: var(--light-color);
+}
+
+/** ----------------------------------------------------------------------------
+ * partials/widget-featured-posts.hbs
+ ** --------------------------------------------------------------------------*/
 .widget-featured-posts > .items {
   padding: 20px;
 }
@@ -77,9 +111,9 @@
   border-top: 1px solid #34495e;
 }
 
-/**
- * Tags Cloud Widget
- */
+/** ----------------------------------------------------------------------------
+ * partials/widget-tags-cloud.hbs
+ ** --------------------------------------------------------------------------*/
 .widget-tags-cloud > .tags {
   padding: 20px 10px 10px 20px;
 }
@@ -93,13 +127,13 @@
   color: #ECF0F1;
 }
 .widget-tags-cloud .tag > a:hover {
-  background: #2fe2bf;
+  background: var(--light-color);
   text-decoration: none;
 }
 
-/**
- * Blog Stat Widget
- */
+/** ----------------------------------------------------------------------------
+ * partials/widget-blog-stat.hbs
+ ** --------------------------------------------------------------------------*/
 .widget-blog-stat > ul {
   padding: 15px 20px 20px;
 }
@@ -125,16 +159,16 @@
   font-size: 14px;
 }
 
-/**
- * Blog Follow Widget
- */
+/** ----------------------------------------------------------------------------
+ * partials/widget-blog-follow.hbs
+ ** --------------------------------------------------------------------------*/
 .widget-blog-follow > .social {
-  padding: 20px 20px;
+  padding: 20px 5px 5px 20px;
   font-size: 0;
 }
 .widget-blog-follow > .social > li {
   display: inline-block;
-  margin-right: 10px;
+  margin: 0 15px 15px 0;
   border-radius: 50%;
 }
 .widget-blog-follow > .social > li:last-child {
@@ -144,12 +178,13 @@
   display: block;
   border-radius: 50%;
   padding: 6px;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   background-color: #34495e;
+  overflow: hidden;
 }
 .widget-blog-follow > .social a:hover {
-  background-color: #2fe2bf;
+  background-color: var(--light-color);
 }
 .widget-blog-follow > .social .icon-social {
   display: block;

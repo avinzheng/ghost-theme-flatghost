@@ -2,14 +2,14 @@
 
 <div class="widget widget-blog-nav">
   <div class="wrap">
-    {{#if @blog.logo}}
-      <a class="logo" href="{{@blog.url}}" title="{{@blog.description}}">
-        <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+    {{#if @site.logo}}
+      <a class="logo" href="{{@site.url}}" title="{{@site.description}}">
+        <img src="{{@site.logo}}" alt="{{@site.title}}">
       </a>
     {{else}}
-      <a class="title" href="{{@blog.url}}" title="{{@blog.description}}">
-        <em>{{@blog.title}}</em>
-        <i>{{@blog.description}}</i>
+      <a class="title" href="{{@site.url}}" title="{{@site.description}}">
+        <em>{{@site.title}}</em>
+        <small>{{@site.description}}</small>
       </a>
     {{/if}}
   </div>

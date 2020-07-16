@@ -1,36 +1,29 @@
-{{!-- Mobile Header: Only show on mobile (screen width < 640px) --}}
+{{!-- Mobile Header: Only show on mobile (screen width < 1024px) --}}
 
-<div id="mobile-header">
-  <div class="box clearfix">
-    <div class="title fl">
+<div id="mobile-header" class="clearfix">
+  <div class="fl title">
+    {{#is 'index'}}
+      {{@site.title}}
+    {{/is}}
 
-      {{#is "index"}}
-        {{@blog.title}}
-      {{/is}}
+    {{#is 'post'}}
+      Post
+    {{/is}}
 
-      {{#is "post"}}
-        文章
-      {{/is}}
+    {{#is 'page'}}
+      {{#post}}{{title}}{{/post}}
+    {{/is}}
 
-      {{#is "page"}}
-        {{#post}}{{title}}{{/post}}
-      {{/is}}
+    {{#is 'tag'}}
+      {{#tag}}{{name}}{{/tag}}
+    {{/is}}
 
-      {{#is "tag"}}
-        {{#tag}}{{name}}{{/tag}}
-      {{/is}}
-
-      {{#is "author"}}
-        {{#author}}{{name}}{{/author}}
-      {{/is}}
-    </div>
-
-    <a id="show-mobile-nav" class="btn-menu fl" href="javascript:;">
-      <i class="icon-btn icon-btn-menu"></i>
-    </a>
-
-    {{!--<a id="show-mobile-search" class="btn-search fl" href="javascript:;">--}}
-      {{!--<i class="icon-btn icon-btn-search"></i>--}}
-    {{!--</a>--}}
+    {{#is 'author'}}
+      {{#primary_author}}{{name}}{{/primary_author}}
+    {{/is}}
   </div>
+
+  <a id="show-mobile-nav" class="fl btn-menu">
+    <div class="icon-btn icon-btn-menu"></div>
+  </a>
 </div>

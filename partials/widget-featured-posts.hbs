@@ -1,22 +1,17 @@
 {{!-- Widget: Featured Posts --}}
 
 <div class="widget widget-featured-posts">
-
-  <div class="widget-title">推荐</div>
+  <div class="widget-title">Featured</div>
 
   <ul class="items">
-    {{#if @labs.publicAPI}}
-      {{#get "posts" filter="featured:true" as |featured|}}
-        {{#foreach featured}}
-          <li class="item">
-            <a href="{{url}}">{{title}}</a>
-          </li>
-        {{/foreach}}
-      {{else}}
-        <li>暂无推荐</li>
-      {{/get}}
+    {{#get "posts" filter="featured:true" as |featured|}}
+      {{#foreach featured}}
+        <li class="item">
+          <a href="{{url}}">{{title}}</a>
+        </li>
+      {{/foreach}}
     {{else}}
-      <li>请在博客后台"SETTINGS > Labs"底部勾选"Public API"</li>
-    {{/if}}
+      <li>No Posts</li>
+    {{/get}}
   </ul>
 </div>

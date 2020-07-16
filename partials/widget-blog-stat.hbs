@@ -1,25 +1,21 @@
 {{!-- Widget: Blog Stat --}}
 
 <div class="widget widget-blog-stat">
-  <div class="widget-title">统计</div>
+  <div class="widget-title">Statistic</div>
 
   <ul class="clearfix">
-    {{#if @labs.publicAPI}}
-      <li>
-        <i class="icon-stat icon-stat-docs"></i>
-        {{#get 'posts' as |posts postsObj|}}
-          <span>{{postsObj.total}}</span>
-        {{/get}}
-      </li>
+    <li>
+      <i class="icon-stat icon-stat-posts"></i>
+      {{#get 'posts' as |posts postsObj|}}
+        <span>{{postsObj.total}}</span>
+      {{/get}}
+    </li>
 
-      <li>
-        <i class="icon-stat icon-stat-tags"></i>
-        {{#get 'tags' as |tags tagsObj|}}
-          <span>{{tagsObj.total}}</span>
-        {{/get}}
-      </li>
-    {{else}}
-      <li>请在博客后台"SETTINGS > Labs"底部勾选"Public API"</li>
-    {{/if}}
+    <li>
+      <i class="icon-stat icon-stat-tags"></i>
+      {{#get 'tags' as |tags tagsObj|}}
+        <span>{{tagsObj.total}}</span>
+      {{/get}}
+    </li>
   </ul>
 </div>

@@ -1,0 +1,54 @@
+{{!-- Posts List --}}
+
+<div id="posts-list">
+  {{#foreach posts}}
+    <article class="{{post_class}} main-card">
+      <header class="post-header">
+        {{#if feature_image}}
+          <figure>
+            <a href="{{url}}" title="{{title}}">
+              <img src="{{img_url feature_image}}"
+                   srcset="{{img_url feature_image size='s'}} 750w,
+                           {{img_url feature_image size='m'}} 1080w,
+                           {{img_url feature_image size='l'}} 1920w"
+                   alt="{{title}}"/>
+            </a>
+          </figure>
+        {{/if}}
+
+        <div class="post-title">
+          {{#if featured}}
+            <span class="featured-icon">★</span>
+          {{/if}}
+
+          <a href="{{url}}" title="{{title}}">
+            <h2>{{title}}</h2>
+          </a>
+        </div>
+
+        <ul class="post-meta">
+          <li>
+            <span class="icon-post icon-post-date"></span>
+            <span>{{date published_at format="YYYY-MM-DD"}}</span>
+          </li>
+
+          <li>
+            <span class="icon-post icon-post-authors"></span>
+            {{authors separator='<i>,&nbsp;</i>' limit='3'}}
+          </li>
+
+          {{#if tags}}
+            <li class="tags">
+              <span class="icon-post icon-post-tags"></span>
+              {{tags separator='<i>,&nbsp;</i>' limit='5'}}
+            </li>
+          {{/if}}
+        </ul>
+      </header>
+
+      <section class="post-excerpt">{{excerpt characters="280"}}…</section>
+
+      <a class="read-more" href="{{url}}">Read More</a>
+    </article>
+  {{/foreach}}
+</div>
