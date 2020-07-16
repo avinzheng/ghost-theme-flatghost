@@ -1,6 +1,6 @@
 {
   "name": "flat-ghost",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "description": "Just a flat style theme for Ghost.",
   "engines": {
     "node": ">=12 <13",
