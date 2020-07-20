@@ -4,7 +4,7 @@
 
 ## Installing
 
-前往 [releases](https://github.com/avincheng/ghost-theme-flatghost/releases) 页面下载最新版 zip 安装包，登录 Ghsot 博客管理后台上传并启用主题。
+前往 [releases](https://github.com/avincheng/ghost-theme-flatghost/releases) 页面下载最新版 zip 安装包（如需集成 [Gitalk](https://github.com/gitalk/gitalk)，下载 `-with-gitalk` 版本安装包），登录 Ghsot 博客管理后台上传并启用主题。
 
 ## Features
 
@@ -12,6 +12,7 @@
 *   扁平化设计，内置图片和图标均已做高清适配，文章图片自动高清适配；
 *   响应式设计，移动设备采用安卓风格侧滑菜单（仿 Ionic 3 on Android）；
 *   内置常见编程语言代码高亮（via Prism）；
+*   提供集成 Gitalk 评论系统的版本；
 *   侧边栏多种小工具支持（推荐文章、标签云、博客统计、关注）；
 *   额外的社会化链接图标：GitHub、LinkedIn、知乎、微博、微信、QQ 。
 
@@ -147,11 +148,31 @@
   </ul>
 ```
 
+### Gitalk 评论系统
+
+打开主题 `partials/post-comments.hbs` 文件，找到如下代码，按照 [Gitalk](https://github.com/gitalk/gitalk) 说明更换成自己配置。
+
+```javascript
+// @link https://github.com/gitalk/gitalk
+const gitalk = new Gitalk({
+  clientID: '2d67a0b9042aacd6ae73',
+  clientSecret: '6921a88c2d0503a7310db2170922242d1cd0e0e9',
+  repo: 'my-blog-comments',
+  owner: 'avincheng',
+  admin: ['avincheng'],
+  id: '{{comment_id}}',
+  title: '{{title}}',
+  distractionFreeMode: false
+});
+gitalk.render('gitalk');
+```
+
 ## Planning
 
 -   [x] 响应式设计
 -   [x] 代码高亮显示
--   [x] 支持颜色切换
+-   [x] 主题支持切换颜色
+-   [x] 支持 Gitalk 评论系统
 -   [ ] 独立存档页面
 
 ## License
