@@ -60,6 +60,81 @@
 #post-comments {
 }
 
+/**
+ * Styles for Gitalk
+ * https://github.com/gitalk/gitalk
+ */
+#gitalk .gt-container .gt-meta {
+  margin-top: 0;
+  padding-top: 0;
+}
+#gitalk .gt-container .gt-ico {
+  vertical-align: middle;
+}
+#gitalk .gt-container .gt-link {
+  border-bottom: 0 none;
+}
+#gitalk .gt-container a,
+#gitalk .markdown-body a {
+  color: var(--standard-color);
+}
+#gitalk .gt-container a:hover,
+#gitalk .markdown-body a:hover {
+  color: var(--light-color);
+}
+#gitalk .gt-container .gt-svg svg {
+  fill: var(--standard-color);
+}
+#gitalk .gt-container .gt-btn {
+  border-color: var(--standard-color);
+  background-color: var(--standard-color);
+  transition: .15s ease-in-out;
+}
+#gitalk .gt-container .gt-btn:hover {
+  border-color: var(--light-color);
+  background-color: var(--light-color);
+}
+#gitalk .gt-container .gt-btn-preview {
+  background-color: transparent;
+  color: var(--standard-color);
+}
+#gitalk .gt-container .gt-btn-preview:hover {
+  background-color: transparent;
+  color: var(--light-color);
+}
+#gitalk .gt-container .gt-comment-admin .gt-comment-content,
+#gitalk .gt-container .gt-comment-content {
+  background-color: transparent;
+}
+#gitalk .gt-container .gt-header-textarea {
+  border: 1px solid #BDC3C7;
+  border-radius: 0;
+}
+#gitalk .gt-container .gt-comment-content {
+  border: 1px solid #BDC3C7;
+}
+#gitalk .markdown-body {
+  color: #2c3e50;
+}
+#gitalk .markdown-body a:hover {
+  border-bottom: 1px solid var(--light-color);
+}
+#gitalk .markdown-body ul {
+  list-style-type: disc;
+}
+#gitalk .markdown-body ol {
+  list-style-type: decimal;
+}
+#gitalk .markdown-body .highlight pre,
+#gitalk .markdown-body pre,
+#gitalk .markdown-body code {
+  background-color: #ECF0F1;
+}
+#gitalk .markdown-body blockquote {
+  border-color: #BDC3C7;
+  color: #7F8C8D;
+}
+
 /** ----------------------------------------------------------------------------
  * partials/post-related.hbs
  * partials/post-latest.hbs

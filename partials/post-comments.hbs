@@ -1,9 +1,23 @@
 {{!-- Post Comments --}}
 
 <section id="post-comments" class="main-card">
-  <header class="card-header">
-    <div class="card-title">Comments</div>
-  </header>
-
-  If you want to embed comments, this is a good place to do it!
+  <div id="gitalk"></div>
 </section>
+
+{{#contentFor 'gitalk-scripts'}}
+  <script src="{{asset 'libraries/gitalk/gitalk.min.js'}}"></script>
+  <script>
+    // @link https://github.com/gitalk/gitalk
+    const gitalk = new Gitalk({
+      clientID: '2d67a0b9042aacd6ae73',
+      clientSecret: '6921a88c2d0503a7310db2170922242d1cd0e0e9',
+      repo: 'my-blog-comments',
+      owner: 'avincheng',
+      admin: ['avincheng'],
+      id: '{{comment_id}}',
+      title: '{{title}}',
+      distractionFreeMode: false
+    });
+    gitalk.render('gitalk');
+  </script>
+{{/contentFor}}

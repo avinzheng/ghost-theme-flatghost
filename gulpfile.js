@@ -55,6 +55,7 @@ function copyFiles() {
     './assets/screenshots/*.*',
     './assets/libraries/prism/clipboard.min.js',
     './assets/libraries/prism/prism.js',
+    './assets/libraries/gitalk/gitalk.min.js',
 
     // handlebars
     './*.hbs',
@@ -91,6 +92,7 @@ function processCss() {
 
   return src([
     './assets/libraries/prism/prism.css',
+    './assets/libraries/gitalk/gitalk.css',
     './assets/css/basic.css',
     './assets/css/global.css',
     './assets/css/screen.css',
@@ -132,7 +134,7 @@ function reWriteRefs() {
  */
 // require(./package.json) can run into caching issues
 const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-const filename = packageJson.name + '_v' + packageJson.version + '.zip';
+const filename = packageJson.name + '-with-gitalk_v' + packageJson.version + '.zip';
 
 function zipper() {
   return src('./dist/build/**/*.*')
