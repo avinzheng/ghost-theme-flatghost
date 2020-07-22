@@ -1,6 +1,6 @@
 /** ----------------------------------------------------------------------------
  * @author  Avin Cheng
- * @desc    Build and zip theme flat-ghost.
+ * @desc    Build & zip theme flat-ghost.
  * @license MIT
  ** --------------------------------------------------------------------------*/
 const fs = require('fs');
@@ -32,7 +32,7 @@ const cssNano = require('cssnano');
 const DIST_DIR = './dist/';
 const BUILD_DIR = './dist/build/';
 const ASSETS_DIR = './dist/build/assets/';
-const MANIFEST_FILE = path.join('./dist/rev-manifest.json');
+const MANIFEST_FILE = './dist/rev-manifest.json';
 
 /**
  * Clean Files
@@ -81,8 +81,8 @@ function processCss() {
   const urlOptions = {
     url: 'inline',
     encodeType: 'base64',
-    maxSize: 8 * 1024
-  }
+    maxSize: 6 * 1024
+  };
 
   const postCssPlugins = [
     autoPreFixer(),
@@ -124,7 +124,7 @@ function processJs() {
  * Rewrite references to assets revisioned by `gulp-rev`
  */
 function reWriteRefs() {
-  return src(path.join(BUILD_DIR, 'default.hbs'))
+  return src(path.join(BUILD_DIR, './default.hbs'))
     .pipe(revRewrite({ manifest: src(MANIFEST_FILE) }))
     .pipe(dest(BUILD_DIR));
 }

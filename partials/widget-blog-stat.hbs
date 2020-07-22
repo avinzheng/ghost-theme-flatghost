@@ -3,19 +3,17 @@
 <div class="widget widget-blog-stat">
   <div class="widget-title">Statistic</div>
 
-  <ul class="clearfix">
-    <li>
-      <i class="icon-stat icon-stat-posts"></i>
+  <div class="links">
+    <div class="link">
       {{#get 'posts' as |posts postsObj|}}
-        <span>{{postsObj.total}}</span>
+        <i class="icon-stat icon-stat-posts"></i><span>{{postsObj.total}}</span>
       {{/get}}
-    </li>
+    </div>
 
-    <li>
-      <i class="icon-stat icon-stat-tags"></i>
+    <div class="link">
       {{#get 'tags' as |tags tagsObj|}}
-        <span>{{tagsObj.total}}</span>
+        <i class="icon-stat icon-stat-tags"></i><span>{{tagsObj.total}}</span>
       {{/get}}
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
