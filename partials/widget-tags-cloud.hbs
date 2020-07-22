@@ -2,16 +2,14 @@
 
 <div class="widget widget-tags-cloud">
   <div class="widget-title">Tags</div>
-  <ul class="clearfix tags">
+  <div class="tags">
     {{#get "tags" limit="20" include="count.posts" order="count.posts desc"}}
       {{#foreach tags}}
-        <li class="tag fl">
-          <a href="/tag/{{slug}}/">
-            {{name}}
-            <span>({{count.posts}})</span>
-          </a>
-        </li>
+        <a class="tag" href="/tag/{{slug}}/">
+          {{name}}
+          <span>({{count.posts}})</span>
+        </a>
       {{/foreach}}
     {{/get}}
-  </ul>
+  </div>
 </div>

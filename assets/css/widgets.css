@@ -115,18 +115,18 @@
  * partials/widget-tags-cloud.hbs
  ** --------------------------------------------------------------------------*/
 .widget-tags-cloud > .tags {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
   padding: 20px 10px 10px 20px;
 }
-.widget-tags-cloud .tag {
+.widget-tags-cloud > .tags > a.tag {
   margin: 0 10px 10px 0;
   background: #34495e;
-}
-.widget-tags-cloud .tag > a {
-  display: block;
   padding: 0 10px;
   color: #ECF0F1;
 }
-.widget-tags-cloud .tag > a:hover {
+.widget-tags-cloud > .tags > a.tag:hover {
   background: var(--light-color);
   text-decoration: none;
 }
@@ -134,29 +134,22 @@
 /** ----------------------------------------------------------------------------
  * partials/widget-blog-stat.hbs
  ** --------------------------------------------------------------------------*/
-.widget-blog-stat > ul {
+.widget-blog-stat > .links {
+  display: flex;
+  justify-content: space-around;
   padding: 15px 20px 20px;
 }
-.widget-blog-stat > ul > li {
-  position: relative;
-  display: inline;
-  float: left;
-  width: 50%;
-  text-align: center;
-  color: #ecf0f1;
-  font-size: 0;
+.widget-blog-stat > .links > .link {
+  line-height: 1em;
 }
-.widget-blog-stat .icon-stat {
+.widget-blog-stat i.icon-stat {
   display: inline-block;
-  vertical-align: top;
-  line-height: 16px;
+  vertical-align: middle;
 }
 .widget-blog-stat span {
-  margin-left: 5px;
   display: inline-block;
-  vertical-align: top;
-  line-height: 16px;
-  font-size: 14px;
+  margin-left: 4px;
+  vertical-align: middle;
 }
 
 /** ----------------------------------------------------------------------------
